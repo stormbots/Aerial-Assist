@@ -12,7 +12,6 @@
 package org.usfirst.frc2811.AerialAssist;
 
 import org.usfirst.frc2811.AerialAssist.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
 

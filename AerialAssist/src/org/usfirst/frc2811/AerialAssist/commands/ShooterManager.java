@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author 128925
  */
-public class Shoot extends Command {
+public class ShooterManager extends Command {
     
-    public Shoot() {
+    public ShooterManager() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -24,7 +24,6 @@ public class Shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
     }
 
     // Make this return true when this Command no longer needs to run execute()
