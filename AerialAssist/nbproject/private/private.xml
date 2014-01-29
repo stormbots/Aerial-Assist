@@ -6,6 +6,8 @@
             <file>file:/C:/Documents%20and%20Settings/128925/My%20Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/RobotMap.java</file>
             <file>file:/C:/Documents%20and%20Settings/128925/My%20Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/Robot.java</file>
             <file>file:/C:/Documents%20and%20Settings/128925/My%20Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/OI.java</file>
+            <file>file:/C:/Documents%20and%20Settings/128925/My%20Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/subsystems/Shooter.java</file>
+            <file>file:/C:/Documents%20and%20Settings/128925/My%20Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/AngleFinder.java</file>
         </group>
     </open-files>
 </project-private>

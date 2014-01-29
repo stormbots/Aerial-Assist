@@ -10,8 +10,6 @@
 *.class
 *.suite
 
-#manifest files
-*.MF
 
 # Package Files #
 *.jar

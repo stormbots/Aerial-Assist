@@ -30,13 +30,13 @@ public class AngleFinder extends Command {
         double veloc2= velocity*velocity;// velocity squared
         double veloc4 = velocity*velocity*velocity*velocity;//velocity to the 4th
         double gravity = 32.173;//gravity
-        double distance = 10; // not a constant 
+        double distance = 10; // variable, will get from sensor
         double distance2 = distance*distance;
-        double hight = 8.4375;// hight of the goal
+        double height = 8.4375;// height of the goal
         double disgrav= distance*gravity;
         double disgrav2 = distance2*gravity; //distance squared times velocity
-        double equa1 = (gravity*((disgrav2)+(2*hight*veloc2))); // all of the equation that belogs under the square root
-        double equa2 = Math.sqrt(veloc4-equa1);// The squareroot of velocity to the forth - equation one
+        double equa1 = (gravity*((disgrav2)+(2*height*veloc2))); // all of the equation that belongs under the square root
+        double equa2 = Math.sqrt(veloc4-equa1);// The square root of velocity to the forth - equation one
         double equa3 = equa2/disgrav; // equation two divided gravity times distance
         double atan = MathUtils.atan(equa3);// arc tangent of equation 3
         double angle = Math.toDegrees(atan);// converted to degrees
