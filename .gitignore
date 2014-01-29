@@ -10,6 +10,7 @@
 *.class
 *.suite
 
+*!MANIFEST.MF
 
 # Package Files #
 *.jar
@@ -40,4 +41,4 @@ nbproject/private/*
 # git rm --cached
 /BunnyBot2013/build/
 *.suite
-*.mf
+
