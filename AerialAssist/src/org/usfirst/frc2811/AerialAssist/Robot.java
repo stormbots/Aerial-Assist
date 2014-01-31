@@ -13,6 +13,7 @@ package org.usfirst.frc2811.AerialAssist;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -88,6 +89,33 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        Timer.delay(0.5);
+        System.out.println("Average Values:");
+        Timer.delay(0.5);
+        System.out.println("pot1 = " + OI.pot1.getAverageValue());
+        Timer.delay(0.5);
+        System.out.println("pot2 = " + OI.pot2.getAverageValue());
+        Timer.delay(0.5);
+        System.out.println("range = " + OI.range.getAverageValue());
+        Timer.delay(0.5);
+        System.out.println("range2 = " + OI.range2.getAverageValue());
+        Timer.delay(0.5);
+        System.out.println("Actual Range 1 = " + (OI.pot1.getAverageValue() - OI.range.getAverageValue()));
+        Timer.delay(0.5);
+        System.out.println("Actual Range 2 = " + (OI.pot2.getAverageValue() - OI.range2.getAverageValue()));
+        Timer.delay(0.5);
+        System.out.println("Larger Value = " + OI.largerValue);
+        Timer.delay(0.5);
+        System.out.println("No errors thus far...");
+        
+        
+        if (OI.rangeValue >= OI.range2Value){
+            OI.largerValue = OI.rangeValue;
+        }else{
+            OI.largerValue = OI.range2Value;
+        }
+        
     }
 
     /**
