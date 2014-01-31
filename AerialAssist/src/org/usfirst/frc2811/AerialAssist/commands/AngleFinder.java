@@ -5,6 +5,8 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
+
 /**
  *
  * @author Laurel Bingham
@@ -17,22 +19,21 @@ public class AngleFinder extends Command {
     }
     //         The Equation: ...BEHOLD ITS GLORY!!!!!!
     //                _____________________
-    //               /V^4-g(gx^2+2yv^2)
+    //               /V^4-g(g*x^2+2y*v^2)
     //             V
     //atan( V^2 -  ________________________ 
-    //                        gx                   )
+    //                        g*x                   )
     
     //
     //
      public double calculate(double theta){
-        double velocity = 35;
+        double velocity = 35;//need to get value
         double veloc2= velocity*velocity;// velocity squared
-        double veloc4 = velocity*velocity*velocity*velocity;//velocity to the 4th
+        double veloc4 = velocity*velocity*velocity*velocity;//velocity to the 4th power
         double gravity = 32.173;//gravity
-        double distance = 10; // variable, will get from sensor
-        double distance2 = distance*distance;
+        double distance2 = RobotMap.distance*RobotMap.distance; //distance squared
         double height = 8.4375;// height of the goal
-        double disgrav= distance*gravity;
+        double disgrav= RobotMap.distance*gravity;//distance times gravity
         double disgrav2 = distance2*gravity; //distance squared times velocity
         double equa1 = (gravity*((disgrav2)+(2*height*veloc2))); // all of the equation that belongs under the square root
         double equa2 = Math.sqrt(veloc4-equa1);// The square root of velocity to the forth - equation one
