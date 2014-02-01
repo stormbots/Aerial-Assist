@@ -29,8 +29,8 @@ public class ShootingSequence extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        addSequential(new Fire());
+        addSequential(new Shoot());
         addParallel(new ReArm());
-        addParallel(new Reload());
+        addParallel(new ReLoad());
     }
 }

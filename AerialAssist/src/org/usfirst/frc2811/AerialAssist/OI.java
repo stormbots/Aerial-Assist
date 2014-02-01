@@ -73,7 +73,7 @@ public class OI {
         joystick1 = new Joystick(1);
         
         release = new JoystickButton(joystick1, 3);
-        release.whileHeld(new SpitBall());
+        release.whileHeld(new Punt());
         
         shootButton = new JoystickButton(joystick1, 1);
         shootButton.whenPressed(new Shoot());

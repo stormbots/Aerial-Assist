@@ -15,7 +15,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 public class ReArm extends Command {
     
     public ReArm() {
-        requires(Robot.reloader);
+        requires(Robot.claw);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
