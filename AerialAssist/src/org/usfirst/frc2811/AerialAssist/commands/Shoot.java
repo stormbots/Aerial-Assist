@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
- * @author 128925
+ * @author 2811
  */
 public class Shoot extends Command {
     

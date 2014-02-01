@@ -10,7 +10,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
  *
- * @author 128925
+ * @author 2811
  */
 public class Reload extends Command {
     

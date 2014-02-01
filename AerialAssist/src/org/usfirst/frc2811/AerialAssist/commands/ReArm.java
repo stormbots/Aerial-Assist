@@ -6,14 +6,16 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
  *
  * @author 128925
  */
-public class ShooterManager extends Command {
+public class ReArm extends Command {
     
-    public ShooterManager() {
+    public ReArm() {
+        requires(Robot.reloader);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

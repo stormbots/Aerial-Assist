@@ -14,7 +14,7 @@ import org.usfirst.frc2811.AerialAssist.commands.Reload;
 
 /**
  *
- * @author 128925
+ * @author 2811
  */
 public class Reloader extends Subsystem {
     Encoder quadratureEncoder2 = RobotMap.shooterQuadratureEncoder2;
