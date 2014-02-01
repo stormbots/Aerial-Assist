@@ -11,7 +11,10 @@
 
 package org.usfirst.frc2811.AerialAssist;
 
+
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DriverStationLCD;
+import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -19,6 +22,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc2811.AerialAssist.commands.*;
 import org.usfirst.frc2811.AerialAssist.subsystems.*;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +32,7 @@ import org.usfirst.frc2811.AerialAssist.subsystems.*;
  * directory.
  */
 public class Robot extends IterativeRobot {
+        public static DriverStationLCD dsText;
 
     Command autonomousCommand;
     
@@ -84,6 +89,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+         
+        
+       
         
     }
 
@@ -112,6 +120,12 @@ public class Robot extends IterativeRobot {
         //Timer.delay(0.5);
         //System.out.println("No errors thus far...");
         
+           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Motor Temperatures:" + " ");
+           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Motor 1 = " + OI.temp1.getValue() + " ");
+           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Motor 2 = " + OI.temp2.getValue() + " ");
+           DriverStationLCD.getInstance().println(Line.kUser4, 1, "Motor 3 = " + OI.temp3.getValue() + " ");
+           DriverStationLCD.getInstance().println(Line.kUser5, 1, "Ranges: "+ OI.range.getAverageValue() + " " + OI.range2.getAverageValue());
+           DriverStationLCD.getInstance().updateLCD();
         
         if (OI.rangeValue >= OI.range2Value){
             OI.largerValue = OI.rangeValue;
@@ -119,8 +133,8 @@ public class Robot extends IterativeRobot {
             OI.largerValue = OI.range2Value;
         }
         
-        OI.botArm.whenActive(new PrepareToFire());
-        OI.longShot.whenActive(new FireLong());
+        //OI.botArm.whenActive(new PrepareToFire());
+        //OI.longShot.whenActive(new FireLong());
         
         
     }

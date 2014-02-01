@@ -94,6 +94,9 @@ public class OI {
     public static AnalogChannel range = new AnalogChannel(2);
     //public static AnalogChannel pot2 = new AnalogChannel(3);
     public static AnalogChannel range2 = new AnalogChannel(3);
+    public static AnalogChannel temp1 = new AnalogChannel(5);
+    public static AnalogChannel temp2 = new AnalogChannel(6);
+    public static AnalogChannel temp3 = new AnalogChannel(7);
     
     public static int rangeValue = range.getAverageValue();
     public static int range2Value = range2.getAverageValue();
@@ -111,10 +114,25 @@ public class OI {
     public static SpeedController motor5 = new Victor(1,5);
     public static SpeedController motor6 = new Victor(1,6);
     
-    public static JoystickButton longShot = new JoystickButton(joystick1, 6);
-    public static JoystickButton botArm = new JoystickButton(joystick1, 1);
+    //public static JoystickButton longShot = new JoystickButton(joystick1, 6);
+    //public static JoystickButton botArm = new JoystickButton(joystick1, 1);
     
     public static Solenoid punch = new Solenoid(1,2);
+    
+//    public static DriverStationLCD dsText;
+    
+    
+    //the button section!
+    JoystickButton b1 = new JoystickButton(joystick1, 1);
+    JoystickButton b2 = new JoystickButton(joystick1, 2);
+    JoystickButton b3 = new JoystickButton(joystick1, 3);
+    JoystickButton b4 = new JoystickButton(joystick1, 4);
+    JoystickButton b5 = new JoystickButton(joystick1, 5);
+    JoystickButton b6 = new JoystickButton(joystick1, 6);
+    JoystickButton b7 = new JoystickButton(joystick1, 7);
+    JoystickButton b8 = new JoystickButton(joystick1, 8);
+    JoystickButton b9 = new JoystickButton(joystick1, 9);
+    JoystickButton b10 = new JoystickButton(joystick1, 10);
    
 }
 
