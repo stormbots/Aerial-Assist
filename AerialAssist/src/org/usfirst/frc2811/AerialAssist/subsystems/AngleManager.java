@@ -32,10 +32,10 @@ public class AngleManager extends Subsystem {
         RobotMap.range2 = RobotMap.rangeFinder9.getAverageVoltage();
     }
     
-    public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
+    /*public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
         float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;
-    }
+    }*/
     public void rangeManager(){
         rangeMagicNumber = 21.5;
         if(RobotMap.range1>RobotMap.range2){
