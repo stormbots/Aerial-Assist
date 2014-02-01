@@ -6,7 +6,9 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
+import org.usfirst.frc2811.AerialAssist.subsystems.RangeFinder;
 
 /**
  *
@@ -22,6 +24,7 @@ public class RangeManager extends Command {
     
     
     public RangeManager() {
+        requires(Robot.rangefinder);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -32,8 +35,8 @@ public class RangeManager extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        range1 = RobotMap.rangeFinder8.getAverageVoltage();
-        range2 = RobotMap.rangeFinder9.getAverageVoltage();
+        
+        
         
         if(range1>range2){
             trueRange=range1;
