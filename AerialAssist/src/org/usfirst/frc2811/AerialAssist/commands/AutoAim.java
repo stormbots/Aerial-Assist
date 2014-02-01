@@ -6,25 +6,14 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc2811.AerialAssist.Robot;
-import org.usfirst.frc2811.AerialAssist.RobotMap;
-import org.usfirst.frc2811.AerialAssist.subsystems.RangeFinder;
 
 /**
  *
  * @author 128925
  */
-public class RangeManager extends Command {
+public class AutoAim extends Command {
     
-    public static double range1;
-    public static double range2;
-    public static double trueRange;
-    public static double rangeMagicNumber;
-    public static double rangeInInches;
-    
-    
-    public RangeManager() {
-        requires(Robot.rangefinder);
+    public AutoAim() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -35,20 +24,6 @@ public class RangeManager extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
-        
-        
-        if(range1>range2){
-            trueRange=range1;
-        }
-        
-        else{
-            trueRange=range2;
-        }
-        
-        rangeInInches=trueRange/rangeMagicNumber;
-        RobotMap.distance = rangeInInches/12;
-        
         
     }
 

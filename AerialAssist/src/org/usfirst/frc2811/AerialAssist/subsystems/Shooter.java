@@ -40,9 +40,9 @@ public class Shooter extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void shootBall(){
-        if(RobotMap.reloadedstate==true){
+        if(RobotMap.reloadedState==true){
             firingMotor.set(.5);
-            RobotMap.reloadedstate=false;
+            RobotMap.reloadedState=false;
         }
                 
             

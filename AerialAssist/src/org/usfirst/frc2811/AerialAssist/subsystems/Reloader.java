@@ -26,10 +26,10 @@ public class Reloader extends Subsystem {
         setDefaultCommand(new Reload());
     }
     public void reloadMotors(){
-        if(RobotMap.reloadedstate==false)  
+        if(RobotMap.reloadedState==false)  
             reloadMotor.set(-.5);
             Timer.delay(.5);
-            RobotMap.reloadedstate=true;
+            RobotMap.reloadedState=true;
     }
     
 }
