@@ -6,10 +6,11 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
- * @author 128925
+ * @author 2811
  */
 public class AutoAim extends Command {
     
@@ -24,6 +25,8 @@ public class AutoAim extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
+        RobotMap.aimedState=true;
         
     }
 

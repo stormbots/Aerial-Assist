@@ -12,7 +12,7 @@ import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
 
 /**
  *
- * @author 128925
+ * @author 2811
  */
 public class AngleManager extends Subsystem {
     public static double trueRange;
@@ -32,7 +32,12 @@ public class AngleManager extends Subsystem {
         RobotMap.range2 = RobotMap.rangeFinder9.getAverageVoltage();
     }
     
+    /*public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
+        float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
+        return output;
+    }*/
     public void rangeManager(){
+        rangeMagicNumber = 21.5;
         if(RobotMap.range1>RobotMap.range2){
             trueRange=RobotMap.range1;
         }
@@ -46,6 +51,11 @@ public class AngleManager extends Subsystem {
     }
       
     public void calculate(){
+    //                 ___________________
+    //                /(V^4-g(gx^2+2yv^2))
+    //              V
+    // atan( V^2 -  -----------------------
+    //                        gx            )
         double velocity = 35;//need to get value
         double veloc2= velocity*velocity;// velocity squared
         double veloc4 = velocity*velocity*velocity*velocity;//velocity to the 4th power
