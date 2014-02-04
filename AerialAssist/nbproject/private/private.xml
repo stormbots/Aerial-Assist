@@ -6,12 +6,8 @@
         <group/>
 =======
         <group>
-            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/OI.java</file>
-            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/Robot.java</file>
-            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/PrepareToFire.java</file>
-            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/FireLong.java</file>
-            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/RobotMap.java</file>
-            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/JoystickAllow.java</file>
+            <file>file:/C:/Documents%20and%20Settings/128925/My%20Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/ReLoad.java</file>
+            <file>file:/C:/Documents%20and%20Settings/128925/My%20Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/subsystems/AngleManager.java</file>
         </group>
 >>>>>>> c8af8ba4c88fdd4d9710a143cc5e62add98a7c06
     </open-files>
