@@ -13,6 +13,8 @@ package org.usfirst.frc2811.AerialAssist.subsystems;
 
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;import edu.wpi.first.wpilibj.Encoder;
+ import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
