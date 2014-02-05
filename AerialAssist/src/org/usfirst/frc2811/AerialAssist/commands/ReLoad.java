@@ -7,6 +7,7 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
@@ -22,24 +23,53 @@ public class ReLoad extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+       int input = 0;
+       double minimum=33; //TODO Find this!
+       double maximum=300; //TODO Find this! 
+       double outputMin=0;//TODO Find This!
+       double outputMax=1024; 
+        
+        //TO DO set to zero.
+      
+     
+     
+      }
+         
+        
+        
+        //set motors running inward
+        //when rangefinder equals certain value stop turning
+
+    protected void execute() {
+        RobotMap.rollersSpeedController6.set(.5);
+       // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    protected boolean isFinished() {
+        
+     if (input <= .5){// in inches?? will be given in subsytem by Kelson
+        return true;
+         }
+        else {
+          return false;
+                }
+                
+        
+       // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    protected void end() {
+        RobotMap.rollersSpeedController6.set(0);
+        
+    }
+       // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+
+    protected void interrupted() {
+  
+       // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
-
-    // Called once after isFinished returns true
-    protected void end() {
-    }
-
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
-}
+  

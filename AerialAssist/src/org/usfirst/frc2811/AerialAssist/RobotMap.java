@@ -39,6 +39,7 @@ public class RobotMap {
     public static SpeedController firingSpeedController7;
     public static AnalogChannel rangeFinder8;
     public static AnalogChannel rangeFinder9;
+    public static AnalogChannel rangeFinderClaw;
     public static Solenoid punter4;
     public static Solenoid gearShifter3;
     
