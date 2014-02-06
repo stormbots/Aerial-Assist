@@ -6,33 +6,24 @@
 
 package org.usfirst.frc2811.AerialAssist.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
  * @author Jacob
  */
-public class PrepareToFire extends Command {
+public class SolSet extends Command {
 
     protected void initialize() {
-        RobotMap.armed = true;
-        RobotMap.stickEngaged = false;
-        
-        System.out.println("Stick disabled ===========================");
-
+        RobotMap.punch.set(true);
+        RobotMap.punchActive = true;
+        System.out.println("Solenoid Activated");
     }
 
     protected void execute() {
-       System.out.println("Ready to Fire!");
-
         
-        
-        }
-        
-    
+    }
 
     protected boolean isFinished() {
         return true;

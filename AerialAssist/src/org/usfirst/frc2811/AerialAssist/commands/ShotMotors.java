@@ -6,33 +6,26 @@
 
 package org.usfirst.frc2811.AerialAssist.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
  * @author Jacob
  */
-public class PrepareToFire extends Command {
+public class ShotMotors extends Command {
 
     protected void initialize() {
-        RobotMap.armed = true;
-        RobotMap.stickEngaged = false;
+        RobotMap.motor1.set(10);
+        RobotMap.motor2.set(10);
+        RobotMap.shootMotors = true;
+        System.out.print("Motors Activated");
         
-        System.out.println("Stick disabled ===========================");
-
     }
 
     protected void execute() {
-       System.out.println("Ready to Fire!");
-
-        
-        
-        }
-        
-    
+        System.out.println("ShotMotors");
+    }
 
     protected boolean isFinished() {
         return true;

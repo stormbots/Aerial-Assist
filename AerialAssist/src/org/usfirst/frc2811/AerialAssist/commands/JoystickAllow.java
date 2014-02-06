@@ -22,11 +22,11 @@ public class JoystickAllow extends Command {
     }
 
     protected void execute() {
-        if (OI.stickEngaged = true){
-            OI.motor1.set(OI.joystick1.getRawAxis(1));
-            OI.motor2.set(OI.joystick1.getRawAxis(1));
-            OI.motor3.set(OI.joystick1.getRawAxis(2));
-            OI.motor4.set(OI.joystick1.getRawAxis(2));
+        if (RobotMap.stickEngaged = true){
+            RobotMap.motor1.set(OI.joystick1.getRawAxis(1));
+            RobotMap.motor2.set(OI.joystick1.getRawAxis(1));
+            RobotMap.motor3.set(OI.joystick1.getRawAxis(2));
+            RobotMap.motor4.set(OI.joystick1.getRawAxis(2));
             System.out.println("Joystick enabled, Step on it!");
             
         }else{

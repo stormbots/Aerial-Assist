@@ -6,7 +6,9 @@
             <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/OI.java</file>
             <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/Robot.java</file>
             <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/PrepareToFire.java</file>
-            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/FireLong.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/ShotMotors.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/FireBall.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/SolSet.java</file>
             <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/RobotMap.java</file>
             <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/JoystickAllow.java</file>
         </group>
