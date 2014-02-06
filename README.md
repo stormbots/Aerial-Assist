@@ -6,19 +6,20 @@ Java code for the 2014 Aerial Assist competition
 
 #### TODO LIST 
 ## Before Robot is availible
-[ ] Autonamous
-[ ] Load ball 
-[ ] Unload ball 
-[ ] Test re-arm code
-[ ] Make sure functions terminate correctly (see TODOs in code and notes below)
-[ ] Open/Close Claw function (must terminate)
-[ ] 
+
+- [ ] Autonamous
+- [ ] Load ball 
+- [ ] Unload ball 
+- [ ] Test re-arm code
+- [ ] Make sure functions terminate correctly (see TODOs in code and notes below)
+- [ ] Open/Close Claw function (must terminate)
+- [ ] 
 
 ## After robot is available
-[ ] Calibrate range-finding functions
-[ ] Calibrate shooter angle/velocity
-[ ] Fix hardware bug where arm will try to fire if cam goes down
-[ ] Ensure motors on both arms rotate at the same speed using encoders
+- [ ] Calibrate range-finding functions
+- [ ] Calibrate shooter angle/velocity
+- [ ] Fix hardware bug where arm will try to fire if cam goes down
+- [ ] Ensure motors on both arms rotate at the same speed using encoders
 
 
 Terminating Commands
@@ -44,7 +45,7 @@ initialize : Sets up our sensor variables and calibration data
 
 execute: Keeps the motor running 
 
-isFinished: Checks a sensor to see if we have the ball yet
+isFinished: Checks a sensor to see if we have the ball yet. 
 
 end: Stops the motors. 
 ```
