@@ -8,17 +8,18 @@ package org.usfirst.frc2811.AerialAssist.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
-
+import org.usfirst.frc2811.AerialAssist.Robot;
 /**
  *
  * @author 2811
  */
 public class AutoAim extends Command {
+      double angle;
     
     public AutoAim() {
         
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.anglemanager);
+         requires(Robot.angleManager);
     }
 
     // Called just before this Command runs the first time
@@ -27,9 +28,10 @@ public class AutoAim extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
-        RobotMap.aimedState=true;
-        
+       
+         
+        //RobotMap.aimedState=true;
+        angle = Robot.angleManager.calculate();
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -36,11 +36,6 @@ public class AngleManager extends Subsystem {
         float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;
     }*/
-    
-    /*long map(long x, long in_min, long in_max, long out_min, long out_max){
-        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-    }*/
-    
     public void rangeManager(){
         rangeMagicNumber = 21.5;
         if(RobotMap.range1>RobotMap.range2){
@@ -55,7 +50,7 @@ public class AngleManager extends Subsystem {
         RobotMap.distance = rangeInInches/12; //converts to feet
     }
       
-    public void calculate(){
+    public double calculate(){
     //                 ___________________
     //                /(V^4-g(gx^2+2yv^2))
     //              V
@@ -73,8 +68,11 @@ public class AngleManager extends Subsystem {
         double equa2 = Math.sqrt(veloc4-equa1);// The square root of velocity to the forth - equation one
         double equa3 = equa2/disgrav; // equation two divided gravity times distance
         double atan = MathUtils.atan(equa3);// arc tangent of equation 3
-        RobotMap.shootingAngle = Math.toDegrees(atan);// converted to degrees
+        return Math.toDegrees(atan);// converted to degrees
         
-        
+    }
+    public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
+        float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
+        return output;
     }
 }
