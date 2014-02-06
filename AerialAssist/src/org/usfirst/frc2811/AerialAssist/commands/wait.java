@@ -6,28 +6,26 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
  *
- * @author 2811
+ * @author Kelson
  */
-public class ReLoad extends Command {
-    
-    public ReLoad() {
+public class wait extends Command {
+    double internal;
+    public wait(double input) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.shooter);
+        internal = input;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        this.setTimeout(internal);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        /** this will not work at all as you expect it. */
-//        Robot.shooter.reloadMotors();
     }
 
     // Make this return true when this Command no longer needs to run execute()

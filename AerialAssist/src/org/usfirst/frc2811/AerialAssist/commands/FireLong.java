@@ -18,22 +18,23 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 public class FireLong extends Command {
 
     protected void initialize() {
-        if (OI.armed = true){
-        OI.motor5.set(10);
-        OI.motor6.set(10);
-        System.out.println("Shot Motors Activated!");
-        Timer.delay(0.1);
-        OI.punch.set(true);
-        System.out.println("Ball Away!");
-        Timer.delay(0.2);
-        OI.armed = false;
-        System.out.println("armed = " + OI.armed);
-        OI.stickEngaged = true;
-        Timer.delay(0.5);
-        }else{
-            System.out.println("Not Ready to Fire!");
-        }
-        
+    //USE A COMMAND GROUP!
+//        if (OI.armed = true){
+//        OI.motor5.set(10);
+//        OI.motor6.set(10);
+//        System.out.println("Shot Motors Activated!");
+//        Timer.delay(0.1);
+//        OI.punch.set(true);
+//        System.out.println("Ball Away!");
+//        Timer.delay(0.2);
+//        OI.armed = false;
+//        System.out.println("armed = " + OI.armed);
+//        OI.stickEngaged = true;
+//        Timer.delay(0.5);
+//        }else{
+//            System.out.println("Not Ready to Fire!");
+//        }
+//        
 
     }
 

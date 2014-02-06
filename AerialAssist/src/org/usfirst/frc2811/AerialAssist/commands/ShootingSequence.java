@@ -7,30 +7,15 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-/**
+/** very good use of CommandGroup, but it still isn't fully fledged.
  *
  * @author 128925
  */
 public class ShootingSequence extends CommandGroup {
     
     public ShootingSequence() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-        addSequential(new Shoot());
-        addParallel(new ReArm());
-        addParallel(new ReLoad());
+        this.addSequential(new Shoot());//make sure to add this.
+        this.addParallel(new ReArm());//why addParallel?
+        this.addParallel(new ReLoad());
     }
 }

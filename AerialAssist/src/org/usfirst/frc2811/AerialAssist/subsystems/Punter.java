@@ -5,6 +5,7 @@
  */
 package org.usfirst.frc2811.AerialAssist.subsystems;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
@@ -17,20 +18,16 @@ import org.usfirst.frc2811.AerialAssist.commands.Punt;
 public class Punter extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-
+    Solenoid punter = RobotMap.punter4;
     public void initDefaultCommand() {
-        setDefaultCommand(new Punt());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void puntBall(){
-        if(RobotMap.puntedState==false&&RobotMap.reloadedState==true){
-            RobotMap.puntedState=true;
-            RobotMap.punter4.set(true);
-            Timer.delay(1);
-            RobotMap.punter4.set(false);
-            RobotMap.puntedState=false;
-            
-        }         
+    public void setPunterPiston(boolean input){
+        punter.set(input);
+    }
+    public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
+        float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
+        return output;
     }
 }
