@@ -8,8 +8,10 @@ package org.usfirst.frc2811.AerialAssist.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 import org.usfirst.frc2811.AerialAssist.Robot;
+
 /**
- *
+ * This function sets the target angle, and then completes when the PID system
+ * has reached it's target
  * @author 2811
  */
 public class AutoAim extends Command {
@@ -35,6 +37,7 @@ public class AutoAim extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        //TODO Make this function exit when the PID is on target
         return false;
     }
 

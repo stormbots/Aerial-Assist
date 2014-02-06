@@ -12,13 +12,13 @@ import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
- *
+ * DELETE ME
  * @author Jacob
  */
 public class FireLong extends Command {
 
     protected void initialize() {
-    //USE A COMMAND GROUP!
+    //TODO Delete this file, it's been moved to the ShootingSequence commandgroup
 //        if (OI.armed = true){
 //        OI.motor5.set(10);
 //        OI.motor6.set(10);

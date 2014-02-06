@@ -8,7 +8,8 @@ package org.usfirst.frc2811.AerialAssist.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Handles advancing the cam to launch the ball
+ *  //TODO Add motor controls
  * @author Kelson
  */
 public class Shoot extends Command{

@@ -23,6 +23,9 @@ build/**
 
 #Appears to have project specific configuration, so we'd want this to be attached to the project
 nbproject/project.xml 
+AerialAssist/nbproject/private/private.xml
+AerialAssist/nbproject/private/*
+AerialAssist/nbproject/project.xml
 
 #these contain system-dependent configuration including usernames.
 # We don't want to fiddle with this when other machines pull our code.

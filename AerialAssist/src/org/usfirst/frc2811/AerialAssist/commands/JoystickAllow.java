@@ -19,6 +19,8 @@ public class JoystickAllow extends Command {
     }
 
     protected void execute() {
+        //FIXME Make this code work, wherever it needs to go. 
+        //Drive control needs to be disabled by any means necessary
         /** use RobotMap not OI. */
 //        if (OI.stickEngaged = true){
 //            OI.motor1.set(OI.joystick1.getRawAxis(1)); VERY VERY BAD, USE ROBOTMAP

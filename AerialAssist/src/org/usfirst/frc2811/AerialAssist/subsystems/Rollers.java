@@ -37,6 +37,9 @@ public class Rollers extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    
+    //TODO Delete this
     public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
         float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;

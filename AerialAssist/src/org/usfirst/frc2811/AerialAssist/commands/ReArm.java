@@ -8,9 +8,10 @@ package org.usfirst.frc2811.AerialAssist.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
 
-/**
- *
- * @author 128925
+/** 
+ * Handles pulling back the primary firing mechanism and checking 
+ * sensors to determine completion
+ * @author austin
  */
 public class ReArm extends Command {
     
@@ -26,15 +27,18 @@ public class ReArm extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        //TODO set motors in motion
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        //TODO Make Reload terminate after sensor is triggered
         return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        //TODO Stop motors
     }
 
     // Called when another command which requires one or more of the same

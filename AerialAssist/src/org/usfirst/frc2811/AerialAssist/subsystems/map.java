@@ -6,7 +6,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 
 /**
- * Maps an input range to an output range
+ * maps a value from one input range to a different output range
  * Useful for converting raw sensor values into more readable values, and vice-versa
  * input: The current input value  (eg, 300 from a potentiometer)
  * maximum and minimum: The range of our input values (eg, 0 to 1024, for a analogRAW reading)
@@ -22,7 +22,9 @@ public class map extends Subsystem {
 
 
      public void initDefaultCommand() {
-        setDefaultCommand(new map());
+         //blank! 
+         //FIX Make sure this doesn't cause a robots don't quit
+         //It if needed, point it at AngleManaer
     }
 
         

@@ -7,15 +7,16 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-/** very good use of CommandGroup, but it still isn't fully fledged.
- *
+/** 
+ * 
+ * very good use of CommandGroup, but it still isn't fully fledged.
  * @author 128925
  */
 public class ShootingSequence extends CommandGroup {
     
     public ShootingSequence() {
         this.addSequential(new Shoot());//make sure to add this.
-        this.addParallel(new ReArm());//why addParallel?
-        this.addParallel(new ReLoad());
+        this.addParallel(new ReArm());//why addParallel? //because we can do both at once!
+        this.addParallel(new ReLoad()); //FIXME Should be close claw claw
     }
 }

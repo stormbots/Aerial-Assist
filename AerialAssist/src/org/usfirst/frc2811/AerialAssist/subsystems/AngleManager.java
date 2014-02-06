@@ -11,7 +11,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
 
 /**
- *
+ * calculates the arm angle we need to use to score in the high goal
  * @author 2811
  */
 public class AngleManager extends Subsystem {
@@ -28,6 +28,7 @@ public class AngleManager extends Subsystem {
     }
     
     public void getRange(){
+        //Read the two rangefinder sensors
         RobotMap.range1 = RobotMap.rangeFinder8.getAverageVoltage();
         RobotMap.range2 = RobotMap.rangeFinder9.getAverageVoltage();
     }
@@ -37,6 +38,8 @@ public class AngleManager extends Subsystem {
         return output;
     }*/
     public void rangeManager(){
+        
+        //FIXME Get rid of magic numbers, and use map for converting sensordata
         rangeMagicNumber = 21.5;
         if(RobotMap.range1>RobotMap.range2){
             trueRange=RobotMap.range1;
@@ -48,9 +51,13 @@ public class AngleManager extends Subsystem {
     //finds larger value, sets trueRange to it.    
         rangeInInches=trueRange/rangeMagicNumber; //finds rangeInInches
         RobotMap.distance = rangeInInches/12; //converts to feet
+        
+        //Since Laurel's copy of this got delete somehow, it should look like this:
+        //map( trueRange, sensor_value_at_5_feet, sensor_value_at_10_feet, 5,10);
     }
       
     public double calculate(){
+    //TODO Look at this beautifully commented code. Excellent work Laurel!
     //                 ___________________
     //                /(V^4-g(gx^2+2yv^2))
     //              V
@@ -71,8 +78,11 @@ public class AngleManager extends Subsystem {
         return Math.toDegrees(atan);// converted to degrees
         
     }
+    //TODO delete this copy of the map, since we have it in Subsystems
+    /*
     public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
         float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;
     }
+     */
 }

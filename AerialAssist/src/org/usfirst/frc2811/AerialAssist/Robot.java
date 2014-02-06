@@ -107,7 +107,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        /**you should feel ashamed for bad code like the code below. */
+        //TODO: delete test code
         
         
         //Timer.delay(0.5);
@@ -143,7 +143,6 @@ public class Robot extends IterativeRobot {
 //        }
         
         //OI.botArm.whenActive(new PrepareToFire());
-        //OI.longShot.whenActive(new FireLong());
         
         
     }

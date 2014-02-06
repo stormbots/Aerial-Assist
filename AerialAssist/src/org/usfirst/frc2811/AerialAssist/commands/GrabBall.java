@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
- *
+ * Loads ball from the field
+ * //TODO Merge with reLoad function, which does the same thing
  */
 public class  GrabBall extends Command {
 

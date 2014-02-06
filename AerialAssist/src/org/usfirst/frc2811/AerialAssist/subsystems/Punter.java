@@ -12,7 +12,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 import org.usfirst.frc2811.AerialAssist.commands.Punt;
 
 /**
- *
+ * Handles the ball punting pnuematics
  * @author 128925
  */
 public class Punter extends Subsystem {
@@ -26,6 +26,8 @@ public class Punter extends Subsystem {
     public void setPunterPiston(boolean input){
         punter.set(input);
     }
+    
+    //TODO why is this here? Delete this.
     public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
         float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;

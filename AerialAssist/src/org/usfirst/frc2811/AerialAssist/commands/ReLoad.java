@@ -11,7 +11,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 
 /**
- *
+ * Responsible for picking balls up from the field 
  * @author 2811
  */
 public class ReLoad extends Command {
@@ -25,10 +25,10 @@ public class ReLoad extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
       // int input = 0;
-      // double minimum=33; //TODO Find this!
-      // double maximum=300; //TODO Find this! 
-       //double outputMin=0;//TODO Find This!
-      // double outputMax=1024; 
+      double minimum=33; //TODO Find correct input ranges for claw sensor
+      double maximum=300; 
+      double outputMin=0;
+      double outputMax=1024; 
         
         //TO DO set to zero
       }  
@@ -42,6 +42,7 @@ public class ReLoad extends Command {
     }
 
     protected boolean isFinished() {
+        //TODO Simplify this by using the map subsystem
          RobotMap.clawrange = RobotMap.rangeFinderClaw.getAverageVoltage();
      if (RobotMap.clawrange <= .5){// in inches?? 
         return true;
@@ -59,10 +60,9 @@ public class ReLoad extends Command {
         
     }
        // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    
 
     protected void interrupted() {
-  
+  //ERROR stuff
        // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
