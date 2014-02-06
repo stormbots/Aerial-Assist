@@ -37,7 +37,7 @@ public class ReLoad extends Command {
 
     protected void execute() {
         RobotMap.rollersSpeedController6.set(.5);
-        
+//        Robot.shooter.reloadMotors();
        // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
