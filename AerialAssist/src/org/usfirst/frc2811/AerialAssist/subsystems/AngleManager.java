@@ -36,6 +36,11 @@ public class AngleManager extends Subsystem {
         float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;
     }*/
+    
+    /*long map(long x, long in_min, long in_max, long out_min, long out_max){
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }*/
+    
     public void rangeManager(){
         rangeMagicNumber = 21.5;
         if(RobotMap.range1>RobotMap.range2){
@@ -69,6 +74,7 @@ public class AngleManager extends Subsystem {
         double equa3 = equa2/disgrav; // equation two divided gravity times distance
         double atan = MathUtils.atan(equa3);// arc tangent of equation 3
         return Math.toDegrees(atan);// converted to degrees
+        
         
     }
 }
