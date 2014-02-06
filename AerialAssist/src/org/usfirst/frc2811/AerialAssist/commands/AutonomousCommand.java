@@ -20,6 +20,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 public class  AutonomousCommand extends Command {
 
     public AutonomousCommand() {
+        
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	

@@ -16,6 +16,7 @@ public class ReArm extends Command {
     
     public ReArm() {
         requires(Robot.shooter);
+        
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

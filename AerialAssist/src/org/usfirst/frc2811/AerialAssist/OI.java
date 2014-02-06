@@ -112,22 +112,26 @@ public class OI {
     public static int range2Value = range2.getAverageValue();
     public static int largerValue;
     
-    public static boolean stickEngaged;
+    public static boolean stickEngaged = true;
     public static boolean armed;
     public static boolean shootMotors;
     public static boolean punchActive;
     
-    public static SpeedController motor1 = new Jaguar(1,1);
-    public static SpeedController motor2 = new Jaguar(1,2);
-    public static SpeedController motor3 = new Victor(1,3);
-    public static SpeedController motor4 = new Victor(1,4);
-    public static SpeedController motor5 = new Victor(1,5);
-    public static SpeedController motor6 = new Victor(1,6);
+    //public static SpeedController motor1 = new Jaguar(1,1);
+    //public static SpeedController motor2 = new Jaguar(1,2);
+    //public static SpeedController motor3 = new Victor(1,3);
+    //public static SpeedController motor4 = new Victor(1,4);
+    //public static SpeedController motor5 = new Victor(1,5);
+    //public static SpeedController motor6 = new Victor(1,6);
+    public static SpeedController motor8 = new Victor(1,8);
+    public static SpeedController motor9 = new Victor(1,9);
+    public static SpeedController motor10 = new Victor(1,10);
+    public static SpeedController motor11 = new Victor(1,11);
     
     //public static JoystickButton longShot = new JoystickButton(joystick1, 6);
     //public static JoystickButton botArm = new JoystickButton(joystick1, 1);
     
-    public static Solenoid punch = new Solenoid(1,2);
+    //public static Solenoid punch = new Solenoid(1,2);
     
 //    public static DriverStationLCD dsText;
     

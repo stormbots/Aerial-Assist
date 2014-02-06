@@ -16,17 +16,18 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  * @author Jacob
  */
 public class JoystickAllow extends Command {
-
-    protected void initialize() {
+   
+    
+     protected void initialize() {
         
     }
 
     protected void execute() {
         if (OI.stickEngaged = true){
-            OI.motor1.set(OI.joystick1.getRawAxis(1));
-            OI.motor2.set(OI.joystick1.getRawAxis(1));
-            OI.motor3.set(OI.joystick1.getRawAxis(2));
-            OI.motor4.set(OI.joystick1.getRawAxis(2));
+            OI.motor8.set(OI.joystick1.getRawAxis(1));
+            OI.motor9.set(OI.joystick1.getRawAxis(1));
+            OI.motor10.set(OI.joystick1.getRawAxis(2));
+            OI.motor11.set(OI.joystick1.getRawAxis(2));
             System.out.println("Joystick enabled, Step on it!");
             
         }else{

@@ -13,6 +13,7 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
+import org.usfirst.frc2811.AerialAssist.subsystems.Punter;
 
 /**
  *
@@ -20,6 +21,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 public class  Punt extends Command {
 
     public Punt() {
+        requires(Robot.punter);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	

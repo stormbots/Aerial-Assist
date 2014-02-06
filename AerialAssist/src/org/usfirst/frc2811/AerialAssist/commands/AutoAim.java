@@ -6,6 +6,7 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
@@ -15,8 +16,9 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class AutoAim extends Command {
     
     public AutoAim() {
+        
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.anglemanager);
     }
 
     // Called just before this Command runs the first time
