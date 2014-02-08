@@ -107,9 +107,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        //TODO: delete test code
-        
-        
+        //TODO: delete test code until we have temp sensors
         //Timer.delay(0.5);
         //System.out.println("Average Values:");
         //Timer.delay(0.5);
@@ -153,4 +151,23 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
     }
+    
+    /* FIXME Robots don't quit error
+     * Source code is availible below, which may help with finding the issues
+     * https://github.com/jesusrambo/WPILIBJ/blob/8e85cdf7fe89ea46d1a0c57d6a038a71223d8a10/WPILibJ/src/edu/wpi/first/wpilibj/IterativeRobot.java
+    
+    public void startCompetition(){
+        while(true){
+            //calls autonomousInit() once
+            //calls autonamousPeriodic() repeatedly
+            //calls autonamousContinous() repeatedly without delays between them
+
+            //Calls teleopInit() once
+            //calls teleopPeriodic() repeatedly
+            //calls teleopContinuous() repeatedly with no delays
+
+            //feeds watchdog
+        }
+    }
+    //*/
 }
