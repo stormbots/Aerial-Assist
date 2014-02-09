@@ -38,8 +38,7 @@ The program flow as each class is created goes like this:
 ```
 We should make all functions that will be used in a commandGroup sequence utilize
 this structure, as it will greatly simplify coding. If you look at Laurel's code
-in ReLoad.java, you'll see her code use this to great effect, which saves a great
-of code, and if statements. Running through you'll see it runs like this
+in ReLoad.java, you'll see her code use this to great effect, and simplifies a lot of variables and if statements. Running through you'll see it runs like this
 ``` 
 initialize : Sets up our sensor variables and calibration data
 
@@ -49,7 +48,7 @@ isFinished: Checks a sensor to see if we have the ball yet.
 
 end: Stops the motors. 
 ```
-Not a single if() statement! Coding bliss, right there. Plus, the huge advantage
+Not a single if() statement aside from our sensor check! Coding bliss, right there. Plus, the huge advantage
 will come when we put some code like this into a commandgroup, because we can 
 reliably expect that this function will exit when it's supposed to. Easy!
 
