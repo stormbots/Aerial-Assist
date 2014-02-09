@@ -155,8 +155,11 @@ public class Robot extends IterativeRobot {
     /* FIXME Robots don't quit error
      * Source code is availible below, which may help with finding the issues
      * https://github.com/jesusrambo/WPILIBJ/blob/8e85cdf7fe89ea46d1a0c57d6a038a71223d8a10/WPILibJ/src/edu/wpi/first/wpilibj/IterativeRobot.java
-    
+     *  I suspect the issue is with the Autonomous code, and is probably a good place to start.
+    /*
     public void startCompetition(){
+        //calls robotInit()
+    
         while(true){
             //calls autonomousInit() once
             //calls autonamousPeriodic() repeatedly
@@ -167,6 +170,8 @@ public class Robot extends IterativeRobot {
             //calls teleopContinuous() repeatedly with no delays
 
             //feeds watchdog
+    
+            //this function should never return, save for errors
         }
     }
     //*/
