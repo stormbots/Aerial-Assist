@@ -11,6 +11,12 @@ After cloning the project, you'll need to copy the `netbeans-project-files/nbpro
 
 
 ## TODO LIST 
+NetBeans has a built in built-in task manager, which you can access by using `Ctrl+F6` or going to `Windowi > Action Items`. It'll usually attach itself to the bottom window on a tab next to the compiler output. It'll look [like this](https://www.dropbox.com/s/iuc67blocm8n4z2/action-items.jpg) when it's opened, and double-clicking any item will take you straight to that point in the file. 
+
+This should help keep you guys busy and coordinated! If you spot a problem somewhere in the code and can't figure it out, simply add a `//TODO` or a `//FIXME` and someone else can pick it up. After the fix is done, simply remove the comment and everything will be fixed. 
+
+
+
 #### Before Robot is availible
 
 - [ ] Autonamous
