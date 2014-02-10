@@ -3,9 +3,15 @@ Aerial-Assist
 
 Java code for the 2014 Aerial Assist competition
 
+##Copying Files for Netbeans
+Since Netbeans' project files cause a lot of headaches when merging files, I've gotten them removed from GitHub's tracking. 
+However, since these files are needed to start the project from a new clone, I've preserved them in the `netbeans-project-files` directory. 
+After cloning the project, you'll need to copy the `netbeans-project-files/nbproject/` directory into AerialAssist, so the resulting file has 
+`AerialAssist/nbproject/`. After that, netbeans will pick up the project without incident, and will pick up all the needed files. 
 
-#### TODO LIST 
-## Before Robot is availible
+
+## TODO LIST 
+#### Before Robot is availible
 
 - [ ] Autonamous
 - [ ] Load ball 
@@ -15,7 +21,7 @@ Java code for the 2014 Aerial Assist competition
 - [ ] Open/Close Claw function (must terminate)
 - [ ] 
 
-## After robot is available
+#### After robot is available
 - [ ] Calibrate range-finding functions
 - [ ] Calibrate shooter angle/velocity
 - [ ] Fix hardware bug where arm will try to fire if cam goes down

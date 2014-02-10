@@ -26,6 +26,7 @@ nbproject/project.xml
 AerialAssist/nbproject/private/private.xml
 AerialAssist/nbproject/private/*
 AerialAssist/nbproject/project.xml
+AerialAssist/nbproject/*
 
 #these contain system-dependent configuration including usernames.
 # We don't want to fiddle with this when other machines pull our code.
