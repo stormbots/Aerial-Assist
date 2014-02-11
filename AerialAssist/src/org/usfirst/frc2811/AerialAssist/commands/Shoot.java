@@ -6,6 +6,7 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
  * Handles advancing the cam to launch the ball
@@ -17,6 +18,7 @@ public class Shoot extends Command{
     public Shoot() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time

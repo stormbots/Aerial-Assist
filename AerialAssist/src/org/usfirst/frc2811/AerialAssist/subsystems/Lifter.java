@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /** Controls the PID subsystem that controls the claw angle
  *  If you need to set a value for the claw, you would set it by doing the following:
- *  //FIXME document method to control arm ang
+ *  //FIXME document method to control arm angle
  *  To ensure the claw is in position, you would do the following:
  *  //FIXME Ensure programs can read if target is set 
  */
@@ -75,9 +75,5 @@ public class Lifter extends PIDSubsystem {
         speedController5.pidWrite(output);
     }
     
-    //TODO Delete this if it's not used here. 
-    public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
-        float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
-        return output;
-    }
+    
 }

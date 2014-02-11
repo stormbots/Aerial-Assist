@@ -30,7 +30,7 @@ public class ReLoad extends Command {
       double outputMin=0;
       double outputMax=1024; 
         
-        //TO DO set to zero
+        //TODO set to zero
       }  
         //set motors running inward
         //when rangefinder equals certain value stop turning
@@ -42,9 +42,9 @@ public class ReLoad extends Command {
     }
 
     protected boolean isFinished() {
-        //TODO Simplify this by using the map subsystem
-         RobotMap.clawrange = RobotMap.rangeFinderClaw.getAverageVoltage();
-     if (RobotMap.clawrange <= .5){// in inches?? 
+        //TODO Simplify this by using the Map subsystem
+         RobotMap.clawRange = RobotMap.rangeFinderClaw.getAverageVoltage();
+     if (RobotMap.clawRange <= .5){// in inches?? 
         return true;
          }
         else {

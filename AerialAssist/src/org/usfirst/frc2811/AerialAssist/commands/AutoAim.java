@@ -37,8 +37,14 @@ public class AutoAim extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //TODO Make this function exit when the PID is on target
-        return false;
+        if(RobotMap.lifterPotentiometer1.getAverageVoltage()==angle){//TODO is this the right sensor, or is it PID?
+            return true;
+        }
+        else{
+            return false;
+        }
+       
+        
     }
 
     // Called once after isFinished returns true

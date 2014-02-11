@@ -69,9 +69,9 @@ public class OI {
     public static Joystick joystick1 = new Joystick(1);
     
     //FIXME : Delete this and move to robotMap
-//    //public static AnalogChannel pot1 = new AnalogChannel(1);
+//    public static AnalogChannel pot1 = new AnalogChannel(1);
 //    public static AnalogChannel range = new AnalogChannel(2);
-//    //public static AnalogChannel pot2 = new AnalogChannel(3);
+//    public static AnalogChannel pot2 = new AnalogChannel(3);
 //    public static AnalogChannel range2 = new AnalogChannel(3);
 //    public static AnalogChannel temp1 = new AnalogChannel(5);
 //    public static AnalogChannel temp2 = new AnalogChannel(6);

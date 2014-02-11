@@ -13,19 +13,20 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  * outputMax and outputMin: range of the output value (eg, 0'-10')
  * @author 2811
  */
-public class map extends Subsystem {
+public class Map extends Subsystem {
 
-    public double map(double input, double maximum, double minimum, double outputMax, double outputMin){
-        double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
-        return output;  
-        }
+   
 
 
      public void initDefaultCommand() {
          //blank! 
          //FIX Make sure this doesn't cause a robots don't quit
-         //It if needed, point it at AngleManaer
+         //It if needed, point it at AngleManager
+         
     }
 
-        
+    public double Map(double input, double maximum, double minimum, double outputMax, double outputMin){ //TODO where are the max and min coming from?
+        double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
+        return output;  
+        }     
 }
