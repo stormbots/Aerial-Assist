@@ -77,7 +77,7 @@ public class RobotMap {
         chassisSpeedController1 = new Talon(1, 1);
 	//LiveWindow.addActuator("Chassis", "Speed Controller 1", (Talon) chassisSpeedController1);
         
-        //chassisSpeedController2 = new Talon(1, 2);
+        chassisSpeedController2 = new Talon(1, 2); //FIXME Assuming this doesn't need to be commented/commented for drive testing?
 	//LiveWindow.addActuator("Chassis", "Speed Controller 2", (Talon) chassisSpeedController2);
         
         chassisSpeedController3 = new Talon(1, 3);

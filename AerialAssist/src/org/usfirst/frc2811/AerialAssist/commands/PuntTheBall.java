@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
- * Command group for handling the steps necessary for punting the ball
+ * Command group for handling the steps necessary for punting the ball //Not the same as Punt
  * @author Kelson
  */
 public class PuntTheBall extends CommandGroup {

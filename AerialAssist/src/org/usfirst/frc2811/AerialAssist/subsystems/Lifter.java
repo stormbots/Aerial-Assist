@@ -35,7 +35,7 @@ public class Lifter extends PIDSubsystem {
         private double MinimumValue = 20;
     // Initialize your subsystem here
     public Lifter() {
-        super("Lifter", 1.0, 0.0, 0.0);
+        super("Lifter", 1.0, 0.0, 0.0); //COMMENT YOUR CODE!!!
         setAbsoluteTolerance(0.2);
         getPIDController().setContinuous(false);
         LiveWindow.addActuator("Lifter", "PIDSubsystem Controller", getPIDController());
