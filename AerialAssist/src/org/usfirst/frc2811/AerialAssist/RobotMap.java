@@ -41,6 +41,17 @@ public class RobotMap {
     public static Solenoid punter4;
     public static Solenoid gearShifter3;
     
+    public static AnalogChannel pot1 = new AnalogChannel(1);
+    //public static AnalogChannel range = new AnalogChannel(2);//TODO use rangeFinder8
+    public static AnalogChannel pot2 = new AnalogChannel(3);
+    //public static AnalogChannel range2 = new AnalogChannel(3);//TODO use rangeFinder9
+    public static AnalogChannel temp1 = new AnalogChannel(5);
+    public static AnalogChannel temp2 = new AnalogChannel(6);
+    public static AnalogChannel temp3 = new AnalogChannel(7);
+    
+    //public static int rangeValue = range.getAverageValue();
+    //public static int range2Value = range2.getAverageValue();
+    public static int largerValue;
     public static boolean reloadedState;
     public static boolean puntedState;
     public static double distance;

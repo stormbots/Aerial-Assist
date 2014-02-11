@@ -32,7 +32,7 @@ public class ReArm extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //TODO Make Reload terminate after sensor is triggered
+        //TODO Make Rearm terminate after sensor is triggered
         return false;
     }
 

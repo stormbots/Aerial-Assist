@@ -15,7 +15,13 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  */
 public class Map extends Subsystem {
 
-   
+    // int input = 0;
+      double minimum=33; //TODO Find correct input ranges for claw sensor
+      double maximum=300; 
+      double outputMin=0;
+      double outputMax=1024; 
+        
+        //TODO set to zero
 
 
      public void initDefaultCommand() {
@@ -25,8 +31,8 @@ public class Map extends Subsystem {
          
     }
 
-    public double Map(double input, double maximum, double minimum, double outputMax, double outputMin){ //TODO where are the max and min coming from?
+    public double Map(double input, double maximum, double minimum, double outputMax, double outputMin){ 
         double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
-        return output;  
+        return output;//TODO where are the max and min coming from? (in terms of references)  
         }     
 }

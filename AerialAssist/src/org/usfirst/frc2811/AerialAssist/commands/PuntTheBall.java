@@ -19,7 +19,7 @@ public class PuntTheBall extends CommandGroup {
         if (RobotMap.puntedState==false){
             RobotMap.puntedState=true;
             this.addSequential(new Punt(true));
-            this.addSequential(new wait(1));
+            this.addSequential(new Wait(1));
             this.addSequential(new Punt(false));
             RobotMap.puntedState=false;
         }

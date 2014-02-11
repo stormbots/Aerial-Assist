@@ -24,13 +24,7 @@ public class ReLoad extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-      // int input = 0;
-      double minimum=33; //TODO Find correct input ranges for claw sensor
-      double maximum=300; 
-      double outputMin=0;
-      double outputMax=1024; 
-        
-        //TODO set to zero
+     
       }  
         //set motors running inward
         //when rangefinder equals certain value stop turning
