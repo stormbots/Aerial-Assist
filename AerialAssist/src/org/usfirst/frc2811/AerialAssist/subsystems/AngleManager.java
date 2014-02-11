@@ -36,9 +36,7 @@ public class AngleManager extends Subsystem {
     
    
     public void rangeManager(){
-        
-        //FIXME create doubles for ranges, set doubles
-        
+                        
         if(RobotMap.range1>RobotMap.range2){
             trueRange=RobotMap.range1;
         }
@@ -48,9 +46,9 @@ public class AngleManager extends Subsystem {
         }
         //finds larger value, sets trueRange to it.    
         
-        //rangeMagicNumber = Robot.map.Map(trueRange,rangeAt5,rangeAt10,5,10)
+        rangeMagicNumber = Robot.map.Map(trueRange,RobotMap.rangeAt5,RobotMap.rangeAt10,5,10);
         
-        //rangeInInches=trueRange/rangeMagicNumber; //finds rangeInInches
+        rangeInInches=trueRange/rangeMagicNumber; //finds rangeInInches
         
         RobotMap.distance = rangeInInches/12; //converts to feet
         
@@ -64,11 +62,11 @@ public class AngleManager extends Subsystem {
     //              V
     // atan( V^2 -  -----------------------
     //                        gx            )
-        double velocity = 35;//need to get value
+        double velocity = 35;//TODO need to get value (in FPS) (calibrate)
         double veloc2= velocity*velocity;// velocity squared
         double veloc4 = velocity*velocity*velocity*velocity;//velocity to the 4th power
         double gravity = 32.173;//gravity
-        double distance2 = RobotMap.distance*RobotMap.distance; //distance squared
+        double distance2 = RobotMap.distance*RobotMap.distance; //distance (from sensor) squared
         double height = 8.4375;// height of the goal
         double disgrav= RobotMap.distance*gravity;//distance times gravity
         double disgrav2 = distance2*gravity; //distance squared times velocity

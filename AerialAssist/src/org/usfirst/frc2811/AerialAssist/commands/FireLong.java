@@ -18,7 +18,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 public class FireLong extends Command {
 
     protected void initialize() {
-    //TODO Delete this file, it's been moved to the ShootingSequence commandgroup
+    //TODO Delete this file, it's been moved to the ShootingSequence commandgroup //Otherwise known as Shoot()?
 //        if (OI.armed = true){
 //        OI.motor5.set(10);
 //        OI.motor6.set(10);

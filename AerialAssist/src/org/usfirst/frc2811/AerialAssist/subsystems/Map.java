@@ -16,7 +16,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class Map extends Subsystem {
 
     // int input = 0;
-      double minimum=33; //TODO Find correct input ranges for claw sensor
+      double minimum=33; //TODO Find correct input ranges for claw sensor Calibrate
       double maximum=300; 
       double outputMin=0;
       double outputMax=1024; 
@@ -27,12 +27,12 @@ public class Map extends Subsystem {
      public void initDefaultCommand() {
          //blank! 
          //FIX Make sure this doesn't cause a robots don't quit
-         //It if needed, point it at AngleManager
+         //It if needed, point it at AngleManager //AngleManager is a subsystem.
          
     }
 
     public double Map(double input, double maximum, double minimum, double outputMax, double outputMin){ 
         double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
-        return output;//TODO where are the max and min coming from? (in terms of references)  
+        return output;//FIXME Calibrate Map  
         }     
 }
