@@ -15,16 +15,13 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  */
 public class map extends Subsystem {
 
+    
+
+     public void initDefaultCommand() {
+    }
     public double map(double input, double maximum, double minimum, double outputMax, double outputMin){
         double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;  
-        }
-
-
-     public void initDefaultCommand() {
-         //blank! 
-         //FIX Make sure this doesn't cause a robots don't quit
-         //It if needed, point it at AngleManaer
     }
 
         

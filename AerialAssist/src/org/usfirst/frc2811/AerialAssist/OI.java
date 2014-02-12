@@ -69,13 +69,6 @@ public class OI {
     public static Joystick joystick1 = new Joystick(1);
     
     //FIXME : Delete this and move to robotMap
-//    //public static AnalogChannel pot1 = new AnalogChannel(1);
-//    public static AnalogChannel range = new AnalogChannel(2);
-//    //public static AnalogChannel pot2 = new AnalogChannel(3);
-//    public static AnalogChannel range2 = new AnalogChannel(3);
-//    public static AnalogChannel temp1 = new AnalogChannel(5);
-//    public static AnalogChannel temp2 = new AnalogChannel(6);
-//    public static AnalogChannel temp3 = new AnalogChannel(7);
 //    
 //    public static int rangeValue = range.getAverageValue();
 //    public static int range2Value = range2.getAverageValue();
@@ -89,25 +82,12 @@ public class OI {
     //public static JoystickButton longShot = new JoystickButton(joystick1, 6);
     //public static JoystickButton botArm = new JoystickButton(joystick1, 1);
     
-    public static Solenoid punch = new Solenoid(1,2);
     
     //TODO Add LCD text. Previous code is at github, link below
     //https://github.com/stormbots/Aerial-Assist/commit/1304707a754940590f692659036e3a1ccfde1b58
     //It should go in OI though.
     //    public static DriverStationLCD dsText;
     
-    //FIXME Delete this if it's not needed
-    //the button section!
-//    JoystickButton b1 = new JoystickButton(joystick1, 1);
-//    JoystickButton b2 = new JoystickButton(joystick1, 2);
-//    JoystickButton b3 = new JoystickButton(joystick1, 3);
-//    JoystickButton b4 = new JoystickButton(joystick1, 4);
-//    JoystickButton b5 = new JoystickButton(joystick1, 5);
-//    JoystickButton b6 = new JoystickButton(joystick1, 6);
-//    JoystickButton b7 = new JoystickButton(joystick1, 7);
-//    JoystickButton b8 = new JoystickButton(joystick1, 8);
-//    JoystickButton b9 = new JoystickButton(joystick1, 9);
-//    JoystickButton b10 = new JoystickButton(joystick1, 10);
    
 }
 
