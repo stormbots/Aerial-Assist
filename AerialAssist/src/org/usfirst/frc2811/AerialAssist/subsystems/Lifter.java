@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.*;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import org.usfirst.frc2811.AerialAssist.Robot;
 
 /** Controls the PID subsystem that controls the claw angle
  *  If you need to set a value for the claw, you would set it by doing the following:
@@ -71,8 +72,9 @@ public class Lifter extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-	
+	//todo KELSON add second motor for PID, and add control of crank
         speedController5.pidWrite(output);
+        Robot.shooter.follow(output);
     }
     
     //TODO Delete this if it's not used here. 
