@@ -32,6 +32,7 @@ public class RobotMap {
     public static RobotDrive chassisRobotDrive41;
     public static Solenoid gearShifter3;
     //CLAW
+    public static Solenoid clawsolenoid;
     public static SpeedController lifterSpeedController5;
     public static AnalogChannel lifterPotentiometer1;
     public static SpeedController rollersSpeedController6;
@@ -119,6 +120,7 @@ public class RobotMap {
         gearShifter3 = new Solenoid(1,1);
         
         punter4 = new Solenoid(1,2);
+        clawsolenoid = new Solenoid(1,13); //FIXME find right channel
         
         //TODO @kelson Do we need both encoders here?
   //      shooterQuadratureEncoder2 = new Encoder(1, 2, 1, 3, false, EncodingType.k4X);
