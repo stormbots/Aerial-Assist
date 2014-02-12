@@ -24,13 +24,7 @@ public class ReLoad extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-      // int input = 0;
-      double minimum=33; //TODO Find correct input ranges for claw sensor
-      double maximum=300; 
-      double outputMin=0;
-      double outputMax=1024; 
-        
-        //TO DO set to zero
+     
       }  
         //set motors running inward
         //when rangefinder equals certain value stop turning
@@ -42,9 +36,9 @@ public class ReLoad extends Command {
     }
 
     protected boolean isFinished() {
-        //TODO Simplify this by using the map subsystem
-         RobotMap.clawrange = RobotMap.rangeFinderClaw.getAverageVoltage();
-     if (RobotMap.clawrange <= .5){// in inches?? 
+        //TODO Simplify this by using the Map subsystem
+         RobotMap.clawRange = RobotMap.rangeFinderClaw.getAverageVoltage();
+     if (RobotMap.clawRange <= .5){// in inches?? 
         return true;
          }
         else {

@@ -39,10 +39,7 @@ public class Rollers extends Subsystem {
     }
     
     
-    //TODO Delete this
-    public float mapvalue(float input, float maximum, float minimum, float outputMax, float outputMin){
-        float output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
-        return output;
-    }
+   
+    
 }
 

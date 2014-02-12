@@ -16,7 +16,7 @@ public class ShootingSequence extends CommandGroup {
     
     public ShootingSequence() {
         this.addSequential(new Shoot());//make sure to add this.
-        this.addParallel(new ReArm());//why addParallel? //because we can do both at once!
-        this.addParallel(new ReLoad()); //FIXME Should be close claw claw
+        this.addParallel(new ReArm());
+        this.addParallel(new ReLoad()); //FIXME Should be close claw
     }
 }

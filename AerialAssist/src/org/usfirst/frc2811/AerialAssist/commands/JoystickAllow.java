@@ -21,14 +21,12 @@ public class JoystickAllow extends Command {
     }
 
     protected void execute() {
-        
-        //Drive control needs to be disabled by any means necessary
-        /** use RobotMap not OI. */
-        if (OI.stickEngaged = true){
-            RobotMap.chassisSpeedController1.set(OI.joystick1.getRawAxis(1));
-            RobotMap.chassisSpeedController2.set(OI.joystick1.getRawAxis(1));
-            RobotMap.chassisSpeedController3.set(OI.joystick1.getRawAxis(2));
-            RobotMap.chassisSpeedController4.set(OI.joystick1.getRawAxis(2));
+        //TODO Make sure ports are right      
+       if (OI.stickEngaged = true){
+            RobotMap.chassisSpeedController1.set(OI.joystick1.getRawAxis(1)); 
+            RobotMap.chassisSpeedController2.set(OI.joystick1.getRawAxis(1)); 
+            RobotMap.chassisSpeedController3.set(OI.joystick1.getRawAxis(2)); 
+            RobotMap.chassisSpeedController4.set(OI.joystick1.getRawAxis(2)); 
             System.out.println("Joystick enabled, Step on it!");
             
         }else{

@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Kelson
  */
-public class wait extends Command {
+public class Wait extends Command {
     double internal;
-    public wait(double input) {
+    public Wait(double input) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         internal = input;

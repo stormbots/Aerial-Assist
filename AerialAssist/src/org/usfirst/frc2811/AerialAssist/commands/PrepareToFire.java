@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.OI;
 
 /**
- * //TODO DELETE: This will be in the ShootingSequence commandgroup
+ * //TODO DELETE: This will be in the ShootingSequence CommandGroup
  * @author Jacob
  */
 public class PrepareToFire extends Command {
