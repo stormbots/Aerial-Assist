@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package org.usfirst.frc2811.AerialAssist.commands;
-
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
 
@@ -19,6 +19,7 @@ public class ReArm extends Command {
         requires(Robot.shooter);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        
     }
 
     // Called just before this Command runs the first time
@@ -27,18 +28,26 @@ public class ReArm extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //TODO set motors in motion
+        // set motors in motion
+        RobotMap.firingSpeedController7.set(1);
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //TODO Make Rearm terminate after sensor is triggered
+        //FIXME for some reason, this if statement is redundant. Will this cause a problem? 
+        if (RobotMap.clawRange>.5){
+            return true;
+        }
+        else{
         return false;
+        }
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        //TODO Stop motors
+        // Stop motors
+        RobotMap.firingSpeedController7.set(0);
     }
 
     // Called when another command which requires one or more of the same
