@@ -21,8 +21,7 @@ public class Map extends Subsystem {
       double outputMin=0;
       double outputMax=1024; 
         
-        //TODO set to zero //? What?
-
+        
 
      public void initDefaultCommand() {
          //blank! 
