@@ -38,6 +38,10 @@ public class RobotMap {
     public static AnalogChannel rangeFinder8;
     public static AnalogChannel rangeFinder9;
     public static AnalogChannel rangeFinderClaw;
+    public static AnalogChannel temp1;
+    public static AnalogChannel temp2;
+    public static AnalogChannel temp3;
+    //add temps as needed
     public static Solenoid punter4;
     public static Solenoid gearShifter3;
     
@@ -96,6 +100,10 @@ public class RobotMap {
         gearShifter3 = new Solenoid(1,1);
         
         punter4 = new Solenoid(1,2);
+        
+        temp1 = new AnalogChannel(1);
+        temp2 = new AnalogChannel(2);
+        temp3 = new AnalogChannel(3);
         
         //TODO @kelson Do we need both encoders here?
   //      shooterQuadratureEncoder2 = new Encoder(1, 2, 1, 3, false, EncodingType.k4X);

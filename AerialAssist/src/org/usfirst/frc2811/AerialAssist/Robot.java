@@ -107,40 +107,14 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        //TODO: delete test code until we have temp sensors
-        //Timer.delay(0.5);
-        //System.out.println("Average Values:");
-        //Timer.delay(0.5);
-        //System.out.println("pot1 = " + OI.pot1.getAverageValue());
-        //Timer.delay(0.5);
-        //System.out.println("pot2 = " + OI.pot2.getAverageValue());
-        //Timer.delay(0.5);
-//        System.out.print("range = " + OI.range.getAverageValue()+"  ");
-//        //Timer.delay(0.5);
-//        System.out.println("range2 = " + OI.range2.getAverageValue());
-//        Timer.delay(0.5);
-        //System.out.println("Actual Range 1 = " + (OI.pot1.getAverageValue() - OI.range.getAverageValue()));
-        //Timer.delay(0.5);
-        //System.out.println("Actual Range 2 = " + (OI.pot2.getAverageValue() - OI.range2.getAverageValue()));
-        //Timer.delay(0.5);
-        //System.out.println("Larger Value = " + OI.largerValue);
-        //Timer.delay(0.5);
-        //System.out.println("No errors thus far...");
         
-//           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Motor Temperatures:" + " ");
-//           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Motor 1 = " + OI.temp1.getValue() + " ");
-//           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Motor 2 = " + OI.temp2.getValue() + " ");
-//           DriverStationLCD.getInstance().println(Line.kUser4, 1, "Motor 3 = " + OI.temp3.getValue() + " ");
-//           DriverStationLCD.getInstance().println(Line.kUser5, 1, "Ranges: "+ OI.range.getAverageValue() + " " + OI.range2.getAverageValue());
-//           DriverStationLCD.getInstance().updateLCD();
-//        
-//        if (OI.rangeValue >= OI.range2Value){
-//            OI.largerValue = OI.rangeValue;
-//        }else{
-//            OI.largerValue = OI.range2Value;
-//        }
         
-        //OI.botArm.whenActive(new PrepareToFire());
+           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Motor Temperatures:" + " ");
+           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Motor 1 = " + RobotMap.temp1.getValue() + " ");
+           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Motor 2 = " + RobotMap.temp2.getValue() + " ");
+           DriverStationLCD.getInstance().println(Line.kUser5, 1, "Ranges: "+ OI.range.getAverageValue() + " " + OI.range2.getAverageValue());
+           DriverStationLCD.getInstance().updateLCD();
+
         
         
     }
