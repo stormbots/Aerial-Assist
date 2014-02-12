@@ -12,7 +12,7 @@
 package org.usfirst.frc2811.AerialAssist;
     
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
+import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 
