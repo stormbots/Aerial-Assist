@@ -86,8 +86,8 @@ public class OI {
     //It should go in OI though.
     //    public static DriverStationLCD dsText;
     
-    //FIXME Delete this if it's not needed
-    //the button section!
+//FIXME Delete this if it's not needed
+//the button section!
 //    JoystickButton b1 = new JoystickButton(joystick1, 1);
 //    JoystickButton b2 = new JoystickButton(joystick1, 2);
 //    JoystickButton b3 = new JoystickButton(joystick1, 3);

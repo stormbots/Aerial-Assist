@@ -11,7 +11,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 /** 
  * Handles pulling back the primary firing mechanism and checking 
  * sensors to determine completion
- * @author austin
+ * @author Austin
  */
 public class ReArm extends Command {
     
