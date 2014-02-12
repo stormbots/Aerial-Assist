@@ -112,7 +112,7 @@ public class Robot extends IterativeRobot {
            DriverStationLCD.getInstance().println(Line.kUser1, 1, "Motor Temperatures:" + " ");
            DriverStationLCD.getInstance().println(Line.kUser2, 1, "Motor 1 = " + RobotMap.temp1.getValue() + " ");
            DriverStationLCD.getInstance().println(Line.kUser3, 1, "Motor 2 = " + RobotMap.temp2.getValue() + " ");
-           DriverStationLCD.getInstance().println(Line.kUser5, 1, "Ranges: "+ OI.range.getAverageValue() + " " + OI.range2.getAverageValue());
+           
            DriverStationLCD.getInstance().updateLCD();
 
         
