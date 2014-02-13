@@ -21,16 +21,22 @@ public class ShootingSequence extends CommandGroup {
     //rearm && close claw
         public ShootingSequence() {
         this.addSequential(new OpenClaw());
-        
+        System.out.println("Claw Open");
         this.addSequential(new AutoAim());
-        this.addParallel(new JoystickDisable());
-        
+        System.out.println("Aimed");
+        this.addSequential(new JoystickDisable());
+        System.out.println("Joystick Disabled");
         this.addSequential(new Shoot());
-        
+        System.out.println("Fired");
         this.addSequential(new JoystickEnable());
-        this.addParallel(new ReArmFast());
-        
+        System.out.println("Joystick Enabled");
+        this.addSequential(new ReArmFast());
+        System.out.println("Fast ReArm Done"); 
         this.addSequential(new ReArmSlow());
-        this.addParallel(new CloseClaw());
+        System.out.println("Slow ReArm Done");
+        this.addSequential(new CloseClaw());
+        System.out.println("Claw Closed");
+        System.out.println("Shooting Sequence done");
+        //TODO Add LCD Printouts
     }
 }
