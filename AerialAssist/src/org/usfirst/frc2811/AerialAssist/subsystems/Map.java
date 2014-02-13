@@ -26,8 +26,6 @@ public class Map extends Subsystem {
      public void initDefaultCommand() {
     }
 
-    }
-
     public double Map(double input, double maximum, double minimum, double outputMax, double outputMin){ 
         double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output; 

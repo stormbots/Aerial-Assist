@@ -84,10 +84,11 @@ public class OI {
     
     
    
-//TODO Make sure button section is set up correctly!
+    //TODO Buttons part 1 @Laurel: Chat with drive and ensure we have the control scheme
+    //TODO Buttons part 2 @whoever Make sure button section is set up correctly!
     JoystickButton b1 = new JoystickButton(joystick1, 1);
     JoystickButton b2 = new JoystickButton(joystick1, 2);
-    JoystickButton b3 = new JoystickButton(joystick1, 3);
+    //JoystickButton b3 = new JoystickButton(joystick1, 3); //Assigned above
     JoystickButton b4 = new JoystickButton(joystick1, 4);
     JoystickButton b5 = new JoystickButton(joystick1, 5);
     JoystickButton b6 = new JoystickButton(joystick1, 6);

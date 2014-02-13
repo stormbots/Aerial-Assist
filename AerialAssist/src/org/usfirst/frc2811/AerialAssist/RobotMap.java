@@ -14,8 +14,8 @@ package org.usfirst.frc2811.AerialAssist;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
-//FIXME @Kelson? This import is being bothersome.
-import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
+//This import is being bothersome, fixed by forcing Encoder.PIDSourceParameter instead of PIDSourceparameter
+//import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 
@@ -131,6 +131,6 @@ public class RobotMap {
         temp3 = new AnalogChannel(3);
         
         shooterQuadratureEncoder2 = new Encoder(1, 2, 1, 3, false, EncodingType.k4X);
-        shooterQuadratureEncoder2.setPIDSourceParameter(PIDSourceParameter.kRate);
+        shooterQuadratureEncoder2.setPIDSourceParameter(Encoder.PIDSourceParameter.kRate);
     }
 }
