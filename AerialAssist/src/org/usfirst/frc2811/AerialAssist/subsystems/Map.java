@@ -21,17 +21,15 @@ public class Map extends Subsystem {
       double outputMin=0;
       double outputMax=1024; 
         
-        
+
 
      public void initDefaultCommand() {
-         //blank! 
-         //FIX Make sure this doesn't cause a robots don't quit
-         //It if needed, point it at AngleManager //AngleManager is a subsystem.
-         
+    }
+
     }
 
     public double Map(double input, double maximum, double minimum, double outputMax, double outputMin){ 
         double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
-        return output;//FIXME Calibrate Map  
+        return output; 
         }     
 }

@@ -79,7 +79,6 @@ public class OI {
     //public static JoystickButton longShot = new JoystickButton(joystick1, 6);
     //public static JoystickButton botArm = new JoystickButton(joystick1, 1);
     
-    public static Solenoid punch = new Solenoid(1,2);
     
     
     
