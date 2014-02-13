@@ -6,6 +6,7 @@
 package org.usfirst.frc2811.AerialAssist.subsystems;
 
 import com.sun.squawk.util.MathUtils;
+import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
@@ -16,9 +17,14 @@ import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
  * @author 2811
  */
 public class AngleManager extends Subsystem {
-    public static double trueRange;
     public static double rangeInInches;
     public static double rangeMagicNumber;
+    AnalogChannel rangeFinderLeft = RobotMap.rangeFinder8;
+    AnalogChannel rangeFinderRight = RobotMap.rangeFinder9;
+    double rangeLeft = RobotMap.range1;
+    double rangeRight = RobotMap.range2;
+    double trueRange = RobotMap.trueRange;
+    double distance = RobotMap.distance;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -30,19 +36,19 @@ public class AngleManager extends Subsystem {
     
     public void getRange(){
         //Read the two rangefinder sensors
-        RobotMap.range1 = RobotMap.rangeFinder8.getAverageVoltage();
-        RobotMap.range2 = RobotMap.rangeFinder9.getAverageVoltage();
+        rangeLeft = rangeFinderLeft.getAverageVoltage();
+        rangeRight = rangeFinderRight.getAverageVoltage();
     }
     
    
     public void rangeManager(){
                         
-        if(RobotMap.range1>RobotMap.range2){
-            trueRange=RobotMap.range1;
+        if(rangeLeft>rangeRight){
+            trueRange=rangeLeft;
         }
         
         else{
-            trueRange=RobotMap.range2;
+            trueRange=rangeRight;
         }
         //finds larger value, sets trueRange to it.    
         
@@ -50,7 +56,7 @@ public class AngleManager extends Subsystem {
         
         rangeInInches=trueRange/rangeMagicNumber; //finds rangeInInches
         
-        RobotMap.distance = rangeInInches/12; //converts to feet
+        distance = rangeInInches/12; //converts to feet
         
         
     }
@@ -66,9 +72,9 @@ public class AngleManager extends Subsystem {
         double veloc2= velocity*velocity;// velocity squared
         double veloc4 = velocity*velocity*velocity*velocity;//velocity to the 4th power
         double gravity = 32.173;//gravity
-        double distance2 = RobotMap.distance*RobotMap.distance; //distance (from sensor) squared
+        double distance2 = distance*distance; //distance (from sensor) squared
         double height = 8.4375;// height of the goal
-        double disgrav= RobotMap.distance*gravity;//distance times gravity
+        double disgrav= distance*gravity;//distance times gravity
         double disgrav2 = distance2*gravity; //distance squared times velocity
         double equa1 = (gravity*((disgrav2)+(2*height*veloc2))); // all of the equation that belongs under the square root
         double equa2 = Math.sqrt(veloc4-equa1);// The square root of velocity to the forth - equation one

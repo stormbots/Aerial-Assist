@@ -73,6 +73,7 @@ public class RobotMap {
     public static double distance;
     public static double range1;
     public static double range2;
+    public static double trueRange;
     public static double clawRange;
     public static double shootingAngle;
     public static boolean aimedState;
