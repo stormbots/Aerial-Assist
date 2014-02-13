@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
 
 /** 
- * Handles firing the small piston for kicking the ball a very short distance //Not the same as PuntTheBall
+ * Handles firing the small piston for kicking the ball a very short distance
  * Command.
  */
 public class  Punt extends Command {

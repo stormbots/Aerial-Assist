@@ -13,9 +13,9 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  * Command group for handling the steps necessary for punting the ball //Not the same as Punt
  * @author Kelson
  */
-public class PuntTheBall extends CommandGroup {
+public class PuntSystem extends CommandGroup {
     
-    public PuntTheBall() {
+    public PuntSystem() {
         if (RobotMap.puntedState==false){
             RobotMap.puntedState=true;
             this.addSequential(new Punt(true));

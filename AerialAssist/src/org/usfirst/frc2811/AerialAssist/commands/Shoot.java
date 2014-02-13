@@ -8,6 +8,7 @@ package org.usfirst.frc2811.AerialAssist.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  * Handles advancing the cam to launch the ball
@@ -24,11 +25,12 @@ public class Shoot extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        OI.stickEngaged = false;
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        RobotMap.firingSpeedController7.set(-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -38,7 +40,7 @@ public class Shoot extends Command{
 
     // Called once after isFinished returns true
     protected void end() {
-        OI.stickEngaged = true;
+        RobotMap.firingSpeedController7.set(0);
     }
 
     // Called when another command which requires one or more of the same

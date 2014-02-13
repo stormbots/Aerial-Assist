@@ -21,11 +21,16 @@ public class ShootingSequence extends CommandGroup {
     //rearm && close claw
         public ShootingSequence() {
         this.addSequential(new OpenClaw());
+        
         this.addSequential(new AutoAim());
         this.addParallel(new JoystickDisable());
+        
         this.addSequential(new Shoot());
+        
         this.addSequential(new JoystickEnable());
         this.addParallel(new ReArmFast());
+        
+        this.addSequential(new ReArmSlow());
         this.addParallel(new CloseClaw());
     }
 }

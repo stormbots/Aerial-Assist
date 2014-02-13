@@ -6,6 +6,7 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
@@ -24,15 +25,17 @@ public class ReArmSlow extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        RobotMap.firingSpeedController7.set(.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;//TODO Add switch compatability
+        return true;//TODO Add switch compatability
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        RobotMap.firingSpeedController7.set(0);
     }
 
     // Called when another command which requires one or more of the same

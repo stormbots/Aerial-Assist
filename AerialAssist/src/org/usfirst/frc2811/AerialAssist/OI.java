@@ -44,7 +44,7 @@ public class OI {
         joystick1 = new Joystick(1);
         
         release = new JoystickButton(joystick1, 3);
-        release.whileHeld(new PuntTheBall());
+        release.whileHeld(new PuntSystem());
         
         //release = new JoystickButton(joystick1, 3);
         //release.whileHeld(new SpitBall());
