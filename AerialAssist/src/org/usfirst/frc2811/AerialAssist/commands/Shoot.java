@@ -12,7 +12,6 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  * Handles advancing the cam to launch the ball
- *  //TODO Add motor controls
  * @author Kelson
  */
 public class Shoot extends Command{
@@ -31,6 +30,9 @@ public class Shoot extends Command{
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         RobotMap.firingSpeedController7.set(-1);
+        //TODO Shoot command should have some short delay
+        //probably around .25-.5 seconds
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()

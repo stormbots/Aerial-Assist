@@ -36,7 +36,7 @@ public class ReLoad extends Command {
     }
 
     protected boolean isFinished() {
-        //TODO Simplify this by using the Map subsystem
+        //TODO Calibrate reload using rangefinder + map
         RobotMap.clawRange = RobotMap.rangeFinderClaw.getAverageVoltage();
         if (RobotMap.clawRange <= .5){// in inches?? 
             return true;

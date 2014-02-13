@@ -11,7 +11,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
- * @author 128925
+ * @author Jacob P
  */
 public class JoystickControl extends Subsystem {
     // Put methods for controlling this subsystem

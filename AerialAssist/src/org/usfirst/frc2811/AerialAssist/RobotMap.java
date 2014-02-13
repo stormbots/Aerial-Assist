@@ -48,7 +48,6 @@ public class RobotMap {
     public static Encoder shooterQuadratureEncoder2;
     public static Solenoid punter4;
     //Temperature Monitors  
-    //TODO Ensure declaring sensors this way doesn't cause errors 
     public static AnalogChannel temp1;
     public static AnalogChannel temp2;
     public static AnalogChannel temp3;;

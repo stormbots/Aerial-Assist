@@ -36,11 +36,17 @@ public class AutoAim extends Command {
          
         //RobotMap.aimedState=true;
         angle = Robot.angleManager.calculate();
+        
+        //TODO Make AutoAim actually write to the PID controller if auto-aim is enabled
+        //Saved as OI.autoAimEnable
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //TODO @spacek531 Make autoAim exit when PID.onTarget()==true
+        //TODO @kelson Make autoAim exit when PID.onTarget()==true
+        //TODO Autoaim should always return true immediately if auto-aim is disabled
+        //This is saved as OI.autoAimEnable currently
         if(RobotMap.lifterPotentiometer1.getAverageVoltage()==angle){
             return true;
         }

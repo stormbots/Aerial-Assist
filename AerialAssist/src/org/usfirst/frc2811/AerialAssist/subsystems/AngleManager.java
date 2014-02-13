@@ -62,7 +62,6 @@ public class AngleManager extends Subsystem {
     }
       
     public double calculate(){
-    //TODO Look at this beautifully commented code. Excellent work Laurel!
     //                 ___________________
     //                /(V^4-g(gx^2+2yv^2))
     //              V
