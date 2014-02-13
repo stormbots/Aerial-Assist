@@ -35,7 +35,8 @@ public class ReArmFast extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;//TODO Add switch compatability
+        return false;
+        //TODO Add switch compatability
         //FIXME for some reason, this if statement is redundant. Will this cause a problem? 
         
     }

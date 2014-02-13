@@ -30,7 +30,8 @@ public class ReArmSlow extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;//TODO Add switch compatability
+        return true;
+        //TODO Add switch compatability
     }
 
     // Called once after isFinished returns true

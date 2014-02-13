@@ -26,8 +26,8 @@ public class AutoAim extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //TODO Disable this without changing things!
-        OI.autoAimEnable = true;
+        
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -53,7 +53,7 @@ public class AutoAim extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        OI.autoAimEnable = false;
+        
     }
 
     // Called when another command which requires one or more of the same

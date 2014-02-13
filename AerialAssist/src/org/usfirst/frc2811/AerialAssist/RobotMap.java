@@ -43,7 +43,7 @@ public class RobotMap {
     public static AnalogChannel rangeFinder8;
     public static AnalogChannel rangeFinder9;
     public static AnalogChannel rangeFinderClaw;
-    //FIXME Speed controllers from merge, verify 
+    
     public static SpeedController firingSpeedController7;
     public static Encoder shooterQuadratureEncoder2;
     public static Solenoid punter4;
@@ -58,7 +58,7 @@ public class RobotMap {
     public static Compressor Compressor1;
     
     
-    //FIXME Add in rangefinders where they're supposed to be
+    
     
     
     

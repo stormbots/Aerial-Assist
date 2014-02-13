@@ -37,13 +37,13 @@ public class ReLoad extends Command {
 
     protected boolean isFinished() {
         //TODO Simplify this by using the Map subsystem
-         RobotMap.clawRange = RobotMap.rangeFinderClaw.getAverageVoltage();
-     if (RobotMap.clawRange <= .5){// in inches?? 
-        return true;
-         }
+        RobotMap.clawRange = RobotMap.rangeFinderClaw.getAverageVoltage();
+        if (RobotMap.clawRange <= .5){// in inches?? 
+            return true;
+        }
         else {
           return false;
-                }
+        }
                 
         
        // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
