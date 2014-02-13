@@ -114,9 +114,9 @@ public class Robot extends IterativeRobot {
         
         
            DriverStationLCD.getInstance().println(Line.kUser1, 1, "Motor Temperatures:" + " ");
-           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Motor 1 = " + RobotMap.temp1.getValue() + " ");
-           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Motor 2 = " + RobotMap.temp2.getValue() + " ");
-           
+           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Motor 1 = " + RobotMap.temp2.getValue() + " ");
+           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Motor 2 = " + RobotMap.temp3.getValue() + " ");
+           DriverStationLCD.getInstance().println(Line.kUser4, 1, "Auto Aim = " + OI.autoAimEnable + " ");
            DriverStationLCD.getInstance().updateLCD();
 
         

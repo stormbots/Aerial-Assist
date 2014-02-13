@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/OI.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/subsystems/Shooter.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/subsystems/Punter.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/Robot.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/AutoAim.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/ReArm.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/subsystems/AngleManager.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/subsystems/Chassis.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/RobotMap.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/JoystickAllow.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/ShootingSequence.java</file>
+            <file>file:/C:/Users/Jacob/Documents/GitHub/Aerial-Assist/AerialAssist/src/org/usfirst/frc2811/AerialAssist/commands/AutonomousCommand.java</file>
+        </group>
+    </open-files>
+</project-private>

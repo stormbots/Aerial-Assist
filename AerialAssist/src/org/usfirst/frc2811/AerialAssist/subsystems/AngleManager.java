@@ -19,8 +19,8 @@ import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
 public class AngleManager extends Subsystem {
     public static double rangeInInches;
     public static double rangeMagicNumber;
-    AnalogChannel rangeFinderLeft = RobotMap.rangeFinder8;
-    AnalogChannel rangeFinderRight = RobotMap.rangeFinder9;
+    public static AnalogChannel rangeFinderLeft = RobotMap.rangeFinder8;
+    public static AnalogChannel rangeFinderRight = RobotMap.rangeFinder9;
     double rangeLeft = RobotMap.range1;
     double rangeRight = RobotMap.range2;
     double trueRange = RobotMap.trueRange;
