@@ -12,6 +12,9 @@
 package org.usfirst.frc2811.AerialAssist;
     
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.Encoder;
+//FIXME @Kelson? This import is being bothersome.
 import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -44,28 +47,23 @@ public class RobotMap {
     public static SpeedController firingSpeedController7;
     public static Encoder shooterQuadratureEncoder2;
     public static Solenoid punter4;
-    //Temperature Monitors //TODO Figure out where these go
-    public static AnalogChannel temp1;
-    public static AnalogChannel temp2;
-    public static AnalogChannel temp3;
+    //Temperature Monitors  
+    //TODO Ensure declaring sensors this way doesn't cause errors 
+    public static AnalogChannel temp1 = new AnalogChannel(5); 
+    public static AnalogChannel temp2 = new AnalogChannel(6);
+    public static AnalogChannel temp3 = new AnalogChannel(7);
     //add temps as needed
 
     //MISC
     public static Compressor Compressor1;
     
     
-    
-    
-    
-    
-    
-    public static AnalogChannel pot1 = new AnalogChannel(1);
+    //FIXME Add in rangefinders where they're supposed to be
+    //public static AnalogChannel pot1 = new AnalogChannel(1);
     //public static AnalogChannel range = new AnalogChannel(2);//TODO use rangeFinder8
-    public static AnalogChannel pot2 = new AnalogChannel(3);
+    //public static AnalogChannel pot2 = new AnalogChannel(3);
     //public static AnalogChannel range2 = new AnalogChannel(3);//TODO use rangeFinder9
-    public static AnalogChannel temp1 = new AnalogChannel(5);
-    public static AnalogChannel temp2 = new AnalogChannel(6);
-    public static AnalogChannel temp3 = new AnalogChannel(7);
+    
     
     //public static int rangeValue = range.getAverageValue();
     //public static int range2Value = range2.getAverageValue();

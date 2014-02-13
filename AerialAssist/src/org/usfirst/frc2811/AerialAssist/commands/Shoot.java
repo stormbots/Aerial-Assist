@@ -7,6 +7,7 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.OI;
+import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
  * Handles advancing the cam to launch the ball
