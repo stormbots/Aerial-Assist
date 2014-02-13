@@ -13,10 +13,19 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * @author 128925
  */
 public class ShootingSequence extends CommandGroup {
-    
-    public ShootingSequence() {
-        this.addSequential(new Shoot());//make sure to add this.
-        this.addParallel(new ReArm());
-        this.addParallel(new ReLoad()); //FIXME Should be close claw
+    //open claw
+    //auto aim
+    //disable joystick
+    //fire
+    //enable joystick
+    //rearm && close claw
+        public ShootingSequence() {
+        this.addSequential(new OpenClaw());
+        this.addSequential(new AutoAim());
+        this.addParallel(new JoystickDisable());
+        this.addSequential(new Shoot());
+        this.addSequential(new JoystickEnable());
+        this.addParallel(new ReArmFast());
+        this.addParallel(new CloseClaw());
     }
 }

@@ -14,7 +14,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  *
  * @author Jacob
  */
-public class JoystickAllow extends Command {
+public class JoystickEnable extends Command {
 
     protected void initialize() {
         

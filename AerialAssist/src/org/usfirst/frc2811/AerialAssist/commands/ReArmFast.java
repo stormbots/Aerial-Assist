@@ -13,9 +13,9 @@ import org.usfirst.frc2811.AerialAssist.Robot;
  * sensors to determine completion
  * @author austin
  */
-public class ReArm extends Command {
+public class ReArmFast extends Command {
     
-    public ReArm() {
+    public ReArmFast() {
         requires(Robot.shooter);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -30,18 +30,14 @@ public class ReArm extends Command {
     protected void execute() {
         // set motors in motion
         RobotMap.firingSpeedController7.set(1);
-        
+                
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        return false;//TODO Add switch compatability
         //FIXME for some reason, this if statement is redundant. Will this cause a problem? 
-        if (RobotMap.clawRange>.5){
-            return true;
-        }
-        else{
-        return false;
-        }
+        
     }
 
     // Called once after isFinished returns true
