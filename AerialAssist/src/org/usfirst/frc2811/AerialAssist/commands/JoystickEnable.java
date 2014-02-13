@@ -3,47 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.OI;
-import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
- * @author Jacob
+ * @author 128925
  */
 public class JoystickEnable extends Command {
-
-    protected void initialize() {
-        
-    }
-
-    protected void execute() {
-        //TODO Make sure ports are right      
-       if (OI.stickEngaged = true){
-            RobotMap.chassisSpeedController1.set(OI.joystick1.getRawAxis(1)); 
-            RobotMap.chassisSpeedController2.set(OI.joystick1.getRawAxis(1)); 
-            RobotMap.chassisSpeedController3.set(OI.joystick1.getRawAxis(2)); 
-            RobotMap.chassisSpeedController4.set(OI.joystick1.getRawAxis(2)); 
-            System.out.println("Joystick enabled, Step on it!");
-            
-        }else{
-            System.out.println("Joystick disabled; you'll mess up the shot!!");
-                    }
-    }
-
-    protected boolean isFinished() {
-        return false;
-    }
-
-    protected void end() {
-        
-    }
-
-    protected void interrupted() {
-        
-    }
     
+    public JoystickEnable() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    }
+
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+        OI.stickEngaged=true;
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return true;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    }
 }

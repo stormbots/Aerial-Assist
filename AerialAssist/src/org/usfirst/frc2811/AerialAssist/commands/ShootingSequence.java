@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /** 
  * 
- * very good use of CommandGroup, but it still isn't fully fledged.
- * @author 128925
+ * Fires and reloads in one command group: Mapped to trigger.
+ * @author Austin
  */
 public class ShootingSequence extends CommandGroup {
     //open claw
