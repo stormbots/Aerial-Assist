@@ -94,16 +94,16 @@ public class OI {
    
     //TODO Buttons part 1 @Laurel: Chat with drive and ensure we have the control scheme
     //TODO Buttons part 2 @whoever Make sure button section is set up correctly!
-    JoystickButton b1 = new JoystickButton(joystick1, 1);
-    JoystickButton b2 = new JoystickButton(joystick1, 2);
-    //JoystickButton b3 = new JoystickButton(joystick1, 3); //Assigned above
-    JoystickButton b4 = new JoystickButton(joystick1, 4);
-    JoystickButton b5 = new JoystickButton(joystick1, 5);
-    JoystickButton b6 = new JoystickButton(joystick1, 6);
-    JoystickButton b7 = new JoystickButton(joystick1, 7);
-    JoystickButton b8 = new JoystickButton(joystick1, 8);
+    JoystickButton truss = new JoystickButton(joystick1, 1);
+    JoystickButton gearChange = new JoystickButton(joystick1, 2);
+    //JoystickButton rollout = new JoystickButton(joystick1, 3); //Assigned above
+    JoystickButton startIntake = new JoystickButton(joystick1, 4);
+    JoystickButton shoot = new JoystickButton(joystick1, 5);
+    JoystickButton punt = new JoystickButton(joystick1, 6);
+    JoystickButton aimUp = new JoystickButton(joystick1, 7);
+    JoystickButton aimDown = new JoystickButton(joystick1, 8);
     JoystickButton b9 = new JoystickButton(joystick1, 9);
-    JoystickButton b10 = new JoystickButton(joystick1, 10);
+    JoystickButton fireMode = new JoystickButton(joystick1, 10);
    
 }
 
