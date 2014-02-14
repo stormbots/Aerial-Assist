@@ -11,7 +11,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
- * @author Jacob P
+ * @author 2811
  */
 public class JoystickControl extends Subsystem {
     // Put methods for controlling this subsystem
@@ -22,7 +22,7 @@ public class JoystickControl extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void JoystickSet() {
+    public void JoystickMove() {
         
         if (OI.stickEngaged = true){
             RobotMap.chassisSpeedController1.set(OI.joystick1.getRawAxis(1)); 
@@ -31,13 +31,19 @@ public class JoystickControl extends Subsystem {
             RobotMap.chassisSpeedController4.set(OI.joystick1.getRawAxis(2)); 
             System.out.println("Joystick enabled, Step on it!");
             
-        }else{
+        }
+        else{
             RobotMap.chassisSpeedController1.set(0); 
             RobotMap.chassisSpeedController2.set(0); 
             RobotMap.chassisSpeedController3.set(0); 
             RobotMap.chassisSpeedController4.set(0);
             System.out.println("Joystick disabled; you'll mess up the shot!!");
-                    }
+       }
     }
+    
+    public void AimToggle(){
+        
+    }
+    
     }
 

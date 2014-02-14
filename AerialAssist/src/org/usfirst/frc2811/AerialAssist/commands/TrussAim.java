@@ -9,46 +9,41 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 
-
 /**
- * Responsible for picking balls up from the field 
- * @author 2811
+ *
+ * @author 128925
  */
-public class ReLoad extends Command {
+public class TrussAim extends Command {
     
-    public ReLoad() {
+    public TrussAim() {
+        requires(Robot.angleManager);
+        requires(Robot.lifter);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.rollers);
-      
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-     
-      }  
-        
+    }
+
+    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        RobotMap.shootingAngle=60;
+        //FIXME Set motors to 60
         
-        if(RobotMap.rollerState==0){
-            RobotMap.rollerState=-1;
-        }
-        else{
-            RobotMap.rollerState=0;
-        }
     }
 
+    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
+    // Called once after isFinished returns true
     protected void end() {
-                
     }
 
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
     protected void interrupted() {
     }
-        
-    }
-
-  
+}
