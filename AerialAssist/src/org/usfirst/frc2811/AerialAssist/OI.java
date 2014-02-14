@@ -13,6 +13,14 @@ package org.usfirst.frc2811.AerialAssist;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
+import org.usfirst.frc2811.AerialAssist.commands.ArmDown;
+import org.usfirst.frc2811.AerialAssist.commands.ArmUp;
+import org.usfirst.frc2811.AerialAssist.commands.PuntSystem;
+import org.usfirst.frc2811.AerialAssist.commands.ReLoad;
+import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
+import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
+import org.usfirst.frc2811.AerialAssist.commands.TrussGroup;
+import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -24,12 +32,13 @@ public class OI {
     public JoystickButton shift2;
     public JoystickButton spitBall3; 
     public JoystickButton suckBall4;
-    public JoystickButton shoot5;
-    public JoystickButton punt6;
-    public JoystickButton aimUp7;
-    public JoystickButton aimDown8;
+    public JoystickButton punt5;
+    public JoystickButton shoot6;
+    public JoystickButton aimDown7;
+    public JoystickButton aimUp8;
     public JoystickButton b9;
-    public JoystickButton fireMode10;
+    public JoystickButton manual10;
+    public JoystickButton b11;
     
     public static int FORE_BACK_STICK;//joystick for controlling robot in freedom
     public static final int FORE_BACK_STICK_CONTROLLER = 3;
@@ -45,27 +54,25 @@ public class OI {
        truss1 = new JoystickButton(joystick1, 1);
        shift2 = new JoystickButton(joystick1, 2);
        spitBall3 = new JoystickButton(joystick1, 3);
-       spitBall3 = new JoystickButton(joystick1, 3);
-       shoot5 = new JoystickButton(joystick1, 5);
-       punt6 = new JoystickButton(joystick1, 6);
-       aimUp7 = new JoystickButton(joystick1, 7);
-       aimDown8 = new JoystickButton(joystick1, 8);
+       suckBall4 = new JoystickButton(joystick1, 3);
+       punt5 = new JoystickButton(joystick1, 5);
+       shoot6 = new JoystickButton(joystick1, 6);
+       aimDown7 = new JoystickButton(joystick1, 7);
+       aimUp8 = new JoystickButton(joystick1, 8);
        b9 = new JoystickButton(joystick1, 9);
-       fireMode10 = new JoystickButton(joystick1, 10);
+       manual10 = new JoystickButton(joystick1, 10);
        
-       //TODO Buttons part 1 @Laurel: Chat with drive and ensure we have the control scheme
-       //TODO Buttons part 2 @whoever Make sure button section is set up correctly!
-       
-       truss1.whenReleased(null);
-       shift2.whenReleased(null);
-       spitBall3.whenReleased(null);
-       suckBall4.whenReleased(null);
-       shoot5.whenReleased(null);
-       punt6.whenReleased(null);
-       aimUp7.whenReleased(null);
-       aimDown8.whenReleased(null);
+       truss1.whenReleased(new TrussGroup());
+       shift2.whenReleased(new ShiftGear());
+       spitBall3.whenReleased(new UnLoad());
+       suckBall4.whenReleased(new ReLoad());
+       punt5.whenReleased(new PuntSystem());
+       shoot6.whenReleased(new ShootingSequence());
+       aimDown7.whenReleased(new ArmDown());
+       aimUp8.whenReleased(new ArmUp());
        b9.whenReleased(null);
-       fireMode10.whenReleased(null);
+       manual10.whenReleased(null);
+       b11.whenReleased(null);
        
     }
         
