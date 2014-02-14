@@ -21,6 +21,7 @@ public class AngleManager extends Subsystem {
     public static double rangeMagicNumber;
     public static AnalogChannel rangeFinderLeft = RobotMap.rangeFinder8;
     public static AnalogChannel rangeFinderRight = RobotMap.rangeFinder9;
+    //FIXME We don't need to read these variables, since this subsystem actually should e setting them.
     double rangeLeft = RobotMap.range1;
     double rangeRight = RobotMap.range2;
     double trueRange = RobotMap.trueRange;
@@ -38,30 +39,38 @@ public class AngleManager extends Subsystem {
         //Read the two rangefinder sensors
         rangeLeft = rangeFinderLeft.getAverageVoltage();
         rangeRight = rangeFinderRight.getAverageVoltage();
+        
     }
     
    
     public void rangeManager(){
-                        
+        //TODO This probably doesn't need to be a seperate function than getRange
+        
+         //finds larger value, sets trueRange to it.    
         if(rangeLeft>rangeRight){
             trueRange=rangeLeft;
         }
-        
         else{
             trueRange=rangeRight;
         }
-        //finds larger value, sets trueRange to it.    
+        //Convert raw sensor reading into feet
+        distance = Robot.map.Map(trueRange,RobotMap.rangeAt5,RobotMap.rangeAt10,5,10);
         
-        rangeMagicNumber = Robot.map.Map(trueRange,RobotMap.rangeAt5,RobotMap.rangeAt10,5,10);
+        //FIXME Delete these two, as Map will return the distnace in feet without magic numbers
+        //rangeInInches=trueRange/rangeMagicNumber; //finds rangeInInches
+        //distance = rangeInInches/12; //converts to feet
         
-        rangeInInches=trueRange/rangeMagicNumber; //finds rangeInInches
-        
-        distance = rangeInInches/12; //converts to feet
-        
+        //TODO Write the sensorvalues back to RobotMap so we can show them on the Driver Staion for testing
         
     }
-      
+    /**
+     * Returns the angle needed to shoot a target at the current range
+     */
     public double calculate(){
+        //FIXME Nowhere in the code does it call getRange or rangeManager
+        //We should make sure we use those to actually update our sensor values
+        
+    //Leave this comment    
     //                 ___________________
     //                /(V^4-g(gx^2+2yv^2))
     //              V
