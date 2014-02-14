@@ -17,19 +17,19 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  */
 public class Shooter extends PIDSubsystem {
 
-    
-    
-    
+    SpeedController DriveMotor1 = RobotMap.lifterSpeedController5;
     Encoder input = RobotMap.somesuchi6;
     Encoder output = RobotMap.somesuchi5;
+    private double newrate;
     // Initialize your subsystem here
     public Shooter() {
-        super("newPIDSubsystem", 1, 0, 0);
+        super("newPIDSubsystem", 0.4, 0, 0);
 
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         getPIDController().enable(); //- Enables the PID controller.
+        getPIDController().setAbsoluteTolerance(2);
     }
     
     public void initDefaultCommand() {
@@ -38,18 +38,14 @@ public class Shooter extends PIDSubsystem {
     }
     
     protected double returnPIDInput() {
-        // Return your input value for the PID loop
-        // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
+        getPIDController().setSetpoint(newrate-input.getRate());
         return output.getRate();
     }
     
     protected void usePIDOutput(double output) {
-        // Use output to drive your system, like a motor
-        //robotDrive41.arcadeDrive(output,0.0);
+        
     }
-
-    public void lol(double rate) {
-        getPIDController().setSetpoint(-rate);
+    public void setspeed(double rate) {
+        newrate = -rate;
     }
 }
