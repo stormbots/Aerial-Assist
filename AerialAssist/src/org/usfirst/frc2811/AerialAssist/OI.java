@@ -13,8 +13,6 @@ package org.usfirst.frc2811.AerialAssist;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
-import org.usfirst.frc2811.AerialAssist.commands.*;
-//*
 import org.usfirst.frc2811.AerialAssist.commands.ArmDown;
 import org.usfirst.frc2811.AerialAssist.commands.ArmUp;
 import org.usfirst.frc2811.AerialAssist.commands.PuntSystem;
@@ -23,7 +21,6 @@ import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 import org.usfirst.frc2811.AerialAssist.commands.TrussGroup;
 import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
-//*/
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -68,12 +65,12 @@ public class OI {
        truss = new JoystickButton(joystick1, 1);
        shift = new JoystickButton(joystick1, 2);
        spitBall = new JoystickButton(joystick1, 3);
-       suckBall = new JoystickButton(joystick1, 3);
+       //suckBall = new JoystickButton(joystick1, 3); //FIXME Two functions assigned to this button
        punt = new JoystickButton(joystick1, 5);
        shoot = new JoystickButton(joystick1, 6);
        aimDown = new JoystickButton(joystick1, 7);
        aimUp = new JoystickButton(joystick1, 8);
-       //b9 = new JoystickButton(joystick1, 9); //not used
+       //b9 = new JoystickButton(joystick1, 9); //not assigned
        manual = new JoystickButton(joystick1, 10); //enable/disable auto-aiming
        
        
@@ -82,10 +79,10 @@ public class OI {
        spitBall.whenReleased(new UnLoad());
        suckBall.whenReleased(new ReLoad());
        punt.whenReleased(new PuntSystem());
-       shoot.whenReleased(new ShootingSequence());
-       aimDown.whenReleased(new ArmDown());
-       aimUp.whenReleased(new ArmUp());
-       //b9.whenReleased(null);    //not used
+       shoot.whenReleased(new ShootingSequence()); 
+       aimDown.whenReleased(new ArmDown()); //FIXME We probably want when on held
+       aimUp.whenReleased(new ArmUp());     //FIXME We probably want when held
+       //b9.whenReleased(null);    //not assigned
        manual.whenReleased(null);//FIXME add toggle for auto aiming
        
     }
