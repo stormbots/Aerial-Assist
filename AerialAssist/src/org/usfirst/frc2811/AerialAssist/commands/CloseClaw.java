@@ -24,7 +24,7 @@ public class CloseClaw extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.clawsolenoid.set(true);//FIXME is it true or false???
+        RobotMap.clawsolenoid.set(true);//FIXME is OpenClaw solenoid true or false???
          Timer.delay(1);
     }
 

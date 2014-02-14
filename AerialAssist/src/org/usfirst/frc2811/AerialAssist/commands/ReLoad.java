@@ -20,6 +20,7 @@ public class ReLoad extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.shooter);
+        //FIXME ReLoad should require Rollers
     }
 
     // Called just before this Command runs the first time
@@ -31,8 +32,6 @@ public class ReLoad extends Command {
 
     protected void execute() {
         RobotMap.rollersSpeedController6.set(.5);
-//        Robot.shooter.reloadMotors();
-       // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     protected boolean isFinished() {
@@ -45,19 +44,14 @@ public class ReLoad extends Command {
           return false;
         }
                 
-        
-       // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     protected void end() {
         RobotMap.rollersSpeedController6.set(0);
         
     }
-       // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     protected void interrupted() {
-  //ERROR stuff
-       // throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
     }

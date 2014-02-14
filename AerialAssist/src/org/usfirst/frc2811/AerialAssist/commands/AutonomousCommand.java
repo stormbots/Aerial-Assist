@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
- * Obviously, runs during autonamous . 
+ * Obviously, runs during autonomous . 
  */
 public class  AutonomousCommand extends Command {
 
@@ -40,7 +40,7 @@ public class  AutonomousCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return false;//FIXME Make sure autonomous returns properly
     }
 
     // Called once after isFinished returns true

@@ -21,7 +21,8 @@ public class ShootingSequence extends CommandGroup {
     //enable joystick
     //rearm && close claw
         public ShootingSequence() {
-        RobotMap.openClaw.start();
+        //RobotMap.openClaw.start(); //Causes Robots don't quit
+        //Should be this.addSequential(new ClawOpen());
         System.out.println("Claw Open");
         this.addSequential(new AutoAim());
         System.out.println("Aimed");

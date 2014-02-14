@@ -24,6 +24,7 @@ public class UnLoad extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        //TODO Unload Ball is empty
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -30,8 +30,8 @@ public class Shoot extends Command{
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         RobotMap.firingSpeedController7.set(-1);
-        //TODO Shoot command should have some short delay
-        //probably around .25-.5 seconds
+        //TODO Firing command should have some short delay
+        //probably around .25-.5 seconds, determine during testing
         
     }
 

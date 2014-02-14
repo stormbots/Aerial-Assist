@@ -24,11 +24,12 @@ public class ArmDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        //FIXME Figure out a good motor rate for lowering arm
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return false; //FIMXE Check return value for ArmDown function when we call it from a button
     }
 
     // Called once after isFinished returns true

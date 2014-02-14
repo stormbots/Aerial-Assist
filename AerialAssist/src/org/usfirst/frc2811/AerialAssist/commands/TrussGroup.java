@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TrussGroup extends CommandGroup {
     
     public TrussGroup() {
+        //TODO Add Truss command group
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
