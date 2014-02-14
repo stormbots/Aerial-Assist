@@ -21,11 +21,10 @@ public class AngleManager extends Subsystem {
     public static double rangeMagicNumber;
     public static AnalogChannel rangeFinderLeft = RobotMap.rangeFinder8;
     public static AnalogChannel rangeFinderRight = RobotMap.rangeFinder9;
-    //FIXME We don't need to read these variables, since this subsystem actually should e setting them.
-    double rangeLeft = RobotMap.range1;
-    double rangeRight = RobotMap.range2;
-    double trueRange = RobotMap.trueRange;
-    double distance = RobotMap.distance;
+    double rangeLeft;
+    double rangeRight ;
+    double trueRange ;
+    double distance ;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -35,11 +34,11 @@ public class AngleManager extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void getRange(){
+    public double getRange(){
         //Read the two rangefinder sensors
         rangeLeft = rangeFinderLeft.getAverageVoltage();
         rangeRight = rangeFinderRight.getAverageVoltage();
-                
+
          //finds larger value, sets trueRange to it.    
         if(rangeLeft>rangeRight){
             trueRange=rangeLeft;
@@ -50,16 +49,20 @@ public class AngleManager extends Subsystem {
         //Convert raw sensor reading into feet
         distance = Robot.map.Map(trueRange,RobotMap.rangeAt5,RobotMap.rangeAt10,5,10);
         
+
         
         //TODO Write the sensorvalues back to RobotMap so we can show them on the Driver Staion for testing
         
+
+        RobotMap.distance = distance;
+        return distance;
+
     }
     /**
      * Returns the angle needed to shoot a target at the current range
      */
     public double calculate(){
-        //FIXME Nowhere in the code does it call getRange or rangeManager
-        //We should make sure we use those to actually update our sensor values
+        
         
     //Leave this comment    
     //                 ___________________
@@ -67,6 +70,7 @@ public class AngleManager extends Subsystem {
     //              V
     // atan( V^2 -  -----------------------
     //                        gx            )
+        distance = getRange();
         double velocity = 35;//TODO need to get value (in FPS) (calibrate)
         double veloc2= velocity*velocity;// velocity squared
         double veloc4 = velocity*velocity*velocity*velocity;//velocity to the 4th power
