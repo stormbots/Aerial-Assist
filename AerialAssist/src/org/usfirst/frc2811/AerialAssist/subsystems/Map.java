@@ -15,14 +15,6 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  */
 public class Map extends Subsystem {
 
-    // int input = 0;
-      double minimum=33; //TODO Find correct input ranges for claw sensor Calibrate
-      double maximum=300; 
-      double outputMin=0;
-      double outputMax=1024; 
-        
-
-
      public void initDefaultCommand() {
     }
 
