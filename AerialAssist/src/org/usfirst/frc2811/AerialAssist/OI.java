@@ -13,6 +13,8 @@ package org.usfirst.frc2811.AerialAssist;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
+import org.usfirst.frc2811.AerialAssist.commands.*;
+//*
 import org.usfirst.frc2811.AerialAssist.commands.ArmDown;
 import org.usfirst.frc2811.AerialAssist.commands.ArmUp;
 import org.usfirst.frc2811.AerialAssist.commands.PuntSystem;
@@ -21,24 +23,31 @@ import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 import org.usfirst.frc2811.AerialAssist.commands.TrussGroup;
 import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
+//*/
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-
-    public JoystickButton truss1;
-    public JoystickButton shift2;
-    public JoystickButton spitBall3; 
-    public JoystickButton suckBall4;
-    public JoystickButton punt5;
-    public JoystickButton shoot6;
-    public JoystickButton aimDown7;
-    public JoystickButton aimUp8;
-    public JoystickButton b9;
-    public JoystickButton manual10;
-    public JoystickButton b11;
+    
+    /*
+    Do not name variables based on physical aspects of the system. This is
+    bad form, as ell as introducing errors, and making code hard to read. We want
+    to deal with the "real world" in only a single place, which is when we
+    assign buttons, and only then.
+    */
+    public JoystickButton truss;
+    public JoystickButton shift;
+    public JoystickButton spitBall; 
+    public JoystickButton suckBall;
+    public JoystickButton punt;
+    public JoystickButton shoot;
+    public JoystickButton aimDown;
+    public JoystickButton aimUp;
+    //public JoystickButton b9;//not yet used
+    public JoystickButton manual;
+    //public JoystickButton b11;//not yet used
     
     public static int FORE_BACK_STICK;//joystick for controlling robot in freedom
     public static final int FORE_BACK_STICK_CONTROLLER = 3;
@@ -50,29 +59,34 @@ public class OI {
     public OI() {
         
        joystick1 = new Joystick(1);
-        
-       truss1 = new JoystickButton(joystick1, 1);
-       shift2 = new JoystickButton(joystick1, 2);
-       spitBall3 = new JoystickButton(joystick1, 3);
-       suckBall4 = new JoystickButton(joystick1, 3);
-       punt5 = new JoystickButton(joystick1, 5);
-       shoot6 = new JoystickButton(joystick1, 6);
-       aimDown7 = new JoystickButton(joystick1, 7);
-       aimUp8 = new JoystickButton(joystick1, 8);
-       b9 = new JoystickButton(joystick1, 9);
-       manual10 = new JoystickButton(joystick1, 10);
+        /*
+        Do not name variables based on physical aspects of the system. This is
+        bad form, as ell as introducing errors, and making code hard to read. We want
+        to deal with the "real world" in only a single place, which is when we
+        assign buttons, and only then.
+        */
+       truss = new JoystickButton(joystick1, 1);
+       shift = new JoystickButton(joystick1, 2);
+       spitBall = new JoystickButton(joystick1, 3);
+       suckBall = new JoystickButton(joystick1, 3);
+       punt = new JoystickButton(joystick1, 5);
+       shoot = new JoystickButton(joystick1, 6);
+       aimDown = new JoystickButton(joystick1, 7);
+       aimUp = new JoystickButton(joystick1, 8);
+       //b9 = new JoystickButton(joystick1, 9); //not used
+       manual = new JoystickButton(joystick1, 10); //enable/disable auto-aiming
        
-       truss1.whenReleased(new TrussGroup());
-       shift2.whenReleased(new ShiftGear());
-       spitBall3.whenReleased(new UnLoad());
-       suckBall4.whenReleased(new ReLoad());
-       punt5.whenReleased(new PuntSystem());
-       shoot6.whenReleased(new ShootingSequence());
-       aimDown7.whenReleased(new ArmDown());
-       aimUp8.whenReleased(new ArmUp());
-       b9.whenReleased(null);
-       manual10.whenReleased(null);
-       b11.whenReleased(null);
+       
+       truss.whenReleased(new TrussGroup());
+       shift.whenReleased(new ShiftGear());
+       spitBall.whenReleased(new UnLoad());
+       suckBall.whenReleased(new ReLoad());
+       punt.whenReleased(new PuntSystem());
+       shoot.whenReleased(new ShootingSequence());
+       aimDown.whenReleased(new ArmDown());
+       aimUp.whenReleased(new ArmUp());
+       //b9.whenReleased(null);    //not used
+       manual.whenReleased(null);//FIXME add toggle for auto aiming
        
     }
         

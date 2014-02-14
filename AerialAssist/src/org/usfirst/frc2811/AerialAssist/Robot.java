@@ -96,7 +96,10 @@ public class Robot extends IterativeRobot {
         RobotMap.chassisSpeedController1.set(50);
         RobotMap.chassisSpeedController2.set(50);
         Timer.delay(3);
-        RobotMap.Fire.start();
+        //FIXME Autonomous mode attempts to call Fire command, which we do not have. 
+        //Instead, call ShootingSequence
+        //RobotMap.Fire.start();
+        
     }
 
     public void teleopInit() {
@@ -117,8 +120,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        
-        
+        //TODO Add more information to to the Driver Screen !:D 
            DriverStationLCD.getInstance().println(Line.kUser1, 1, "Motor Temperatures:" + " ");
            DriverStationLCD.getInstance().println(Line.kUser2, 1, "Motor 1 = " + RobotMap.temp2.getValue() + " ");
            DriverStationLCD.getInstance().println(Line.kUser3, 1, "Motor 2 = " + RobotMap.temp3.getValue() + " ");
