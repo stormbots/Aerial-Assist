@@ -93,6 +93,10 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        RobotMap.chassisSpeedController1.set(50);
+        RobotMap.chassisSpeedController2.set(50);
+        Timer.delay(3);
+        RobotMap.Fire.start();
     }
 
     public void teleopInit() {

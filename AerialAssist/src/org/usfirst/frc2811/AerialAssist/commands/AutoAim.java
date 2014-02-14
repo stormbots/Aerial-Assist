@@ -10,6 +10,7 @@ import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 import org.usfirst.frc2811.AerialAssist.Robot;
 
+
 /**
  * This function sets the target angle, and then completes when the PID system
  * has reached it's target
@@ -19,9 +20,9 @@ public class AutoAim extends Command {
       double angle;
     
     public AutoAim() {
-        
+        requires(Robot.angleManager);
         // Use requires() here to declare subsystem dependencies
-         requires(Robot.angleManager);
+        
     }
 
     // Called just before this Command runs the first time

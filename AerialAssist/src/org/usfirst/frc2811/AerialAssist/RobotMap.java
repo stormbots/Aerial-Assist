@@ -17,6 +17,12 @@ import edu.wpi.first.wpilibj.Encoder;
 //This import is being bothersome, fixed by forcing Encoder.PIDSourceParameter instead of PIDSourceparameter
 //import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc2811.AerialAssist.commands.OpenClaw;
+import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
+import org.usfirst.frc2811.AerialAssist.subsystems.AngleManager;
 
 
 /**
@@ -50,7 +56,7 @@ public class RobotMap {
     //Temperature Monitors  
     public static AnalogChannel temp1;
     public static AnalogChannel temp2;
-    public static AnalogChannel temp3;;
+    public static AnalogChannel temp3;
     //add temps as needed
 
     //MISC
@@ -59,8 +65,10 @@ public class RobotMap {
     
     
     
-    
-    
+     public static Command openClaw = new OpenClaw();
+     public static CommandGroup Fire = new ShootingSequence();
+     public static Subsystem Angle = new AngleManager();
+     
     
     public static int largerValue;
     public static boolean reloadedState;
@@ -132,7 +140,7 @@ public class RobotMap {
         temp2 = new AnalogChannel(1,5);
         temp3 = new AnalogChannel(1,6);
         
-        
+        clawsolenoid = new Solenoid(1,3);
         
         
         shooterQuadratureEncoder2 = new Encoder(1, 2, 1, 3, false, EncodingType.k4X);
