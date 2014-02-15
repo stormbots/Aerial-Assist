@@ -90,16 +90,17 @@ public class RobotMap {
         DECLARE PWM OUTPUTS (in order, please)
         */
         chassisSpeedController1 = new Jaguar(1, 1);
-	//LiveWindow.addActuator("Chassis", "Speed Controller 1", (Talon) chassisSpeedController1);
-        
         chassisSpeedController2 = new Jaguar(1, 2);
-	//LiveWindow.addActuator("Chassis", "Speed Controller 2", (Talon) chassisSpeedController2);
-        
         chassisSpeedController3 = new Jaguar(1, 3);
-	//LiveWindow.addActuator("Chassis", "Speed Controller 3", (Talon) chassisSpeedController3);
-        
         chassisSpeedController4 = new Jaguar(1, 4);
-	//LiveWindow.addActuator("Chassis", "Speed Controller 4", (Talon) chassisSpeedController4);
+        chassisRobotDrive41 = new RobotDrive(chassisSpeedController1, chassisSpeedController2,
+        chassisSpeedController3, chassisSpeedController4);
+        chassisRobotDrive41.setSafetyEnabled(true); //FIXME: We need to test with safety enabled and proper values
+        chassisRobotDrive41.setExpiration(0.1);
+        chassisRobotDrive41.setSensitivity(0.5);
+        chassisRobotDrive41.setMaxOutput(1.0);
+        
+        
         
         rollersSpeedController5 =  new Jaguar(1,7);
 	//LiveWindow.addSensor("Lifter", "Potentiometer 1", lifterPotentiometer1);
@@ -110,13 +111,7 @@ public class RobotMap {
         firingSpeedController7 = new Jaguar(1,5);
        // LiveWindow.addActuator("Firing", "Speed Controller 7", (Talon) firingSpeedController7);
 
-        chassisRobotDrive41 = new RobotDrive(chassisSpeedController1, chassisSpeedController2,
-              chassisSpeedController3, chassisSpeedController4);
-	
-        chassisRobotDrive41.setSafetyEnabled(true); //FIXME: We need to test with safety enabled and proper values
-        chassisRobotDrive41.setExpiration(0.1);
-        chassisRobotDrive41.setSensitivity(0.5);
-        chassisRobotDrive41.setMaxOutput(1.0);
+        
 
         /*
         DECLARE ANALOG SENSORS (in order, please)
