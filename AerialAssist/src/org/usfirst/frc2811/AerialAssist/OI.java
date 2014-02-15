@@ -13,6 +13,7 @@ package org.usfirst.frc2811.AerialAssist;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
+import org.usfirst.frc2811.AerialAssist.commands.AimToggle;
 import org.usfirst.frc2811.AerialAssist.commands.ArmDown;
 import org.usfirst.frc2811.AerialAssist.commands.ArmUp;
 import org.usfirst.frc2811.AerialAssist.commands.PuntSystem;
@@ -72,7 +73,8 @@ public class OI {
        aimDown.whileHeld(new ArmDown()); 
        aimUp.whileHeld(new ArmUp());
        //b9.whenReleased(null);    //not assigned
-       manual.whenReleased(null);//TODO Add Toggle
+       manual.whenReleased(new AimToggle());//TODO Add Toggle
+       //b11.whenReleased(null; //not assigned
        
     }
         
