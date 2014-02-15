@@ -40,9 +40,9 @@ public class RobotMap {
     public static Solenoid gearShifter3;
     //CLAW
     public static Solenoid clawsolenoid;
-    public static SpeedController rollersSpeedController5;
+    public static SpeedController rollersSpeedController;
     public static AnalogChannel lifterPotentiometer1;
-    public static SpeedController lifterSpeedController6;
+    public static SpeedController lifterSpeedController;
     public static Encoder somesuchi5;
     public static Encoder somesuchi6;
     //SHOOTING
@@ -50,7 +50,9 @@ public class RobotMap {
     public static AnalogChannel rangeFinder9;
     public static AnalogChannel rangeFinderClaw;
     
-    public static SpeedController firingSpeedController7;
+    public static DigitalInput inPosition;
+    
+    public static SpeedController firingSpeedController;
     public static Encoder shooterQuadratureEncoder2;
     public static Solenoid punter4;
     public static Solenoid claw3;
@@ -60,7 +62,8 @@ public class RobotMap {
     //add temps as needed
 
     //MISC
-    public static Compressor Compressor1;
+    public static DigitalInput compin;
+    public static Relay compout;
     
     
     public static int largerValue;
@@ -103,17 +106,17 @@ public class RobotMap {
         
         
         
-        rollersSpeedController5 =  new Jaguar(1,7);
+        rollersSpeedController =  new Jaguar(1,7);
 	//LiveWindow.addSensor("Lifter", "Potentiometer 1", lifterPotentiometer1);
 
-        lifterSpeedController6 = new Jaguar(1, 6);
+        lifterSpeedController = new Jaguar(1, 6);
 	//LiveWindow.addActuator("Rollers", "Speed Controller 6", (Talon) rollersSpeedController6);
         
-        firingSpeedController7 = new Jaguar(1,5);
+        firingSpeedController = new Jaguar(1,5);
        // LiveWindow.addActuator("Firing", "Speed Controller 7", (Talon) firingSpeedController7);
 
         
-
+       
         /*
         DECLARE ANALOG SENSORS (in order, please)
         */
@@ -139,12 +142,15 @@ public class RobotMap {
         gearShifter3 = new Solenoid(1,1);
         punter4 = new Solenoid(1,2);
         claw3 = new Solenoid(1,3);
-        clawsolenoid = new Solenoid(1,4);
         
         //Digital IO Ports
         somesuchi5 = new Encoder(1, 1, 1, 2, false);//, EncodingType.k4X);
         somesuchi5.start();
         somesuchi6 = new Encoder(1, 8, 1, 9, false);//, EncodingType.k4X);
         somesuchi6.start();
+        inPosition = new DigitalInput(1,10);
+        compin = new DigitalInput(1,14);
+        compout = new Relay(7);
+        
     }
 }

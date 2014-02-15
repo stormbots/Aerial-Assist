@@ -4,51 +4,45 @@
  * and open the template in the editor.
  */
 package org.usfirst.frc2811.AerialAssist.commands;
-
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc2811.AerialAssist.OI;
-import org.usfirst.frc2811.AerialAssist.Robot;
+import edu.wpi.first.wpilibj.DigitalInput;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.Robot;
 
-/**
- * Handles advancing the cam to launch the ball
- * @author Kelson
+/** 
+ * Handles pulling back the primary firing mechanism and checking 
+ * sensors to determine completion
+ * @author austin
  */
-public class Shoot extends Command{
-    public static double timeOut;
-    public Shoot(double time) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+public class Shoot extends Command {
+        DigitalInput snesor = RobotMap.inPosition;
+        boolean prevsensor = true;
+    
+    public Shoot() {
         requires(Robot.shooter);
-        timeOut = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        this.setTimeout(timeOut);
-        RobotMap.firingSpeedController7.set(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.firingSpeedController7.set(-.25);
-        
-        //TODO Firing command should have some short delay
-        //probably around .25-.5 seconds, determine during testing
-        
+        prevsensor = snesor.get();
+                
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return (prevsensor == true && snesor.get() == false);
+        //TODO Add switch compatability
+        
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        System.out.println("Fired");
-        RobotMap.shootPrint = "Fired";
-        RobotMap.firingSpeedController7.set(0);
+        // Stop motors
+        //RobotMap.firingSpeedController7.set(0);
     }
 
     // Called when another command which requires one or more of the same

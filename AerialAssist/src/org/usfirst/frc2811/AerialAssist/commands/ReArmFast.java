@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package org.usfirst.frc2811.AerialAssist.commands;
+import edu.wpi.first.wpilibj.DigitalInput;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
@@ -14,12 +15,11 @@ import org.usfirst.frc2811.AerialAssist.Robot;
  * @author austin
  */
 public class ReArmFast extends Command {
+        DigitalInput snesor = RobotMap.inPosition;
+        boolean prevsensor = true;
     
     public ReArmFast() {
         requires(Robot.shooter);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        
     }
 
     // Called just before this Command runs the first time
@@ -28,22 +28,19 @@ public class ReArmFast extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        // set motors in motion
-        //RobotMap.firingSpeedController7.set(.5);
+        prevsensor = snesor.get();
                 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return (prevsensor == true && snesor.get() == false);
         //TODO Add switch compatability
         
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        System.out.println("Fast ReArm Done");
-        RobotMap.shootPrint = "Fast ReArm Done";
         // Stop motors
         //RobotMap.firingSpeedController7.set(0);
     }
