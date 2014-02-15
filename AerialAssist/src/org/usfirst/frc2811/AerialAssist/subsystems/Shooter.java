@@ -18,7 +18,7 @@ import org.usfirst.frc2811.AerialAssist.commands.Shoot;
  */
 public class Shooter extends PIDSubsystem {
 
-    SpeedController DriveMotor1 = RobotMap.lifterSpeedController5;
+    SpeedController DriveMotor1 = RobotMap.lifterSpeedController6;
     Encoder input = RobotMap.somesuchi6;
     Encoder output = RobotMap.somesuchi5;
     private double newrate;

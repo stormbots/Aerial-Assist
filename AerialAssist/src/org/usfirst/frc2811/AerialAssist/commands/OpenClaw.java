@@ -23,14 +23,15 @@ public class OpenClaw extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("OpenClaw");
         //Don't run this inside of itself
        // RobotMap.openClaw.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.clawsolenoid.set(false);//FIXME is OpenClaw solenoid true or false???
-         Timer.delay(1);
+        //RobotMap.clawsolenoid.set(false);//FIXME is OpenClaw solenoid true or false???
+        //Timer.delay(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

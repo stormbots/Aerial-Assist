@@ -41,9 +41,9 @@ public class RobotMap {
     public static Solenoid gearShifter3;
     //CLAW
     public static Solenoid clawsolenoid;
-    public static SpeedController lifterSpeedController5;
+    public static SpeedController rollersSpeedController5;
     public static AnalogChannel lifterPotentiometer1; //FIXME Potential merge issue
-    public static SpeedController rollersSpeedController6;
+    public static SpeedController lifterSpeedController6;
     public static Encoder somesuchi5;
     public static Encoder somesuchi6;
     //SHOOTING
@@ -91,31 +91,31 @@ public class RobotMap {
         /*
         DECLARE PWM OUTPUTS (in order, please)
         */
-        chassisSpeedController1 = new Talon(1, 1);
+        chassisSpeedController1 = new Jaguar(1, 1);
 	//LiveWindow.addActuator("Chassis", "Speed Controller 1", (Talon) chassisSpeedController1);
         
-        chassisSpeedController2 = new Talon(1, 2);
+        chassisSpeedController2 = new Jaguar(1, 2);
 	//LiveWindow.addActuator("Chassis", "Speed Controller 2", (Talon) chassisSpeedController2);
         
-        chassisSpeedController3 = new Talon(1, 3);
+        chassisSpeedController3 = new Jaguar(1, 3);
 	//LiveWindow.addActuator("Chassis", "Speed Controller 3", (Talon) chassisSpeedController3);
         
-        chassisSpeedController4 = new Talon(1, 4);
+        chassisSpeedController4 = new Jaguar(1, 4);
 	//LiveWindow.addActuator("Chassis", "Speed Controller 4", (Talon) chassisSpeedController4);
         
-        lifterSpeedController5 =  new Talon(1,5);
+        rollersSpeedController5 =  new Jaguar(1,7);
 	//LiveWindow.addSensor("Lifter", "Potentiometer 1", lifterPotentiometer1);
 
-        rollersSpeedController6 = new Talon(1, 6);
+        lifterSpeedController6 = new Jaguar(1, 6);
 	//LiveWindow.addActuator("Rollers", "Speed Controller 6", (Talon) rollersSpeedController6);
         
-        firingSpeedController7 = new Talon(1,7);
+        firingSpeedController7 = new Jaguar(1,5);
        // LiveWindow.addActuator("Firing", "Speed Controller 7", (Talon) firingSpeedController7);
 
         chassisRobotDrive41 = new RobotDrive(chassisSpeedController1, chassisSpeedController2,
               chassisSpeedController3, chassisSpeedController4);
 	
-        chassisRobotDrive41.setSafetyEnabled(false); //FIXME: We need to test with safety enabled and proper values
+        chassisRobotDrive41.setSafetyEnabled(true); //FIXME: We need to test with safety enabled and proper values
         chassisRobotDrive41.setExpiration(0.1);
         chassisRobotDrive41.setSensitivity(0.5);
         chassisRobotDrive41.setMaxOutput(1.0);
@@ -145,6 +145,7 @@ public class RobotMap {
         gearShifter3 = new Solenoid(1,1);
         punter4 = new Solenoid(1,2);
         claw3 = new Solenoid(1,3);
+        clawsolenoid = new Solenoid(1,4);
         
         //Digital IO Ports
         somesuchi5 = new Encoder(1, 1, 1, 2, false);//, EncodingType.k4X);

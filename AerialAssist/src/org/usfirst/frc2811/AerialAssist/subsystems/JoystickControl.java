@@ -29,7 +29,7 @@ public class JoystickControl extends Subsystem {
             RobotMap.chassisSpeedController2.set(OI.joystick1.getRawAxis(1)); 
             RobotMap.chassisSpeedController3.set(OI.joystick1.getRawAxis(2)); 
             RobotMap.chassisSpeedController4.set(OI.joystick1.getRawAxis(2)); 
-            System.out.println("Joystick enabled, Step on it!");
+            //System.out.println("Joystick enabled, Step on it!");
             
         }
         else{
@@ -37,7 +37,7 @@ public class JoystickControl extends Subsystem {
             RobotMap.chassisSpeedController2.set(0); 
             RobotMap.chassisSpeedController3.set(0); 
             RobotMap.chassisSpeedController4.set(0);
-            System.out.println("Joystick disabled; you'll mess up the shot!!");
+            //System.out.println("Joystick disabled; you'll mess up the shot!!");
        }
     }
     

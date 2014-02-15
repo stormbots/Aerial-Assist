@@ -30,11 +30,13 @@ public class ReLoad extends Command {
         
     protected void execute() {
         
-        if(RobotMap.rollerState==0){
-            RobotMap.rollerState=-1;
+        if(RobotMap.rollerState==-1){
+            RobotMap.rollerState=0;
+            Robot.rollers.Off();
         }
         else{
-            RobotMap.rollerState=0;
+            RobotMap.rollerState=-1;
+            Robot.rollers.Suck();
         }
     }
 

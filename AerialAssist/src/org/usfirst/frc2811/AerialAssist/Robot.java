@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import org.usfirst.frc2811.AerialAssist.commands.*;
 import org.usfirst.frc2811.AerialAssist.subsystems.*;
 
@@ -93,8 +94,10 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
+        System.out.println("Autonomous");
         Scheduler.getInstance().run();
         
+        //TODO Make forward go forward and shoot in autonomous, but only when robot is safe and testable
     }
 
     public void teleopInit() {
@@ -114,16 +117,15 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        
         //TODO Add more information to to the Driver Screen !:D 
            DriverStationLCD.getInstance().println(Line.kUser1, 1, "Motor Temperatures:" + " ");
            DriverStationLCD.getInstance().println(Line.kUser2, 1, "Range 1 = " + RobotMap.rangeFinder8.getAverageValue() + " ");
            DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range 2 = " + RobotMap.rangeFinder9.getAverageValue() + " ");
            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Auto Aim = " + OI.autoAimEnable + " ");
+           DriverStationLCD.getInstance().println(Line.kUser5, 1, "Controls Enabled= " + OI.stickEngaged + " ");
            DriverStationLCD.getInstance().updateLCD();
-           System.out.print(RobotMap.rangeFinder8.getAverageValue());
-           System.out.print("\t");
-           System.out.println(RobotMap.rangeFinder9.getAverageValue());
+           //System.out.print("\t");
+           //System.out.println(RobotMap.rangeFinder9.getAverageValue());
  
         
         
