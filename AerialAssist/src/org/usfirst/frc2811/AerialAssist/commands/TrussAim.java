@@ -16,7 +16,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class TrussAim extends Command {
     
     public TrussAim() {
-        requires(Robot.angleManager);
+       // requires(Robot.shooter);
         requires(Robot.lifter);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
