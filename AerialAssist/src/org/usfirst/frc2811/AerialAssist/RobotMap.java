@@ -143,6 +143,7 @@ public class RobotMap {
         gearShifter3 = new Solenoid(1,1);
         punter4 = new Solenoid(1,2);
         claw3 = new Solenoid(1,3);
+        clawsolenoid = new Solenoid(1,4);
         
         //Digital IO Ports
         somesuchi5 = new Encoder(1, 1, 1, 2, false);//, EncodingType.k4X);
