@@ -40,9 +40,9 @@ public class RobotMap {
     public static Solenoid gearShifter3;
     //CLAW
     public static Solenoid clawsolenoid;
-    public static SpeedController lifterSpeedController5;
+    public static SpeedController rollersSpeedController5;
     public static AnalogChannel lifterPotentiometer1; //FIXME Potential merge issue
-    public static SpeedController rollersSpeedController6;
+    public static SpeedController lifterSpeedController6;
     public static Encoder somesuchi5;
     public static Encoder somesuchi6;
     //SHOOTING
@@ -101,19 +101,19 @@ public class RobotMap {
         chassisSpeedController4 = new Jaguar(1, 4);
 	//LiveWindow.addActuator("Chassis", "Speed Controller 4", (Talon) chassisSpeedController4);
         
-        lifterSpeedController5 =  new Jaguar(1,5);
+        rollersSpeedController5 =  new Jaguar(1,7);
 	//LiveWindow.addSensor("Lifter", "Potentiometer 1", lifterPotentiometer1);
 
-        rollersSpeedController6 = new Jaguar(1, 6);
+        lifterSpeedController6 = new Jaguar(1, 6);
 	//LiveWindow.addActuator("Rollers", "Speed Controller 6", (Talon) rollersSpeedController6);
         
-        firingSpeedController7 = new Jaguar(1,7);
+        firingSpeedController7 = new Jaguar(1,5);
        // LiveWindow.addActuator("Firing", "Speed Controller 7", (Talon) firingSpeedController7);
 
         chassisRobotDrive41 = new RobotDrive(chassisSpeedController1, chassisSpeedController2,
               chassisSpeedController3, chassisSpeedController4);
 	
-        chassisRobotDrive41.setSafetyEnabled(false); //FIXME: We need to test with safety enabled and proper values
+        chassisRobotDrive41.setSafetyEnabled(true); //FIXME: We need to test with safety enabled and proper values
         chassisRobotDrive41.setExpiration(0.1);
         chassisRobotDrive41.setSensitivity(0.5);
         chassisRobotDrive41.setMaxOutput(1.0);
