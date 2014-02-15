@@ -38,6 +38,17 @@ public class Rollers extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    public void Spit(){
+        RobotMap.rollersSpeedController5.set(.25);
+    }
+    
+    public void Suck(){
+        RobotMap.rollersSpeedController5.set(-.25);
+    }
+    
+    public void Off(){
+        RobotMap.rollersSpeedController5.set(0);
+    }
     //FIXME Rollers command is empty
    
     
