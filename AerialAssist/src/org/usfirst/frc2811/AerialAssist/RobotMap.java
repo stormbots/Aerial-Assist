@@ -41,7 +41,7 @@ public class RobotMap {
     //CLAW
     public static Solenoid clawsolenoid;
     public static SpeedController rollersSpeedController5;
-    public static AnalogChannel lifterPotentiometer1; //FIXME Potential merge issue
+    public static AnalogChannel lifterPotentiometer1;
     public static SpeedController lifterSpeedController6;
     public static Encoder somesuchi5;
     public static Encoder somesuchi6;

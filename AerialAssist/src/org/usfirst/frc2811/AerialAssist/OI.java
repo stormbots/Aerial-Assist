@@ -73,7 +73,7 @@ public class OI {
        aimDown.whileHeld(new ArmDown()); 
        aimUp.whileHeld(new ArmUp());
        //b9.whenReleased(null);    //not assigned
-       manual.whenReleased(new AimToggle());//TODO Add Toggle
+       manual.whenReleased(new AimToggle());
        //b11.whenReleased(null); //not assigned       
     }
         

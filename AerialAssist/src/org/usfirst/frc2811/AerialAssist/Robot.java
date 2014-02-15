@@ -122,12 +122,10 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         //TODO Add more information to to the Driver Screen !:D 
-           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Motor Temperatures:" + " ");
-           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Range 1 = " + RobotMap.rangeFinder8.getAverageValue() + " ");
-           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range 2 = " + RobotMap.rangeFinder9.getAverageValue() + " ");
-           DriverStationLCD.getInstance().println(Line.kUser4, 1, "Auto Aim = " + OI.autoAimEnable + " ");
-           DriverStationLCD.getInstance().println(Line.kUser5, 1, "Controls Enabled= " + OI.stickEngaged + " ");
-           DriverStationLCD.getInstance().println(Line.kUser6, 1, "Shooting State: " + RobotMap.shootPrint);
+           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
+           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Auto Aim = " + OI.autoAimEnable + " ");
+           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Controls Enabled= " + OI.stickEngaged + " ");
+           DriverStationLCD.getInstance().println(Line.kUser4, 1, "Shooting State: " + RobotMap.shootPrint);
            DriverStationLCD.getInstance().updateLCD();
            
            //System.out.print("\t");
