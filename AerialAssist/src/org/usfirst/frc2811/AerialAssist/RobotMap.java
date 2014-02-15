@@ -16,10 +16,8 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 //This import is being bothersome, fixed by forcing Encoder.PIDSourceParameter instead of PIDSourceparameter
 //import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.command.Subsystem;
+
+
 import org.usfirst.frc2811.AerialAssist.commands.OpenClaw;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 import org.usfirst.frc2811.AerialAssist.subsystems.AngleManager;
@@ -64,10 +62,7 @@ public class RobotMap {
     
     
     
-    
-     public static Command openClaw = new OpenClaw();
-     public static CommandGroup Fire = new ShootingSequence();
-     public static Subsystem Angle = new AngleManager();
+
      
     
     public static int largerValue;
@@ -109,10 +104,10 @@ public class RobotMap {
 	//LiveWindow.addActuator("Chassis", "Speed Controller 4", (Talon) chassisSpeedController4);
         
         rollersSpeedController6 = new Talon(1, 6);
-	LiveWindow.addActuator("Rollers", "Speed Controller 6", (Talon) rollersSpeedController6);
+	//LiveWindow.addActuator("Rollers", "Speed Controller 6", (Talon) rollersSpeedController6);
         
         firingSpeedController7 = new Talon(1,7);
-        LiveWindow.addActuator("Firing", "Speed Controller 7", (Talon) firingSpeedController7);
+       // LiveWindow.addActuator("Firing", "Speed Controller 7", (Talon) firingSpeedController7);
 
         chassisRobotDrive41 = new RobotDrive(chassisSpeedController1, chassisSpeedController2,
               chassisSpeedController3, chassisSpeedController4);

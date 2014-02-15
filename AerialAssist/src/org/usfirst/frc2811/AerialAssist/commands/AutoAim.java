@@ -20,7 +20,6 @@ public class AutoAim extends Command {
       double angle;
     
     public AutoAim() {
-        requires(Robot.angleManager);
         // Use requires() here to declare subsystem dependencies
         
     }
@@ -48,7 +47,7 @@ public class AutoAim extends Command {
         //TODO @kelson Make autoAim exit when PID.onTarget()==true
         //TODO Autoaim should always return true immediately if auto-aim is disabled
         //This is saved as OI.autoAimEnable currently
-        if(RobotMap.lifterPotentiometer1.getAverageVoltage()==angle){
+        if(true){
             return true;
         }
         else{

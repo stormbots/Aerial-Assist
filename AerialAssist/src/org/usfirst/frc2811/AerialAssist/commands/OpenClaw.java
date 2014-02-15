@@ -23,7 +23,8 @@ public class OpenClaw extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        RobotMap.openClaw.start();
+        //Don't run this inside of itself
+       // RobotMap.openClaw.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
