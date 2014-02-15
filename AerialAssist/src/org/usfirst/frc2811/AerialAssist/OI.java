@@ -12,6 +12,7 @@ package org.usfirst.frc2811.AerialAssist;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
+import org.usfirst.frc2811.AerialAssist.commands.AimToggle;
 import org.usfirst.frc2811.AerialAssist.commands.ArmDown;
 import org.usfirst.frc2811.AerialAssist.commands.ArmUp;
 import org.usfirst.frc2811.AerialAssist.commands.PuntSystem;
@@ -26,13 +27,7 @@ import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    
-    /*
-    Do not name variables based on physical aspects of the system. This is
-    bad form, as ell as introducing errors, and making code hard to read. We want
-    to deal with the "real world" in only a single place, which is when we
-    assign buttons, and only then.
-    */
+           
     public JoystickButton truss;
     public JoystickButton shift;
     public JoystickButton spitBall; 
@@ -55,35 +50,30 @@ public class OI {
     public OI() {
         
        joystick1 = new Joystick(1);
-        /*
-        Do not name variables based on physical aspects of the system. This is
-        bad form, as ell as introducing errors, and making code hard to read. We want
-        to deal with the "real world" in only a single place, which is when we
-        assign buttons, and only then.
-        */
+              
        truss = new JoystickButton(joystick1, 1);
        shift = new JoystickButton(joystick1, 2);
        spitBall = new JoystickButton(joystick1, 3);
-       suckBall = new JoystickButton(joystick1, 9); //FIXME Two functions assigned to this button
+       suckBall = new JoystickButton(joystick1, 4);
        punt = new JoystickButton(joystick1, 5);
        shoot = new JoystickButton(joystick1, 6);
        aimDown = new JoystickButton(joystick1, 7);
        aimUp = new JoystickButton(joystick1, 8);
        //b9 = new JoystickButton(joystick1, 9); //not assigned
        manual = new JoystickButton(joystick1, 10); //enable/disable auto-aiming
-       
-       
+       //b11 = new JoystickButton(joystick1, 11); //not assigned
+              
        truss.whenReleased(new TrussGroup());
        shift.whenReleased(new ShiftGear());
        spitBall.whenReleased(new UnLoad());
        suckBall.whenReleased(new ReLoad());
        punt.whenReleased(new PuntSystem());
        shoot.whenReleased(new ShootingSequence()); 
-       aimDown.whenReleased(new ArmDown()); //FIXME We probably want when on held
-       aimUp.whenReleased(new ArmUp());     //FIXME We probably want when held
+       aimDown.whileHeld(new ArmDown()); 
+       aimUp.whileHeld(new ArmUp());
        //b9.whenReleased(null);    //not assigned
-       //manual.whenReleased(null);//FIXME add toggle for auto aiming
-       
+       manual.whenReleased(new AimToggle());//TODO Add Toggle
+       //b11.whenReleased(null; //not assigned       
     }
         
     public Joystick getJoystick1() {

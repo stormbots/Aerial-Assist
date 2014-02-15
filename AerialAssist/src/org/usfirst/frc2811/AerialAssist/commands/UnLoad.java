@@ -6,6 +6,8 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.Robot;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
@@ -14,6 +16,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class UnLoad extends Command {
     
     public UnLoad() {
+        requires(Robot.rollers);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -22,14 +25,19 @@ public class UnLoad extends Command {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //TODO Unload Ball is empty
+        
+        if(RobotMap.rollerState==0){
+            RobotMap.rollerState=1;
+        }
+        else{
+            RobotMap.rollerState=0;
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

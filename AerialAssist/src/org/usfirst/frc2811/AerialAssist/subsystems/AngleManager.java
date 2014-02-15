@@ -38,9 +38,8 @@ public class AngleManager extends Subsystem {
         //Read the two rangefinder sensors
         rangeLeft = rangeFinderLeft.getAverageVoltage();
         rangeRight = rangeFinderRight.getAverageVoltage();
-        
-        
-         //finds larger value, sets trueRange to it.    
+
+        //finds larger value, sets trueRange to it.    
         if(rangeLeft>rangeRight){
             trueRange=rangeLeft;
         }
@@ -50,6 +49,7 @@ public class AngleManager extends Subsystem {
         //Convert raw sensor reading into feet
         distance = Robot.map.Map(trueRange,RobotMap.rangeAt5,RobotMap.rangeAt10,5,10);
         
+        //TODO Write the sensorvalues back to RobotMap so we can show them on the Driver Staion for testing
         RobotMap.distance = distance;
         return distance;
     }

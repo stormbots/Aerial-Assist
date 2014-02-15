@@ -93,13 +93,11 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        //RobotMap.ShootingSequence.start();
+        Timer.delay(1);
         RobotMap.chassisSpeedController1.set(50);
         RobotMap.chassisSpeedController2.set(50);
         Timer.delay(3);
-        //FIXME Autonomous mode attempts to call Fire command, which we do not have. 
-        //Instead, call ShootingSequence
-        //RobotMap.Fire.start();
-        
     }
 
     public void teleopInit() {
