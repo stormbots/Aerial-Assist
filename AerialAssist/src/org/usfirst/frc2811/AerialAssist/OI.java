@@ -82,7 +82,7 @@ public class OI {
        aimDown.whenReleased(new ArmDown()); //FIXME We probably want when on held
        aimUp.whenReleased(new ArmUp());     //FIXME We probably want when held
        //b9.whenReleased(null);    //not assigned
-       manual.whenReleased(null);//FIXME add toggle for auto aiming
+       //manual.whenReleased(null);//FIXME add toggle for auto aiming
        
     }
         
