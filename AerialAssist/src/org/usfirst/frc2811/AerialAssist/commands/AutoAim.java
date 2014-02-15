@@ -17,16 +17,20 @@ import org.usfirst.frc2811.AerialAssist.Robot;
  * @author 2811
  */
 public class AutoAim extends Command {
-      double angle;
-    
+    double angle;
+    double internal;
+
     public AutoAim() {
         // Use requires() here to declare subsystem dependencies
-        
+        internal = 8;//TODO Figure out if we need timeout on our AutoAim
+
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         System.out.println("AutoAim");
+        this.setTimeout(internal);
+
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -43,6 +47,9 @@ public class AutoAim extends Command {
         if(OI.autoAimEnable==true){
             return Robot.lifter2.getOnTarget();
         }
+        else if(this.isTimedOut()){// check if timed out
+            return true; //TODO Possibly alert other functions if robot times out
+        }    
         else{
             return true;
         }
