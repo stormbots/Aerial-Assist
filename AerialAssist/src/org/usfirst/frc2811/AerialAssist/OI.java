@@ -73,7 +73,7 @@ public class OI {
        aimUp.whileHeld(new ArmUp());
        //b9.whenReleased(null);    //not assigned
        manual.whenReleased(new AimToggle());//TODO Add Toggle
-       //b11.whenReleased(null; //not assigned       
+       //b11.whenReleased(null); //not assigned       
     }
         
     public Joystick getJoystick1() {

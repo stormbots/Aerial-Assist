@@ -43,6 +43,8 @@ public class RobotMap {
     public static SpeedController lifterSpeedController5;
     public static AnalogChannel lifterPotentiometer1; //FIXME Potential merge issue
     public static SpeedController rollersSpeedController6;
+    public static Encoder somesuchi5;
+    public static Encoder somesuchi6;
     //SHOOTING
     public static AnalogChannel rangeFinder8;
     public static AnalogChannel rangeFinder9;
@@ -71,8 +73,6 @@ public class RobotMap {
     public static double clawRange;
     public static double shootingAngle;
     public static boolean aimedState;
-    public static Encoder somesuchi5;
-    public static Encoder somesuchi6;
     public static double rangeAt5;//TODO Calibrate
     public static double rangeAt10;//TODO Calibrate
     public static int rollerState;
@@ -101,6 +101,9 @@ public class RobotMap {
         chassisSpeedController4 = new Talon(1, 4);
 	//LiveWindow.addActuator("Chassis", "Speed Controller 4", (Talon) chassisSpeedController4);
         
+        lifterSpeedController5 =  new Talon(1,5);
+	//LiveWindow.addSensor("Lifter", "Potentiometer 1", lifterPotentiometer1);
+
         rollersSpeedController6 = new Talon(1, 6);
 	//LiveWindow.addActuator("Rollers", "Speed Controller 6", (Talon) rollersSpeedController6);
         
@@ -120,8 +123,6 @@ public class RobotMap {
         */
         
         lifterPotentiometer1 = new AnalogChannel(1, 1);
-        lifterSpeedController5 =  new Talon(1,5);
-	//LiveWindow.addSensor("Lifter", "Potentiometer 1", lifterPotentiometer1);
         
         rangeFinderClaw= new AnalogChannel(1,2);
         
@@ -143,6 +144,7 @@ public class RobotMap {
         punter4 = new Solenoid(1,2);
         claw3 = new Solenoid(1,3);
         
+        //Digital IO Ports
         somesuchi5 = new Encoder(1, 1, 1, 2, false);//, EncodingType.k4X);
         somesuchi5.start();
         somesuchi6 = new Encoder(1, 8, 1, 9, false);//, EncodingType.k4X);

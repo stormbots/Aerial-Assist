@@ -6,7 +6,6 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /** 
  * 
@@ -22,7 +21,7 @@ public class ShootingSequence extends CommandGroup {
     //rearm && close claw
         public ShootingSequence() {
         //RobotMap.openClaw.start(); //Causes Robots don't quit
-        //Should be this.addSequential(new ClawOpen());
+        this.addSequential(new OpenClaw());
         System.out.println("Claw Open");
         this.addSequential(new AutoAim());
         System.out.println("Aimed");

@@ -17,7 +17,7 @@ public class TrussAim extends Command {
     
     public TrussAim() {
        // requires(Robot.shooter);
-        requires(Robot.lifter);
+        requires(Robot.lifter2);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

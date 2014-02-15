@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
+import org.usfirst.frc2811.AerialAssist.commands.Shoot;
 
 /**
  *
@@ -33,6 +34,7 @@ public class Shooter extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
+        setDefaultCommand(new Shoot());
         // Set the default command for a subsystem here.
       //  setDefaultCommand(new Command3());
     }
@@ -47,4 +49,5 @@ public class Shooter extends PIDSubsystem {
     }
     public void setspeed(double rate) {
         newrate = -rate;
+    }
 }

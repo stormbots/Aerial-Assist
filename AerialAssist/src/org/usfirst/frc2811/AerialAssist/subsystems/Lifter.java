@@ -74,7 +74,7 @@ public class Lifter extends PIDSubsystem {
         // e.g. yourMotor.set(output);
 	//todo KELSON add second motor for PID, and add control of crank
         speedController5.pidWrite(output);
-        Robot.shooter.follow(output);
+        //Robot.shooter.follow(output);//FIXME Kelson, we need to set up the follow correctly
     }
     
     
