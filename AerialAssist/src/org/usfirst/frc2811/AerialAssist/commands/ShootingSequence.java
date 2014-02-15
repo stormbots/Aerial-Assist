@@ -24,14 +24,19 @@ public class ShootingSequence extends CommandGroup {
         System.out.println("ShootingSequence");
         RobotMap.shootPrint = "Shooting Sequence Started";
         //RobotMap.openClaw.start(); //Causes Robots don't quit
+        this.addSequential(new AutoAim());       
+        this.addSequential(new JoystickDisable());        
         this.addSequential(new OpenClaw());
-        this.addSequential(new AutoAim());
-        this.addSequential(new JoystickDisable());
+        this.addSequential(new Wait(2));
         this.addSequential(new Shoot(2));
+        this.addSequential(new Wait(2));
         this.addSequential(new JoystickEnable());
         this.addSequential(new ReArmFast());
+        this.addSequential(new Wait(2));
         this.addSequential(new ReArmSlow());
+        this.addSequential(new Wait(2));
         this.addSequential(new CloseClaw());
+        this.addSequential(new Wait(2));
            
         //TODO Add LCD Printouts
     }
