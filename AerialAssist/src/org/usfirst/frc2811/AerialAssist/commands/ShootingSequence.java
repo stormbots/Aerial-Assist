@@ -27,16 +27,27 @@ public class ShootingSequence extends CommandGroup {
         this.addSequential(new AutoAim());       
         this.addSequential(new JoystickDisable());        
         this.addSequential(new OpenClaw());
+//<<<<<<< HEAD
         this.addSequential(new Wait(.5));
-        this.addSequential(new Shoot(0));
+        this.addSequential(new Shoot());
         this.addSequential(new Wait(.5));
         this.addSequential(new JoystickEnable());
         this.addSequential(new SetToZero());
                 //TODO set to zero before reload
         
         this.addSequential(new ReArmFast());
+        //this.addSequential(new Wait(2));
+        //this.addSequential(new ReArmSlow());
+/*=======
         this.addSequential(new Wait(2));
-        this.addSequential(new ReArmSlow());
+        this.addParallel(new Shoot());
+        this.addSequential(new Wait(2));
+        this.addSequential(new JoystickEnable());
+       // this.addSequential(new ReArmFast());
+       // this.addSequential(new Wait(2));
+       // this.addSequential(new ReArmFast());
+>>>>>>> some random stuff idk
+*/
         this.addSequential(new Wait(2));
         this.addSequential(new CloseClaw());
         this.addSequential(new Wait(2));
