@@ -27,7 +27,8 @@ import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-           
+    
+    public static Joystick joystick1;
     public JoystickButton truss;
     public JoystickButton shift;
     public JoystickButton spitBall; 
@@ -80,13 +81,13 @@ public class OI {
         return joystick1;
     }
     
-    public static Joystick joystick1 = new Joystick(1);
+   
       
-    public static boolean stickEngaged;
-    public static boolean armed;
+    public static boolean stickEngaged=true;
+    public static boolean armed=true;
     public static boolean shootMotors;
-    public static boolean punchActive;
-    public static boolean autoAimEnable;
+    public static boolean punchActive=false;
+    public static boolean autoAimEnable=true;
         
 }
 

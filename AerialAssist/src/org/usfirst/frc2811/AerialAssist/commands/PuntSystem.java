@@ -16,6 +16,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class PuntSystem extends CommandGroup {
     
     public PuntSystem() {
+        System.out.println("PuntSystem");
         if (RobotMap.puntedState==false){
             RobotMap.puntedState=true;
             this.addSequential(new Punt(true));
