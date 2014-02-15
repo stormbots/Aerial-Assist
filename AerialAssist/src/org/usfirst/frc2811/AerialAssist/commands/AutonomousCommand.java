@@ -11,8 +11,10 @@
 
 package org.usfirst.frc2811.AerialAssist.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  * Obviously, runs during autonomous . 
@@ -36,11 +38,17 @@ public class  AutonomousCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        RobotMap.chassisSpeedController1.set(50);
+        RobotMap.chassisSpeedController2.set(50);
+        Timer.delay(3);
+        RobotMap.Fire.start();
+        System.out.println("Autonomous Executed!");
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;//FIXME Make sure autonomous returns properly
+        return true;//FIXME Make sure autonomous returns properly
     }
 
     // Called once after isFinished returns true

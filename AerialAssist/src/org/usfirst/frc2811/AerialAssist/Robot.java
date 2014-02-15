@@ -94,12 +94,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        //RobotMap.ShootingSequence.start();
-        Timer.delay(1);
-        //TODO Make forward go forward and shoot in autonomous, but only when robot is safe and testable
-        //RobotMap.chassisSpeedController1.set(50);
-        //RobotMap.chassisSpeedController2.set(50);
-        Timer.delay(3);
+        
     }
 
     public void teleopInit() {

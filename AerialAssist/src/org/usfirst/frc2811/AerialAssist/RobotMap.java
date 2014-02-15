@@ -14,6 +14,7 @@ package org.usfirst.frc2811.AerialAssist;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 //This import is being bothersome, fixed by forcing Encoder.PIDSourceParameter instead of PIDSourceparameter
 //import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
 
@@ -62,6 +63,7 @@ public class RobotMap {
     //MISC
     public static Compressor Compressor1;
     
+    public static CommandGroup Fire;
     
     public static int largerValue;
     public static boolean reloadedState;
@@ -149,5 +151,7 @@ public class RobotMap {
         somesuchi5.start();
         somesuchi6 = new Encoder(1, 8, 1, 9, false);//, EncodingType.k4X);
         somesuchi6.start();
+        
+        Fire = new ShootingSequence();
     }
 }
