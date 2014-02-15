@@ -34,7 +34,7 @@ public class Shooter extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new Shoot());
+        //setDefaultCommand(new Shoot(2));
         // Set the default command for a subsystem here.
       //  setDefaultCommand(new Command3());
     }

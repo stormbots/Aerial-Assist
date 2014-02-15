@@ -5,6 +5,7 @@
  */
 package org.usfirst.frc2811.AerialAssist.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
@@ -15,21 +16,24 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  * @author Kelson
  */
 public class Shoot extends Command{
-    
-    public Shoot() {
+    public static double timeOut;
+    public Shoot(double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.shooter);
+        timeOut = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+        this.setTimeout(timeOut);
+        RobotMap.firingSpeedController7.set(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.firingSpeedController7.set(-1);
+        RobotMap.firingSpeedController7.set(-.25);
+        
         //TODO Firing command should have some short delay
         //probably around .25-.5 seconds, determine during testing
         
@@ -42,6 +46,8 @@ public class Shoot extends Command{
 
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("Fired");
+        RobotMap.shootPrint = "Fired";
         RobotMap.firingSpeedController7.set(0);
     }
 

@@ -76,6 +76,7 @@ public class RobotMap {
     public static double rangeAt5;//TODO Calibrate
     public static double rangeAt10;//TODO Calibrate
     public static int rollerState;
+    public static String shootPrint = "N/A";
     
     
 

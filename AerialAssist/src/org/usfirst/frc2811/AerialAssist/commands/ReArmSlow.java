@@ -25,7 +25,7 @@ public class ReArmSlow extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.firingSpeedController7.set(.5);//TODO Test this motor speed to make sure it works well
+        //RobotMap.firingSpeedController7.set(.25);//TODO Test this motor speed to make sure it works well
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +36,9 @@ public class ReArmSlow extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        RobotMap.firingSpeedController7.set(0);
+        System.out.println("Slow ReArm Done");
+        RobotMap.shootPrint = "Slow ReArm Done";
+        //RobotMap.firingSpeedController7.set(0);
     }
 
     // Called when another command which requires one or more of the same

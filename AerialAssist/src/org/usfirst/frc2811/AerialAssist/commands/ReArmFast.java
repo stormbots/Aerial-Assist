@@ -29,21 +29,23 @@ public class ReArmFast extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         // set motors in motion
-        RobotMap.firingSpeedController7.set(1);
+        //RobotMap.firingSpeedController7.set(.5);
                 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
         //TODO Add switch compatability
         
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("Fast ReArm Done");
+        RobotMap.shootPrint = "Fast ReArm Done";
         // Stop motors
-        RobotMap.firingSpeedController7.set(0);
+        //RobotMap.firingSpeedController7.set(0);
     }
 
     // Called when another command which requires one or more of the same

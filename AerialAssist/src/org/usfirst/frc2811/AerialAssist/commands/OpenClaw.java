@@ -42,6 +42,8 @@ public class OpenClaw extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("Claw Open");
+        RobotMap.shootPrint="Claw Open";
     }
 
     // Called when another command which requires one or more of the same

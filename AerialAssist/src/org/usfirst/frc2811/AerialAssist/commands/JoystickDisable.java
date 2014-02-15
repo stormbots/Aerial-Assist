@@ -7,6 +7,7 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.OI;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
@@ -35,6 +36,8 @@ public class JoystickDisable extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("Joystick Disabled");
+        RobotMap.shootPrint = "Joystick Disabled";
     }
 
     // Called when another command which requires one or more of the same
