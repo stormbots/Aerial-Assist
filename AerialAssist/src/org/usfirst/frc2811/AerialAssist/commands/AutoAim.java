@@ -31,29 +31,21 @@ public class AutoAim extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       
-         
+        if(OI.autoAimEnable==true){         
         //RobotMap.aimedState=true;
         angle = Robot.angleManager.calculate();
-        
-        //TODO Make AutoAim actually write to the PID controller if auto-aim is enabled
-        //Saved as OI.autoAimEnable
-        
-    }
-
+        Robot.lifter2.set(angle);
+        }
+    }    
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //TODO @kelson Make autoAim exit when PID.onTarget()==true
-        //TODO Autoaim should always return true immediately if auto-aim is disabled
-        //This is saved as OI.autoAimEnable currently
-        if(true){
-            return true;
+               
+        if(OI.autoAimEnable==true){
+            return Robot.lifter2.getOnTarget();
         }
         else{
-            return false;
+            return true;
         }
-       
-        
     }
 
     // Called once after isFinished returns true
