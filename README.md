@@ -16,24 +16,6 @@ NetBeans has a built in built-in task manager, which you can access by using `Ct
 This should help keep you guys busy and coordinated! If you spot a problem somewhere in the code and can't figure it out, simply add a `//TODO` or a `//FIXME` and someone else can pick it up. After the fix is done, simply remove the comment and everything will be fixed. 
 
 
-
-#### Before Robot is availible
-
-- [ ] Autonamous
-- [ ] Load ball 
-- [ ] Unload ball 
-- [ ] Test re-arm code
-- [ ] Make sure functions terminate correctly (see TODOs in code and notes below)
-- [ ] Open/Close Claw function (must terminate)
-- [ ] 
-
-#### After robot is available
-- [ ] Calibrate range-finding functions
-- [ ] Calibrate shooter angle/velocity
-- [ ] Fix hardware bug where arm will try to fire if cam goes down
-- [ ] Ensure motors on both arms rotate at the same speed using encoders
-
-
 Terminating Commands
 =====================
 The program flow as each class is created goes like this: 
@@ -63,6 +45,8 @@ end: Stops the motors.
 Not a single if() statement aside from our sensor check! Coding bliss, right there. Plus, the huge advantage
 will come when we put some code like this into a commandgroup, because we can 
 reliably expect that this function will exit when it's supposed to. Easy!
+
+
 
 
 

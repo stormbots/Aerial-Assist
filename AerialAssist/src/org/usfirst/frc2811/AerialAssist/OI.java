@@ -41,12 +41,12 @@ public class OI {
     public JoystickButton manual;
     //public JoystickButton b11;//not yet used
     
-    public static int FORE_BACK_STICK;//joystick for controlling robot in freedom
+    public static int FORE_BACK_STICK= 1;//joystick for controlling robot in freedom
     public static final int FORE_BACK_STICK_CONTROLLER = 3;
     public static final int FORE_BACK_STICK_JOYSTICK = 1;
-    public static int LEFT_RIGHT_STICK;
-    public static boolean FORE_BACK_DIRECTION;//reverses direction of the stick
-    public static boolean LEFT_RIGHT_DIRECTION;
+    public static int LEFT_RIGHT_STICK = 2;
+    public static boolean FORE_BACK_DIRECTION = false;//reverses direction of the stick
+    public static boolean LEFT_RIGHT_DIRECTION = false;
    
     public OI() {
         
