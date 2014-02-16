@@ -29,7 +29,7 @@ public class AutoAim extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         System.out.println("AutoAim");
-        this.setTimeout(internal);
+        OI.stickEngaged=false;
 
     }
 
@@ -47,9 +47,7 @@ public class AutoAim extends Command {
         if(OI.autoAimEnable==true){
             return Robot.lifter2.getOnTarget();
         }
-        else if(this.isTimedOut()){// check if timed out
-            return true; //TODO Possibly alert other functions if robot times out
-        }    
+         
         else{
             return true;
         }
@@ -59,6 +57,7 @@ public class AutoAim extends Command {
     protected void end() {
         System.out.println("Aimed");
         RobotMap.shootPrint="Aimed";
+        OI.stickEngaged=true;
    }
 
     // Called when another command which requires one or more of the same

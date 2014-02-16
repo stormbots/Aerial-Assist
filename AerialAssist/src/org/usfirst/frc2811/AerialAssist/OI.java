@@ -15,7 +15,9 @@ import edu.wpi.first.wpilibj.buttons.*;
 import org.usfirst.frc2811.AerialAssist.commands.AimToggle;
 import org.usfirst.frc2811.AerialAssist.commands.ArmDown;
 import org.usfirst.frc2811.AerialAssist.commands.ArmUp;
-import org.usfirst.frc2811.AerialAssist.commands.ReLoad;
+import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
+import org.usfirst.frc2811.AerialAssist.commands.ReLoadA;
+import org.usfirst.frc2811.AerialAssist.commands.ReLoadB;
 import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 import org.usfirst.frc2811.AerialAssist.commands.TrussGroup;
@@ -32,7 +34,7 @@ public class OI {
     public JoystickButton shift;
     public JoystickButton spitBall; 
     public JoystickButton suckBall;
-    public JoystickButton punt;
+    public JoystickButton autoAim;
     public JoystickButton shoot;
     public JoystickButton aimDown;
     public JoystickButton aimUp;
@@ -53,25 +55,26 @@ public class OI {
               
        truss = new JoystickButton(joystick1, 1);
        shift = new JoystickButton(joystick1, 2);
-       spitBall = new JoystickButton(joystick1, 3);
-       suckBall = new JoystickButton(joystick1, 4);
-       //b5 = new JoystickButton(joystick1, 5);
+       //b3 = new JoystickButton(joystick1, 3);
+       //b4 = new JoystickButton(joystick1, 4);
+       autoAim = new JoystickButton(joystick1, 5);
        shoot = new JoystickButton(joystick1, 6);
-       aimDown = new JoystickButton(joystick1, 7);
-       aimUp = new JoystickButton(joystick1, 8);
+       spitBall = new JoystickButton(joystick1, 7);
+       suckBall = new JoystickButton(joystick1, 8);
        //b9 = new JoystickButton(joystick1, 9); //not assigned
        manual = new JoystickButton(joystick1, 10); //enable/disable auto-aiming
        //b11 = new JoystickButton(joystick1, 11); //not assigned
               
        truss.whenReleased(new TrussGroup());
        shift.whenReleased(new ShiftGear());
-       spitBall.whenReleased(new UnLoad());
-       suckBall.whenReleased(new ReLoad());
-       //b5.whenReleased(null);
+       //b3.whileHeld(null); 
+       //b4.whileHeld(null);
+       autoAim.whileHeld(new AutoAim());
        shoot.whenReleased(new ShootingSequence()); 
-       aimDown.whileHeld(new ArmDown()); 
-       aimUp.whileHeld(new ArmUp());
-       //b9.whenReleased(null);    //not assigned
+       spitBall.whenPressed(new UnLoad());
+       suckBall.whenPressed(new ReLoadA());
+       suckBall.whenReleased(new ReLoadB());
+      //b9.whenReleased(null);    //not assigned
        manual.whenReleased(new AimToggle());
        //b11.whenReleased(null); //not assigned       
     }

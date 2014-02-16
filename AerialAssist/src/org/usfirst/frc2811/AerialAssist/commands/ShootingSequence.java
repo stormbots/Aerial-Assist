@@ -10,7 +10,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /** 
  * 
- * Fires and reloads in one command group: Mapped to trigger.
+ * Fires and reloads in one command group.
  * @author Austin
  */
 public class ShootingSequence extends CommandGroup {
@@ -21,24 +21,25 @@ public class ShootingSequence extends CommandGroup {
     //enable joystick
     //rearm && close claw
     public ShootingSequence() {
+        
         System.out.println("ShootingSequence");
         RobotMap.shootPrint = "Shooting Sequence Started";
         //RobotMap.openClaw.start(); //Causes Robots don't quit
-        this.addSequential(new AutoAim());       
         this.addSequential(new JoystickDisable());        
         this.addSequential(new OpenClaw());
-//<<<<<<< HEAD
         this.addSequential(new Wait(.5));
         this.addSequential(new Shoot());
         this.addSequential(new Wait(.5));
         this.addSequential(new JoystickEnable());
         this.addSequential(new SetToZero());
-                //TODO set to zero before reload
+        
+        /** 
+        *   Reloading Sequence
+        */ 
         
         this.addSequential(new ReArmFast());
         //this.addSequential(new Wait(2));
         //this.addSequential(new ReArmSlow());
-/*=======
         this.addSequential(new Wait(2));
         this.addParallel(new Shoot());
         this.addSequential(new Wait(2));
@@ -46,12 +47,8 @@ public class ShootingSequence extends CommandGroup {
        // this.addSequential(new ReArmFast());
        // this.addSequential(new Wait(2));
        // this.addSequential(new ReArmFast());
->>>>>>> some random stuff idk
-*/
         this.addSequential(new Wait(2));
         this.addSequential(new CloseClaw());
         this.addSequential(new Wait(2));
-           
-        //TODO Add LCD Printouts
     }
 }
