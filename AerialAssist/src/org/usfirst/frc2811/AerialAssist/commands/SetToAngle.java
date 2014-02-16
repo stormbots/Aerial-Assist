@@ -13,13 +13,17 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  *
  * @author 128925
  */
-public class TrussAim extends Command {
+public class SetToAngle extends Command {
+    double inputangle;
     
-    public TrussAim() {
+    public SetToAngle(double input) {
        // requires(Robot.shooter);
+        inputangle=input;
         requires(Robot.lifter2);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    }
+    public SetToAngle() {//Set a default way to call it without angles
+        inputangle=0;
+        requires(Robot.lifter2);
     }
 
     // Called just before this Command runs the first time
@@ -28,14 +32,14 @@ public class TrussAim extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.shootingAngle=60;
+       Robot.lifter2.set(inputangle);
         //FIXME Set motors to 60
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.lifter2.getOnTarget() ;
     }
 
     // Called once after isFinished returns true

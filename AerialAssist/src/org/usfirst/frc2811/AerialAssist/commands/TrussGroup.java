@@ -14,6 +14,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TrussGroup extends CommandGroup {
     
     public TrussGroup() {
+        this.addParallel(new OpenClaw(),.5);
+        this.addSequential(new SetToAngle(60),3); // setting indegrees to 60
+        this.addSequential(new Wait(.5));// make sure claw done opening
+        this.addSequential(new Shoot());
+        this.addSequential(new Wait(.5));// let motor on shoot run
+        this.addSequential(new SetToZero());
+        this.addSequential(new ReArmFast()); 
         //TODO Add Truss command group
         // Add Commands here:
         // e.g. addSequential(new Command1());
