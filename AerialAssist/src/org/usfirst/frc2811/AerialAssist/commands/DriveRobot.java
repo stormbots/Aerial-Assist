@@ -12,7 +12,9 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
@@ -31,7 +33,15 @@ public class  DriveRobot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.chassis.JoystickControl(Robot.oi.joystick1);
+        if(OI.stickEngaged==true){
+            Robot.chassis.JoystickControl(Robot.oi.joystick1);
+        }
+        else{
+            RobotMap.chassisSpeedController1.disable();
+            RobotMap.chassisSpeedController2.disable();
+            RobotMap.chassisSpeedController3.disable();
+            RobotMap.chassisSpeedController4.disable();
+        }    
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -150,11 +150,14 @@ public class RobotMap {
         somesuchi5.start();
         somesuchi6 = new Encoder(1, 8, 1, 9, false);//, EncodingType.k4X);
         somesuchi6.start();
+<<<<<<< HEAD
         
         Fire = new ShootingSequence();
+=======
         inPosition = new DigitalInput(1,10);
         compin = new DigitalInput(1,14);
         compout = new Relay(7);
         
+>>>>>>> master
     }
 }

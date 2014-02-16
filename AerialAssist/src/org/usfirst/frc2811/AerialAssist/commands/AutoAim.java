@@ -17,49 +17,49 @@ import org.usfirst.frc2811.AerialAssist.Robot;
  * @author 2811
  */
 public class AutoAim extends Command {
-      double angle;
-    
+    double angle;
+    double internal;
+
     public AutoAim() {
         // Use requires() here to declare subsystem dependencies
-        
+        internal = 8;//TODO Figure out if we need timeout on our AutoAim
+
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         System.out.println("AutoAim");
+        this.setTimeout(internal);
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       
-         
+        if(OI.autoAimEnable==true){         
         //RobotMap.aimedState=true;
         angle = Robot.angleManager.calculate();
-        
-        //TODO Make AutoAim actually write to the PID controller if auto-aim is enabled
-        //Saved as OI.autoAimEnable
-        
-    }
-
+        Robot.lifter2.set(angle);
+        }
+    }    
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //TODO @kelson Make autoAim exit when PID.onTarget()==true
-        //TODO Autoaim should always return true immediately if auto-aim is disabled
-        //This is saved as OI.autoAimEnable currently
-        if(true){
+               
+        if(OI.autoAimEnable==true){
+            return Robot.lifter2.getOnTarget();
+        }
+        else if(this.isTimedOut()){// check if timed out
+            return true; //TODO Possibly alert other functions if robot times out
+        }    
+        else{
             return true;
         }
-        else{
-            return false;
-        }
-       
-        
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        
-    }
+        System.out.println("Aimed");
+        RobotMap.shootPrint="Aimed";
+   }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

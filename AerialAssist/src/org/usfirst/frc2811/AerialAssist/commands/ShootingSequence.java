@@ -6,6 +6,7 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /** 
  * 
@@ -21,24 +22,36 @@ public class ShootingSequence extends CommandGroup {
     //rearm && close claw
     public ShootingSequence() {
         System.out.println("ShootingSequence");
+        RobotMap.shootPrint = "Shooting Sequence Started";
         //RobotMap.openClaw.start(); //Causes Robots don't quit
+        this.addSequential(new AutoAim());       
+        this.addSequential(new JoystickDisable());        
         this.addSequential(new OpenClaw());
-        System.out.println("Claw Open");
-        this.addSequential(new AutoAim());
-        System.out.println("Aimed");
-        this.addSequential(new JoystickDisable());
-        System.out.println("Joystick Disabled");
+//<<<<<<< HEAD
+        this.addSequential(new Wait(.5));
         this.addSequential(new Shoot());
-        System.out.println("Fired");
+        this.addSequential(new Wait(.5));
         this.addSequential(new JoystickEnable());
-        System.out.println("Joystick Enabled");
+        this.addSequential(new SetToZero());
+                //TODO set to zero before reload
+        
         this.addSequential(new ReArmFast());
-        System.out.println("Fast ReArm Done"); 
-        this.addSequential(new ReArmSlow());
-        System.out.println("Slow ReArm Done");
+        //this.addSequential(new Wait(2));
+        //this.addSequential(new ReArmSlow());
+/*=======
+        this.addSequential(new Wait(2));
+        this.addParallel(new Shoot());
+        this.addSequential(new Wait(2));
+        this.addSequential(new JoystickEnable());
+       // this.addSequential(new ReArmFast());
+       // this.addSequential(new Wait(2));
+       // this.addSequential(new ReArmFast());
+>>>>>>> some random stuff idk
+*/
+        this.addSequential(new Wait(2));
         this.addSequential(new CloseClaw());
-        System.out.println("Claw Closed");
-        System.out.println("Shooting Sequence done");
+        this.addSequential(new Wait(2));
+           
         //TODO Add LCD Printouts
     }
 }

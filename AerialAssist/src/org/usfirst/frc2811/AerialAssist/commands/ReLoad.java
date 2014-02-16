@@ -45,7 +45,7 @@ public class ReLoad extends Command {
     }
 
     protected void end() {
-                
+        System.out.println("Suck");
     }
 
     protected void interrupted() {
