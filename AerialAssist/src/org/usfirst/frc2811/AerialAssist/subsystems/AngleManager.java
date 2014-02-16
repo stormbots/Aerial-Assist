@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
-import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
 
 /**
  * calculates the arm angle we need to use to score in the high goal
@@ -19,8 +18,8 @@ import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
 public class AngleManager extends Subsystem {
     public static double rangeInInches;
     public static double rangeMagicNumber;
-    public static AnalogChannel rangeFinderLeft = RobotMap.rangeFinder8;
-    public static AnalogChannel rangeFinderRight = RobotMap.rangeFinder9;
+    public static AnalogChannel rangeFinderLeft = RobotMap.rangeFinderLeft;
+    public static AnalogChannel rangeFinderRight = RobotMap.rangeFinderRight;
     double rangeLeft;
     double rangeRight ;
     double trueRange ;

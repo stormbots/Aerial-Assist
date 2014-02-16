@@ -42,9 +42,8 @@ public class RobotMap {
     public static Encoder somesuchi5;
     public static Encoder somesuchi6;
     //SHOOTING
-    public static AnalogChannel rangeFinder8;
-    public static AnalogChannel rangeFinder9;
-    public static AnalogChannel rangeFinderClaw;
+    public static AnalogChannel rangeFinderLeft;
+    public static AnalogChannel rangeFinderRight;
     public static DigitalInput inPosition;
     public static SpeedController firingSpeedController;
     public static Encoder shooterQuadratureEncoder;
@@ -108,12 +107,10 @@ public class RobotMap {
         
         lifterPotentiometer = new AnalogChannel(1, 1);
         
-        rangeFinderClaw= new AnalogChannel(1,2);
-        
-        rangeFinder8 = new AnalogChannel(1,3);
+        rangeFinderLeft = new AnalogChannel(1,2);
         //LiveWindow.addSensor("Angle", "Range Finder 1" , rangeFinder8);
         
-        rangeFinder9 = new AnalogChannel(1,4);
+        rangeFinderRight = new AnalogChannel(1,3);
        // LiveWindow.addSensor("Angle", "Range Finder 2", rangeFinder9);
         
         temp2 = new AnalogChannel(1,5);
