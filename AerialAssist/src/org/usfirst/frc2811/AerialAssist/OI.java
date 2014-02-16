@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.buttons.*;
 import org.usfirst.frc2811.AerialAssist.commands.AimToggle;
 import org.usfirst.frc2811.AerialAssist.commands.ArmDown;
 import org.usfirst.frc2811.AerialAssist.commands.ArmUp;
-import org.usfirst.frc2811.AerialAssist.commands.PuntSystem;
 import org.usfirst.frc2811.AerialAssist.commands.ReLoad;
 import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
@@ -56,7 +55,7 @@ public class OI {
        shift = new JoystickButton(joystick1, 2);
        spitBall = new JoystickButton(joystick1, 3);
        suckBall = new JoystickButton(joystick1, 4);
-       punt = new JoystickButton(joystick1, 5);
+       //b5 = new JoystickButton(joystick1, 5);
        shoot = new JoystickButton(joystick1, 6);
        aimDown = new JoystickButton(joystick1, 7);
        aimUp = new JoystickButton(joystick1, 8);
@@ -68,7 +67,7 @@ public class OI {
        shift.whenReleased(new ShiftGear());
        spitBall.whenReleased(new UnLoad());
        suckBall.whenReleased(new ReLoad());
-       punt.whenReleased(new PuntSystem());
+       //b5.whenReleased(null);
        shoot.whenReleased(new ShootingSequence()); 
        aimDown.whileHeld(new ArmDown()); 
        aimUp.whileHeld(new ArmUp());

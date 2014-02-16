@@ -39,7 +39,6 @@ public class RobotMap {
     public static SpeedController rollersSpeedController;
     public static AnalogChannel lifterPotentiometer;
     public static SpeedController lifterSpeedController;
-    public static Solenoid punter;
     public static Encoder somesuchi5;
     public static Encoder somesuchi6;
     //SHOOTING
@@ -62,7 +61,6 @@ public class RobotMap {
     //VARIABLES
     public static int largerValue;
     public static boolean reloadedState;
-    public static boolean puntedState;
     public static double distance;
     public static double range1;
     public static double range2;
@@ -127,7 +125,6 @@ public class RobotMap {
         */
 
         gearShifter = new Solenoid(1,1);
-        punter = new Solenoid(1,2);
         clawSolenoid = new Solenoid(1,3);
         
         //Digital IO Ports

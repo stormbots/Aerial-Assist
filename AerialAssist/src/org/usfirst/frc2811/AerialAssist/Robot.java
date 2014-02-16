@@ -43,7 +43,6 @@ public class Robot extends IterativeRobot {
     public static Shooter shooter;
     public static Chassis chassis;
     public static Lifter2 lifter2;
-    public static Punter punter;
     public static AngleManager angleManager; 
     public static Map map;
     public static JoystickControl joystickcontrol;
@@ -61,7 +60,6 @@ public class Robot extends IterativeRobot {
         rollers = new Rollers();
         chassis = new Chassis();
         lifter2 = new Lifter2();
-        punter = new Punter();
         angleManager = new AngleManager();
         map = new Map();
         joystickcontrol = new JoystickControl();
