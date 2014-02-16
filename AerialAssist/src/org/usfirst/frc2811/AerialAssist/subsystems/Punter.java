@@ -18,7 +18,7 @@ import org.usfirst.frc2811.AerialAssist.commands.Punt;
 public class Punter extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    Solenoid punter = RobotMap.punter4;
+    Solenoid punter = RobotMap.punter;
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

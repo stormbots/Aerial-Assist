@@ -24,7 +24,7 @@ public class Lifter2 extends PIDSubsystem {
     //    private static final double MaximumValue = 95.0;//TODO Set stop to a more reasonable value
 ///=======
     SpeedController DriveMotor1 = RobotMap.lifterSpeedController;
-    AnalogChannel pot = RobotMap.lifterPotentiometer1;
+    AnalogChannel pot = RobotMap.lifterPotentiometer;
         private static final double MaximumValue = 90.0;
 //>>>>>>> some random stuff idk
 //*/

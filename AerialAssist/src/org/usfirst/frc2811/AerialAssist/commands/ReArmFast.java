@@ -15,7 +15,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
  * @author austin
  */
 public class ReArmFast extends Command {
-        DigitalInput snesor = RobotMap.inPosition;
+        DigitalInput inPosition = RobotMap.inPosition;
         boolean prevsensor = true;
     
     public ReArmFast() {
@@ -28,13 +28,13 @@ public class ReArmFast extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        prevsensor = snesor.get();
+        prevsensor = inPosition.get();
                 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (prevsensor == true && snesor.get() == false);
+        return (prevsensor == true && inPosition.get() == false);
         //TODO Add switch compatability
         
     }
