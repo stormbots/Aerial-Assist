@@ -36,7 +36,7 @@ public class ReLoadA extends Command {
     }
 
     protected boolean isFinished() {
-        return true;
+        return Robot.lifter2.getOnTarget();
     }
 
     protected void end() {

@@ -30,7 +30,7 @@ public class ReLoadB extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Robot.lifter2.getOnTarget();
     }
 
     // Called once after isFinished returns true
