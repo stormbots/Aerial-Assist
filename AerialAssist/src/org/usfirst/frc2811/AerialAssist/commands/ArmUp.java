@@ -27,6 +27,7 @@ public class ArmUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         //FIXME use the Robot.lifter2.set() method. Up is positive angle, down is negative angle
+        Robot.lifter2.set(3.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
