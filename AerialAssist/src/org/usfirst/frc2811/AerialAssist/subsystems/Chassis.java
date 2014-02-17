@@ -40,11 +40,15 @@ public class Chassis extends Subsystem {
         setDefaultCommand(new DriveRobot());
     }
     public void JoystickControl(Joystick stick) {
-        double a = stick.getRawAxis(OI.LEFT_RIGHT_STICK);
-        a = a*(OI.LEFT_RIGHT_DIRECTION? -1 : 1);
-        double b = stick.getRawAxis(OI.FORE_BACK_STICK);
-        b = b*(OI.FORE_BACK_DIRECTION? -1 : 1);
-        manualControl(deadZone(a),deadZone(b));
+        if (OI.stickEngaged) {
+            double a = stick.getRawAxis(OI.LEFT_RIGHT_STICK);
+            a = a*(OI.LEFT_RIGHT_DIRECTION? -1 : 1);
+            double b = stick.getRawAxis(OI.FORE_BACK_STICK);
+            b = b*(OI.FORE_BACK_DIRECTION? -1 : 1);
+            manualControl(deadZone(a),deadZone(b));
+        } else {
+            manualControl(0.0,0.0);
+        }
     }
     public void manualControl(double a, double b){
        if (Math.abs(a-RegulatedSpeed)> 0.1){

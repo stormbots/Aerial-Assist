@@ -47,10 +47,8 @@ public class Lifter2 extends PIDSubsystem {
     }
     
     public void set(double input){
-        //below is the joystick input
        // getPIDController().setSetpoint((Robot.oi.joystick1.getRawAxis(3)*-1+1)*40);
-        // TODO Laurel: use lifter2.set(double input) to set angle
-        //getPIDController().setSetpoint(input);
+        //getPIDController().setSetpoint(getPIDController()+input);
         DriveMotor1.set(input);
     }
     

@@ -25,7 +25,7 @@ public class ArmDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //FIXME Figure out a good motor rate for lowering arm
+        //FIXME use the Robot.lifter2.set() method. Up is positive angle, down is negative angle
     }
 
     // Make this return true when this Command no longer needs to run execute()

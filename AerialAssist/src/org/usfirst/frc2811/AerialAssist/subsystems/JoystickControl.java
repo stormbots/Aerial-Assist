@@ -24,11 +24,13 @@ public class JoystickControl extends Subsystem {
     
     public void JoystickMove() {
         
-        if (OI.stickEngaged = true){
+        if (OI.stickEngaged == true){
+            /*
             RobotMap.chassisSpeedController1.set(OI.joystick1.getRawAxis(1)); 
             RobotMap.chassisSpeedController2.set(OI.joystick1.getRawAxis(1)); 
             RobotMap.chassisSpeedController3.set(OI.joystick1.getRawAxis(2)); 
-            RobotMap.chassisSpeedController4.set(OI.joystick1.getRawAxis(2)); 
+            RobotMap.chassisSpeedController4.set(OI.joystick1.getRawAxis(2));
+            //*/
             //System.out.println("Joystick enabled, Step on it!");
             
         }

@@ -33,7 +33,6 @@ public class OI {
     //public JoystickButton b9;
     public JoystickButton manual;
     
-    
     public static int FORE_BACK_STICK= 3;//joystick for controlling robot in freedom
     public static final int FORE_BACK_STICK_CONTROLLER = 3;
     public static final int FORE_BACK_STICK_JOYSTICK = 1;
