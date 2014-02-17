@@ -23,33 +23,33 @@ public class OI {
    public static Joystick joystick1;
    
     public static JoystickButton truss;
-   public JoystickButton shift;
-   //public JoystickButton b3; 
-   //public JoystickButton b4;
-   public JoystickButton autoAim;
-   public JoystickButton shoot;
-   public JoystickButton spitBall;
-   public JoystickButton suckBall;
-   //public JoystickButton b9;
-   public JoystickButton manual;
+    public JoystickButton shift;
+    //public JoystickButton b3; 
+    //public JoystickButton b4;
+    public JoystickButton autoAim;
     public JoystickButton shoot;
+    public JoystickButton spitBall;
+    public JoystickButton suckBall;
+    //public JoystickButton b9;
+    public JoystickButton manual;
     
-   public static int FORE_BACK_STICK= 3;//joystick for controlling robot in freedom
-   public static final int FORE_BACK_STICK_CONTROLLER = 3;
-   public static final int FORE_BACK_STICK_JOYSTICK = 1;
-   public static int LEFT_RIGHT_STICK = 2;
-   public static boolean FORE_BACK_DIRECTION = false;//reverses direction of the stick
-   public static boolean LEFT_RIGHT_DIRECTION = false;
+    
+    public static int FORE_BACK_STICK= 3;//joystick for controlling robot in freedom
+    public static final int FORE_BACK_STICK_CONTROLLER = 3;
+    public static final int FORE_BACK_STICK_JOYSTICK = 1;
+    public static int LEFT_RIGHT_STICK = 2;
+    public static boolean FORE_BACK_DIRECTION = false;//reverses direction of the stick
+    public static boolean LEFT_RIGHT_DIRECTION = false;
    
-   public OI() {
+    public OI() {
         
         joystick1 = new Joystick(1);
               
         truss = new JoystickButton(joystick1, 1);
         shift = new JoystickButton(joystick1, 2);
-       spitBall = new JoystickButton(joystick1, 3);
-       suckBall = new JoystickButton(joystick1, 4);
-       punt = new JoystickButton(joystick1, 5);
+        //b3 = new JoystickButton(joystick1, 3);
+        //b4 = new JoystickButton(joystick1, 4);
+        //autoAim = new JoystickButton(joystick1, 5);
         shoot = new JoystickButton(joystick1, 6);
         spitBall = new JoystickButton(joystick1, 7);
         suckBall = new JoystickButton(joystick1, 8);
@@ -60,7 +60,7 @@ public class OI {
         shift.whenPressed(new ShiftGear());
         //b3.whileHeld(null); 
         //b4.whileHeld(null);
-       shoot.whenPressed(new tempshoot());
+        shoot.whenPressed(new tempshoot());
         autoAim.whileHeld(new AutoAim());
         spitBall.whenPressed(new UnLoad());
         suckBall.whenPressed(new ReLoadA());
