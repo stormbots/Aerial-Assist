@@ -18,6 +18,10 @@ import org.usfirst.frc2811.AerialAssist.commands.ArmUp;
 import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
 import org.usfirst.frc2811.AerialAssist.commands.ReLoadA;
 import org.usfirst.frc2811.AerialAssist.commands.ReLoadB;
+import org.usfirst.frc2811.AerialAssist.commands.ClawToggle;
+import org.usfirst.frc2811.AerialAssist.commands.CloseClaw;
+import org.usfirst.frc2811.AerialAssist.commands.OpenClaw;
+
 import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 import org.usfirst.frc2811.AerialAssist.commands.TrussGroup;
@@ -35,14 +39,14 @@ public class OI {
     public JoystickButton spitBall; 
     public JoystickButton suckBall;
     public JoystickButton autoAim;
-    public JoystickButton shoot;
+    //public JoystickButton shoot;
     public JoystickButton aimDown;
     public JoystickButton aimUp;
     //public JoystickButton b9;//not yet used
     public JoystickButton manual;
     //public JoystickButton b11;//not yet used
     
-    public static int FORE_BACK_STICK= 1;//joystick for controlling robot in freedom
+    public static int FORE_BACK_STICK= 3;//joystick for controlling robot in freedom
     public static final int FORE_BACK_STICK_CONTROLLER = 3;
     public static final int FORE_BACK_STICK_JOYSTICK = 1;
     public static int LEFT_RIGHT_STICK = 2;
@@ -58,19 +62,23 @@ public class OI {
        //b3 = new JoystickButton(joystick1, 3);
        //b4 = new JoystickButton(joystick1, 4);
        autoAim = new JoystickButton(joystick1, 5);
-       shoot = new JoystickButton(joystick1, 6);
+       //shoot = new JoystickButton(joystick1, 6);
        spitBall = new JoystickButton(joystick1, 7);
        suckBall = new JoystickButton(joystick1, 8);
        //b9 = new JoystickButton(joystick1, 9); //not assigned
        manual = new JoystickButton(joystick1, 10); //enable/disable auto-aiming
        //b11 = new JoystickButton(joystick1, 11); //not assigned
-              
-       truss.whenReleased(new TrussGroup());
-       shift.whenReleased(new ShiftGear());
+        // shoot.whenPressed(null);
+       //  punt.whenPressed(new PuntSystem());
+        truss.whenPressed(new ClawToggle());
+        
+        //FIXME Buttons are a mess from the merge, fix this
+       shift.whenPressed(new ShiftGear());
+       spitBall.whenPressed(new UnLoad());
        //b3.whileHeld(null); 
        //b4.whileHeld(null);
        autoAim.whileHeld(new AutoAim());
-       shoot.whenReleased(new ShootingSequence()); 
+     //  punt.whenReleased(new PuntSystem());
        spitBall.whenPressed(new UnLoad());
        suckBall.whenPressed(new ReLoadA());
        suckBall.whenReleased(new ReLoadB());
