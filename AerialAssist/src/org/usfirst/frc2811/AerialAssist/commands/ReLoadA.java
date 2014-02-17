@@ -39,7 +39,7 @@ public class ReLoadA extends Command {
     protected boolean isFinished() {
         
          System.out.println("isFinished");
-        return Robot.lifter2.getOnTarget();
+        return true;
        
     }
 
