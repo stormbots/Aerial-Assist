@@ -6,18 +6,18 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
-import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
  * @author Kelson
  */
-public class ClawToggle extends Command {
+public class templifter extends Command {
     
-    public ClawToggle() {
+    public templifter() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.lifter2);
     }
 
     // Called just before this Command runs the first time
@@ -26,12 +26,13 @@ public class ClawToggle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.clawSolenoid.set(!RobotMap.clawSolenoid.get());
+        Robot.lifter2.set(OI.joystick1.getRawAxis(5)/2);
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.oi.truss.get();
+        return false;
     }
 
     // Called once after isFinished returns true

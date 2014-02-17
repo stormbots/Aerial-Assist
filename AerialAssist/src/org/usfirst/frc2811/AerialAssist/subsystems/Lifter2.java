@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
+import org.usfirst.frc2811.AerialAssist.commands.templifter;
 /**
  *
  */
@@ -35,22 +36,22 @@ public class Lifter2 extends PIDSubsystem {
         super("PIDSubsystem1", 0.3, 0.0, 0.0);
         setAbsoluteTolerance(1);
         //getPIDController().setContinuous(true);
-        LiveWindow.addActuator("PID Subsystem 1", "PIDSubsystem Controller", getPIDController());
-        //FIXME enable this pid once we have the correct values
+        //FIXME enable this pid getPIDController().enable();
         //FIXME Make sure we have correct code for chain follower
         //getPIDController().enable();
-       // getPIDController().setSetpoint(85.0);
         
     }
     
     public void initDefaultCommand() {
+        setDefaultCommand(new templifter());
     }
     
     public void set(double input){
         //below is the joystick input
        // getPIDController().setSetpoint((Robot.oi.joystick1.getRawAxis(3)*-1+1)*40);
         // TODO Laurel: use lifter2.set(double input) to set angle
-        getPIDController().setSetpoint(input);
+        //getPIDController().setSetpoint(input);
+        DriveMotor1.set(input);
     }
     
     protected double returnPIDInput() {
@@ -75,7 +76,7 @@ public class Lifter2 extends PIDSubsystem {
         if (returnPIDInput() < MinimumValue) {
             output2 = output<0?0:output;
         }
-        DriveMotor1.pidWrite(-output2);
+        //DriveMotor1.pidWrite(-output2);
         //DriveMotor2.pidWrite(output > 0?output/3.9:output/3);
     }
     public double mapvalue(double input, double maximum, double minimum, double outputMax, double outputMin){
