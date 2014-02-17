@@ -36,7 +36,9 @@ public class Lifter2 extends PIDSubsystem {
         setAbsoluteTolerance(1);
         //getPIDController().setContinuous(true);
         LiveWindow.addActuator("PID Subsystem 1", "PIDSubsystem Controller", getPIDController());
-        //FIXME enable this pid getPIDController().enable();
+        //FIXME enable this pid once we have the correct values
+        //FIXME Make sure we have correct code for chain follower
+        //getPIDController().enable();
        // getPIDController().setSetpoint(85.0);
         
     }
