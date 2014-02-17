@@ -121,13 +121,16 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
         updateLCD();
+           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle" + Robot.lifter2.getPosition() + " ");
+         
     }
     private void updateLCD(){
            DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
            DriverStationLCD.getInstance().println(Line.kUser2, 1, "Auto Aim = " + OI.autoAimEnable + " ");
            DriverStationLCD.getInstance().println(Line.kUser3, 1, "Controls Enabled= " + OI.stickEngaged + " ");
            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Shooting State: " + RobotMap.shootPrint);
-
+           DriverStationLCD.getInstance().println(Line.kUser4, 18, "Target Angle" + Robot.lifter2.getSetpoint());
+           
            lcd.updateLCD();
     }
 }
