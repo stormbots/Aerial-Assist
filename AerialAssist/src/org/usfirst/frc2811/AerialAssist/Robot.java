@@ -129,7 +129,7 @@ public class Robot extends IterativeRobot {
            DriverStationLCD.getInstance().println(Line.kUser2, 1, "Auto Aim = " + OI.autoAimEnable + " ");
            DriverStationLCD.getInstance().println(Line.kUser3, 1, "Controls Enabled= " + OI.stickEngaged + " ");
            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Shooting State: " + RobotMap.shootPrint);
-           DriverStationLCD.getInstance().println(Line.kUser4, 1, "Target Angle" + Robot.lifter2.getSetpoint());
+           DriverStationLCD.getInstance().println(Line.kUser4, 18, "Target Angle" + Robot.lifter2.getSetpoint());
            
            lcd.updateLCD();
     }
