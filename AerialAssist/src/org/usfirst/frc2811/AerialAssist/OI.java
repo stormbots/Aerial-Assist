@@ -5,16 +5,13 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
 
 import org.usfirst.frc2811.AerialAssist.commands.AimToggle;
-import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
+import org.usfirst.frc2811.AerialAssist.commands.Arming;
 import org.usfirst.frc2811.AerialAssist.commands.ClawToggle;
 import org.usfirst.frc2811.AerialAssist.commands.ReLoadA;
 import org.usfirst.frc2811.AerialAssist.commands.ReLoadB;
 import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
-import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 import org.usfirst.frc2811.AerialAssist.commands.ToggleAngle;
-import org.usfirst.frc2811.AerialAssist.commands.TrussGroup;
 import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
-import org.usfirst.frc2811.AerialAssist.commands.tempshoot;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -73,7 +70,7 @@ public class OI {
         shift.whenPressed(new ShiftGear());
         //b3.whileHeld(null); 
         //b4.whileHeld(null);
-        shoot.whenPressed(new tempshoot());
+        shoot.whenPressed(new Arming());
         //autoAim.whileHeld(new AutoAim());
         spitBall.whenPressed(new UnLoad());
         suckBall.whenPressed(new ReLoadA());
