@@ -4,36 +4,32 @@
  * and open the template in the editor.
  */
 package org.usfirst.frc2811.AerialAssist.commands;
-import edu.wpi.first.wpilibj.Timer;
+
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
- * @author Laurel Bingham
+ * @author Kelson
  */
-public class CloseClaw extends Command {
+public class ClawToggle extends Command {
     
-    public CloseClaw() {
+    public ClawToggle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
-
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.claw3.set(false);//FIXME is OpenClaw solenoid true or false???
-         
+        RobotMap.claw3.set(!RobotMap.claw3.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       
         return true;
     }
 

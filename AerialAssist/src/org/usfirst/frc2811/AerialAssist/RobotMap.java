@@ -39,7 +39,7 @@ public class RobotMap {
     public static RobotDrive chassisRobotDrive41;
     public static Solenoid gearShifter3;
     //CLAW
-    public static Solenoid clawsolenoid;
+    public static Solenoid claw3;
     public static SpeedController rollersSpeedController;
     public static AnalogChannel lifterPotentiometer1; //FIXME Potential merge issue
     public static SpeedController lifterSpeedController;
@@ -55,7 +55,6 @@ public class RobotMap {
     public static SpeedController firingSpeedController;
     public static Encoder shooterQuadratureEncoder2;
     public static Solenoid punter4;
-    public static Solenoid claw3;
     public static AnalogChannel temp1;
     public static AnalogChannel temp2;
     public static AnalogChannel temp3;
