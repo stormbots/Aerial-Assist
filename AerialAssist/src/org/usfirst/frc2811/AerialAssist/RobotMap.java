@@ -70,8 +70,8 @@ public class RobotMap {
     public static double clawRange;
     public static double shootingAngle;
     public static boolean aimedState;
-    public static double rangeShort;//TODO Calibrate
-    public static double rangeLong;//TODO Calibrate
+    public static double rangeShort=63;//4=84 //5=110
+    public static double rangeLong=242;//8=219 //6=128
     public static int rollerState;
     public static String shootPrint = "N/A";
     
