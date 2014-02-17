@@ -22,7 +22,7 @@ public class Shooter extends PIDSubsystem {
     private double newrate;
     // Initialize your subsystem here
     public Shooter() {
-        super("shooter", 0.003, 0.0000, 0);
+        super("shooter", 0.002, 0.0000, 0);
         getPIDController().enable();
         getPIDController().setAbsoluteTolerance(1);
     }

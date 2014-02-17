@@ -108,12 +108,12 @@ public class RobotMap {
         DECLARE ANALOG SENSORS (in order, please)
         */
         
-        lifterPotentiometer = new AnalogChannel(1, 1);
+        lifterPotentiometer = new AnalogChannel(1, 2);
         
-        rangeFinderLeft = new AnalogChannel(1,2);
+        rangeFinderLeft = new AnalogChannel(1,3);
         //LiveWindow.addSensor("Angle", "Range Finder 1" , rangeFinder8);
         
-        rangeFinderRight = new AnalogChannel(1,3);
+        rangeFinderRight = new AnalogChannel(1,4);
        // LiveWindow.addSensor("Angle", "Range Finder 2", rangeFinder9);
         
         temp2 = new AnalogChannel(1,5);

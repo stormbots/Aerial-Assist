@@ -60,7 +60,7 @@ public class OI {
         //b3.whileHeld(null); 
         //b4.whileHeld(null);
         shoot.whenPressed(new tempshoot());
-        autoAim.whileHeld(new AutoAim());
+        //autoAim.whileHeld(new AutoAim());
         spitBall.whenPressed(new UnLoad());
         suckBall.whenPressed(new ReLoadA());
         suckBall.whenReleased(new ReLoadB());

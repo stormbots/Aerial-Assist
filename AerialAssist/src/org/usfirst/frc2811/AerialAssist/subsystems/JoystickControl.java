@@ -35,11 +35,12 @@ public class JoystickControl extends Subsystem {
             
         }
         else{
-            RobotMap.chassisSpeedController1.set(0); 
+           /* RobotMap.chassisSpeedController1.set(0); 
             RobotMap.chassisSpeedController2.set(0); 
             RobotMap.chassisSpeedController3.set(0); 
             RobotMap.chassisSpeedController4.set(0);
             //System.out.println("Joystick disabled; you'll mess up the shot!!");
+                   //*/
        }
     }
     

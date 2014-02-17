@@ -27,7 +27,7 @@ public class templifter extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (OI.stickEngaged){
-        Robot.lifter2.set(OI.joystick1.getRawAxis(5)/4);
+        Robot.lifter2.setIncramental(OI.joystick1.getRawAxis(5));
         }
     }
 
