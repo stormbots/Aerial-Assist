@@ -22,23 +22,23 @@ public class Shooter extends PIDSubsystem {
     private double newrate;
     // Initialize your subsystem here
     public Shooter() {
-        super("newPIDSubsystem", 0.4, 0, 0);
-       // getPIDController().enable(); //- Enables the PID controller.
-        getPIDController().setAbsoluteTolerance(2);
+        super("shooter", 0.003, 0.0000, 0);
+        getPIDController().enable();
+        getPIDController().setAbsoluteTolerance(1);
     }
     
     public void initDefaultCommand() {
     }
     
     protected double returnPIDInput() {
-        getPIDController().setSetpoint(newrate-input.getRate());
-        return output.getRate();
+        return output.getRate()+newrate;
     }
     
     protected void usePIDOutput(double output) {
-        DriveMotor1.pidWrite(output);
+        DriveMotor1.set(returnPIDInput()<0?output:output);
+        getPIDController().setSetpoint(input.getRate());
     }
-    public void setspeed(double rate) {
+    public void set(double rate) {
         newrate = -rate;
     }
 }

@@ -25,6 +25,7 @@ import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 import org.usfirst.frc2811.AerialAssist.commands.TrussGroup;
 import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
+import org.usfirst.frc2811.AerialAssist.commands.tempshoot;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -33,7 +34,7 @@ import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
 public class OI {
     
     public static Joystick joystick1;
-    public JoystickButton truss;
+    public static JoystickButton truss;
     public JoystickButton shift;
     public JoystickButton spitBall; 
     public JoystickButton suckBall;
@@ -43,7 +44,7 @@ public class OI {
     public JoystickButton aimUp;
     //public JoystickButton b9;//not yet used
     public JoystickButton manual;
-    //public JoystickButton b11;//not yet used
+    public JoystickButton shoot;
     
     public static int FORE_BACK_STICK= 3;//joystick for controlling robot in freedom
     public static final int FORE_BACK_STICK_CONTROLLER = 3;
@@ -58,22 +59,20 @@ public class OI {
               
        truss = new JoystickButton(joystick1, 1);
        shift = new JoystickButton(joystick1, 2);
-       spitBall = new JoystickButton(joystick1, 3);
-       suckBall = new JoystickButton(joystick1, 4);
-       punt = new JoystickButton(joystick1, 5);
-       //shoot = new JoystickButton(joystick1, 6);
-       aimDown = new JoystickButton(joystick1, 7);
-       aimUp = new JoystickButton(joystick1, 8);
+       spitBall = new JoystickButton(joystick1, 8);
+       suckBall = new JoystickButton(joystick1, 7);
+       shoot = new JoystickButton(joystick1, 6);
+       
        //b9 = new JoystickButton(joystick1, 9); //not assigned
        manual = new JoystickButton(joystick1, 10); //enable/disable auto-aiming
        //b11 = new JoystickButton(joystick1, 11); //not assigned
         // shoot.whenPressed(null);
-         punt.whenPressed(new PuntSystem());
+         //punt.whenPressed(new PuntSystem());
         truss.whenPressed(new ClawToggle());
        shift.whenPressed(new ShiftGear());
        spitBall.whenPressed(new UnLoad());
        suckBall.whenPressed(new ReLoad());
-     //  punt.whenReleased(new PuntSystem());
+       shoot.whenPressed(new tempshoot());
      //  shoot.whenReleased(new ShootingSequence()); 
      //  aimDown.whileHeld(new ArmDown()); 
      //  aimUp.whileHeld(new ArmUp());
