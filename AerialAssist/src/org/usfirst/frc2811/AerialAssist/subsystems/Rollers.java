@@ -12,7 +12,6 @@
 package org.usfirst.frc2811.AerialAssist.subsystems;
 
 import org.usfirst.frc2811.AerialAssist.RobotMap;
-import org.usfirst.frc2811.AerialAssist.commands.*;
 import edu.wpi.first.wpilibj.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -29,7 +28,7 @@ public class Rollers extends Subsystem {
     }
     
     public void Spit(){
-        speedController6.set(.25);//TODO learn how to use the things you declared instead of hard-coding it
+        speedController6.set(.25);
     }
     
     public void Suck(){

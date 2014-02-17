@@ -7,26 +7,33 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
-import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
  * @author Kelson
  */
-public class ClawToggle extends Command {
-    
-    public ClawToggle() {
+public class ToggleAngle extends Command {
+    public static double curPos;
+    public ToggleAngle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+       curPos = Robot.lifter2.getPosition();
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.clawSolenoid.set(!RobotMap.clawSolenoid.get());
+        
+        if(curPos>15){
+            Robot.lifter2.set(0);
+        }
+        else{
+            Robot.lifter2.set(30);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

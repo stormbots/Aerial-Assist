@@ -6,10 +6,12 @@ import edu.wpi.first.wpilibj.buttons.*;
 
 import org.usfirst.frc2811.AerialAssist.commands.AimToggle;
 import org.usfirst.frc2811.AerialAssist.commands.AutoAim;
+import org.usfirst.frc2811.AerialAssist.commands.ClawToggle;
 import org.usfirst.frc2811.AerialAssist.commands.ReLoadA;
 import org.usfirst.frc2811.AerialAssist.commands.ReLoadB;
 import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
+import org.usfirst.frc2811.AerialAssist.commands.ToggleAngle;
 import org.usfirst.frc2811.AerialAssist.commands.TrussGroup;
 import org.usfirst.frc2811.AerialAssist.commands.UnLoad;
 import org.usfirst.frc2811.AerialAssist.commands.tempshoot;
@@ -22,7 +24,7 @@ public class OI {
     
    public static Joystick joystick1;
    
-    public static JoystickButton truss;
+    public static JoystickButton clawToggle;
     public JoystickButton shift;
     //public JoystickButton b3; 
     //public JoystickButton b4;
@@ -32,6 +34,7 @@ public class OI {
     public JoystickButton suckBall;
     //public JoystickButton b9;
     public JoystickButton manual;
+    public JoystickButton angleSet;
     
     public static int FORE_BACK_STICK= 3;//joystick for controlling robot in freedom
     public static final int FORE_BACK_STICK_CONTROLLER = 3;
@@ -43,8 +46,18 @@ public class OI {
     public OI() {
         
         joystick1 = new Joystick(1);
-              
-        truss = new JoystickButton(joystick1, 1);
+        
+        //5 = toggle 30/0
+        //6 = fire
+        //7 = spit
+        //8 = suck
+        //2 = shift
+        //1 = claw toggle
+        //dpad up/down = arm manual
+        
+        
+        
+        clawToggle = new JoystickButton(joystick1, 1);
         shift = new JoystickButton(joystick1, 2);
         //b3 = new JoystickButton(joystick1, 3);
         //b4 = new JoystickButton(joystick1, 4);
@@ -54,8 +67,9 @@ public class OI {
         suckBall = new JoystickButton(joystick1, 8);
         //b9 = new JoystickButton(joystick1, 9);
         manual = new JoystickButton(joystick1, 10);
+        angleSet = new JoystickButton(joystick1, 5); 
         
-        truss.whenPressed(new TrussGroup());
+        clawToggle.whenPressed(new ClawToggle());
         shift.whenPressed(new ShiftGear());
         //b3.whileHeld(null); 
         //b4.whileHeld(null);
@@ -66,6 +80,7 @@ public class OI {
         suckBall.whenReleased(new ReLoadB());
         //b9.whenReleased(null);
         manual.whenReleased(new AimToggle());
+        angleSet.whenPressed(new ToggleAngle());
     }
         
     public Joystick getJoystick1() {
