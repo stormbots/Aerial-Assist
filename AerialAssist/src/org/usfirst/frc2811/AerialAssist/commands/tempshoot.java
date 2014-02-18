@@ -26,7 +26,6 @@ public class tempshoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.rollers.Off();
         Robot.shooter.set(150.0);
     }
 

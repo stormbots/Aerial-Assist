@@ -24,7 +24,13 @@ public class Lifter2 extends PIDSubsystem {
         private static final double MinimumValue = 0;
     public Lifter2() {
         //super("PIDSubsystem1", 0.004, 0.0, 0.0); a little slow
-        super("PIDSubsystem1", 0.006, 0.000, 0.0);
+        //super("PIDSubsystem1", 0.006, 0.000, 0.0); weak
+        //super("PIDSubsystem1", 0.008, 0.00001, 0.0); fast, not correcting
+        //super("PIDSubsystem1", 0.007, 0.00005, 0.0); little quick on correction, add integral
+        //super("PIDSubsystem1", 0.0065, 0.0001, 0.0); slow response
+        //super("PIDSubsystem1", 0.00675, 0.000125, 0.0); jerky, slow response
+        //super("PIDSubsystem1", 0.0065, 0.000175, 0.0);//overcompensating, slow
+        super("PIDSubsystem1", 0.006625, 0.00015, 0.0);
         setAbsoluteTolerance(1);
         getPIDController().setContinuous(true);
         //FIXME enable this pid getPIDController().enable();
@@ -85,7 +91,7 @@ public class Lifter2 extends PIDSubsystem {
             output2 = output;
         }
         output2 = Math.abs(output2)>0.5?output2/Math.abs(output2)*0.5:output;
-        DriveMotor1.pidWrite(-output2);
+        DriveMotor1.pidWrite(-output2);//TODO account for gravity
         //DriveMotor2.pidWrite(output > 0?output/3.9:output/3);
     }
     public double mapvalue(double input, double maximum, double minimum, double outputMax, double outputMin){

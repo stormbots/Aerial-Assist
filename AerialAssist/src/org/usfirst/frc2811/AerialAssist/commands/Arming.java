@@ -5,16 +5,19 @@
  */
 package org.usfirst.frc2811.AerialAssist.commands;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
+
 
 /**
  *
  * @author 128925
  */
 public class Arming extends Command {
-    
+    public static boolean oldValue;
+    DigitalInput inPosition = RobotMap.inPosition;
     public Arming() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -23,23 +26,27 @@ public class Arming extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+        oldValue = RobotMap.inPosition.get();
         
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
         Robot.shooter.set(150);
+        System.out.println(oldValue);
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.inPosition.get();
+        return (oldValue != inPosition.get());
     }
 
     // Called once after isFinished returns true
     protected void end() {
         Robot.shooter.set(0);
+        
     }
 
     // Called when another command which requires one or more of the same

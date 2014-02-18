@@ -29,8 +29,6 @@ public class ReArmFast extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         prevsensor = inPosition.get();
-        Robot.shooter.set(150);
-        System.out.println("reload start");
                 
     }
 
@@ -43,8 +41,6 @@ public class ReArmFast extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-         Robot.shooter.set(0);
-         System.out.println("reloading completeing");
         // Stop motors
         //RobotMap.firingSpeedController7.set(0);
     }
