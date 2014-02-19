@@ -26,25 +26,25 @@ public class ReLoadA extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.lifter2.set(0);//set degrees
-        System.out.println("initialize");
+        System.out.println("suck started");
+        
       }  
         
     protected void execute() {
         RobotMap.rollerState=-1;//State value, not motor
         Robot.rollers.Suck();
-        System.out.println("execute");
+        System.out.println("execute suck");
     }
 
     protected boolean isFinished() {
         
-         System.out.println("isFinished");
+         System.out.println("isFinished suck");
         return true;
        
     }
 
     protected void end() {
-        System.out.println("endof");
+        System.out.println("end of suck");
         
     }
 

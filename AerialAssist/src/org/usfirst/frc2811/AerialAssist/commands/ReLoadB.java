@@ -22,6 +22,7 @@ public class ReLoadB extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         Robot.lifter2.set(15);
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,11 +32,13 @@ public class ReLoadB extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.lifter2.getOnTarget();
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.rollers.Off();
+        System.out.println("suck done");
     }
 
     // Called when another command which requires one or more of the same
