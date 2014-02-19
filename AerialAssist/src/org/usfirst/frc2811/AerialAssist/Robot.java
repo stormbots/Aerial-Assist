@@ -94,7 +94,7 @@ public class Robot extends IterativeRobot {
 
     public void teleopInit() {
         if (autonomousCommand != null) autonomousCommand.cancel();
-         
+        Robot.lifter2.set(15);
         
        
         
