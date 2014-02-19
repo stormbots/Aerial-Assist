@@ -30,15 +30,37 @@ public class Lifter2 extends PIDSubsystem {
         //super("PIDSubsystem1", 0.0065, 0.0001, 0.0); slow response
         //super("PIDSubsystem1", 0.00675, 0.000125, 0.0); jerky, slow response
         //super("PIDSubsystem1", 0.0065, 0.000175, 0.0);//overcompensating, slow
-        super("PIDSubsystem1", 0.006625, 0.00015, 0.0);
+        //super("PIDSubsystem1", 0.006625, 0.00015, 0.0);//high integral
+        //super("PIDSubsystem1", 0.007, 0.000125, 0.003); mostly ok, maybe better
+        //super("PIDSubsystem1", 0.00725, 0.0001, 0.004);// good differential,integral
+        //super("PIDSubsystem1", 0.01, 0.0001, 0.004);//good p, i
+        //super("PIDSubsystem1", 0.01, 0.000075, 0.006);//nice, but laggy
+        //super("PIDSubsystem1", 0.01, 0.000075, 0.008);//good diff, higher p
+        //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//great, +i
+        super("PIDSubsystem1", 0.025, 0.000075, 0.008);//PERFECT!!!!!
         setAbsoluteTolerance(1);
         getPIDController().setContinuous(true);
-        //FIXME enable this pid getPIDController().enable();
-        //FIXME Make sure we have correct code for chain follower
         getPIDController().enable();
         getPIDController().setSetpoint(returnPIDInput());
-        
-    }
+ /* 
+          ___                         ___
+         /   \                       /   \
+        |     |                     |     |
+        |_____|                     |_____|
+         _____                       _____
+        |     |                     |     |
+        |_____|                     |_____|
+           _        _        _
+         _| |_    ( _ )    ( _ )      ( )
+        |_   _|     _              ( )   ( )
+          |_|     ( _ )               ( )
+  
+                  _            _  
+                /   \        /   \
+               (     )      (     )
+                \ _ /        \ _ /
+     
+    */  }
     
     public void initDefaultCommand() {
         setDefaultCommand(new templifter());
@@ -91,6 +113,10 @@ public class Lifter2 extends PIDSubsystem {
             output2 = output;
         }
         output2 = Math.abs(output2)>0.5?output2/Math.abs(output2)*0.5:output;
+        //DriveMotor1.pidWrite()
+        if(output2<0){ //reduce motor power when going down
+            output2 = output2/2;
+        }
         DriveMotor1.pidWrite(-output2);//TODO account for gravity
         //DriveMotor2.pidWrite(output > 0?output/3.9:output/3);
     }
