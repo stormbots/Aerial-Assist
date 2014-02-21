@@ -6,6 +6,7 @@
 package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
@@ -21,7 +22,9 @@ public class ReLoadB extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        if (OI.stickEngaged) {
         Robot.lifter2.set(15);
+        }
         
     }
 
@@ -37,8 +40,10 @@ public class ReLoadB extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        if (OI.stickEngaged) {
         Robot.rollers.Off();
         System.out.println("suck done");
+        }
     }
 
     // Called when another command which requires one or more of the same

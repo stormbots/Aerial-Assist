@@ -17,7 +17,7 @@ public class templifter extends Command {
     
     public templifter() {
         // Use requires() here to declare subsystem dependencies
-        //requires(Robot.lifter2);
+        requires(Robot.lifter2);
     }
 
     // Called just before this Command runs the first time
@@ -27,6 +27,7 @@ public class templifter extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (OI.stickEngaged){
+            System.out.println("templifter executed");
         Robot.lifter2.setIncramental(OI.joystick1.getRawAxis(5)*-1);
         }
     }

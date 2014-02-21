@@ -31,8 +31,10 @@ public class ReLoadA extends Command {
       }  
         
     protected void execute() {
+        if (OI.stickEngaged) {
         RobotMap.rollerState=-1;//State value, not motor
         Robot.rollers.Suck();
+        }
         System.out.println("execute suck");
     }
 
