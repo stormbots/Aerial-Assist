@@ -13,6 +13,7 @@ package org.usfirst.frc2811.AerialAssist;
     
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 //This import is being bothersome, fixed by forcing Encoder.PIDSourceParameter instead of PIDSourceparameter
 //import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
 
@@ -74,6 +75,7 @@ public class RobotMap {
     public static double rangeLong=242;//8=219 //6=128
     public static int rollerState;
     public static String shootPrint = "N/A";
+    public static CommandGroup shootingSequence;
     
     
 

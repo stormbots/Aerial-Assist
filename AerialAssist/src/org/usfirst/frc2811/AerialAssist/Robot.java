@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc2811.AerialAssist.commands.*;
 import org.usfirst.frc2811.AerialAssist.subsystems.*;
+import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 
 
 /**
@@ -48,6 +49,7 @@ public class Robot extends IterativeRobot {
     public static JoystickControl joystickcontrol;
     public static DriverStationLCD lcd;
     private Command Compress;
+    public static ShootingSequence shootseq;
     
     
 
@@ -69,6 +71,7 @@ public class Robot extends IterativeRobot {
         lcd = DriverStationLCD.getInstance();
         Compress = new Compress();
         Compress.start();
+        shootseq = new ShootingSequence();
     }
 
     public void autonomousInit() {
@@ -88,8 +91,11 @@ public class Robot extends IterativeRobot {
         //Timer.delay(1);
         //TODO Make forward go forward and shoot in autonomous, but only when robot is safe and testable
         //RobotMap.chassisSpeedController1.set(50);
+        
+        
+        //Timer.delay(1);
 
-        //Timer.delay(3);
+        
     }
 
     public void teleopInit() {
