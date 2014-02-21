@@ -19,7 +19,7 @@ public class Shoot extends Command {
         boolean prevsensor = true;
     
     public Shoot() {
-        requires(Robot.shooter);
+        //requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time

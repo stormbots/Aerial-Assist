@@ -65,7 +65,7 @@ public class Lifter2 extends PIDSubsystem {
     */  }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new templifter());
+        //setDefaultCommand(new templifter());
     }
     
     public void setIncramental(double input){

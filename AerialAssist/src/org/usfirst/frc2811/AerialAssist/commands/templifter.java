@@ -17,7 +17,7 @@ public class templifter extends Command {
     
     public templifter() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.lifter2);
+        //requires(Robot.lifter2);
     }
 
     // Called just before this Command runs the first time

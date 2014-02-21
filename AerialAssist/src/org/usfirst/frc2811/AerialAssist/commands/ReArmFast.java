@@ -19,7 +19,7 @@ public class ReArmFast extends Command {
         boolean prevsensor = true;
     
     public ReArmFast() {
-        requires(Robot.shooter);
+        //requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
