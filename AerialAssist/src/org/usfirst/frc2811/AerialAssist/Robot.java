@@ -73,6 +73,7 @@ public class Robot extends IterativeRobot {
         lcd = DriverStationLCD.getInstance();
         Compress = new Compress();
         Compress.start();
+ 
     }
 
     public void autonomousInit() {
@@ -119,9 +120,9 @@ public class Robot extends IterativeRobot {
      * This function called periodically during test mode
      */
     public void testInit(){
-       PIDs.getDouble("P", lifter2.getPIDController().getP());
-       PIDs.getDouble("I", lifter2.getPIDController().getI());
-       PIDs.getDouble("D", lifter2.getPIDController().getD());
+        PIDs.getDouble("P", lifter2.getPIDController().getP());
+        PIDs.getDouble("I", lifter2.getPIDController().getI());
+        PIDs.getDouble("D", lifter2.getPIDController().getD());       
     }
     
     public void testPeriodic() {
