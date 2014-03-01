@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc2811.AerialAssist.commands.*;
 import org.usfirst.frc2811.AerialAssist.subsystems.*;
@@ -50,10 +51,6 @@ public class Robot extends IterativeRobot {
     public static DriverStationLCD lcd;
     private Command Compress;
     
-    Preferences PIDs;//Tuning stuff. Don't touch.
-        static double P;
-        static double I;
-        static double D;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -120,19 +117,35 @@ public class Robot extends IterativeRobot {
      * This function called periodically during test mode
      */
     public void testInit(){
-        PIDs.getDouble("P", lifter2.getPIDController().getP());
-        PIDs.getDouble("I", lifter2.getPIDController().getI());
-        PIDs.getDouble("D", lifter2.getPIDController().getD());       
+        Preferences PIDs  = Preferences.getInstance();//Tuning stuff. Don't touch. inits values
+            double PVal;
+            double IVal;
+            double DVal;
+        
+        //This is reading a value, and using the current hardcoded values as defaults
+        PIDs.putDouble("PVal", lifter2.getPIDController().getP());
+        PIDs.putDouble("IVal", lifter2.getPIDController().getI());
+        PIDs.putDouble("DVal", lifter2.getPIDController().getD()); 
+        System.out.print("testinit");
     }
     
     public void testPeriodic() {
+        //Set up PID tuning 
+        Preferences PIDs  = Preferences.getInstance();
+        //Read values from CRio flash memory
+        double P = SmartDashboard.getNumber("PVal");
+        double I = SmartDashboard.getNumber("IVal");
+        double D = SmartDashboard.getNumber("DVal");
+        //Write values to the PID controller
+        lifter2.getPIDController().setPID(P, I, D);
+        
+        //Update the DriverStation window
         LiveWindow.run();
         updateLCD();
         DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle" + Robot.lifter2.getPosition() + " ");
         Robot.lifter2.setInputRange(0,90);
-        PIDs.putDouble("P", lifter2.getPIDController().getP());
-        PIDs.putDouble("I", lifter2.getPIDController().getI());
-        PIDs.putDouble("D", lifter2.getPIDController().getD());
+
+        
     }
     private void updateLCD(){
            //DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
