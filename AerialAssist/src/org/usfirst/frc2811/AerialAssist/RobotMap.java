@@ -46,11 +46,9 @@ public class RobotMap {
     public static AnalogChannel rangeFinderRight;
     public static DigitalInput inPosition;
     public static SpeedController firingSpeedController;
-//<<<<<<< HEAD //FIXME Figure out which one of these encoders we use. Both? IDK.
     public static Encoder shooterQuadratureEncoder;
-//=======
     public static Encoder shooterQuadratureEncoder2;
-//>>>>>>> kelsons-working-botcode
+    
     public static AnalogChannel temp1;
     public static AnalogChannel temp2;
     public static AnalogChannel temp3;
@@ -74,6 +72,7 @@ public class RobotMap {
     public static double rangeLong=242;//8=219 //6=128
     public static int rollerState;
     public static String shootPrint = "N/A";
+    public static double MaximumArmAngle = 80.0;
     
     
 

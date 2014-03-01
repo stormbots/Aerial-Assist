@@ -106,13 +106,9 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         updateLCD();
-
-           
            //System.out.print("\t");
            //System.out.println(RobotMap.rangeFinder9.getAverageValue());
  
-        
-        
     }
 
     /**
@@ -121,8 +117,8 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
         updateLCD();
-           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle" + Robot.lifter2.getPosition() + " ");
-         
+        DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle" + Robot.lifter2.getPosition() + " ");
+        Robot.lifter2.setInputRange(0,90);
     }
     private void updateLCD(){
            //DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");

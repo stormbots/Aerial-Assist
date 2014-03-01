@@ -20,7 +20,7 @@ import org.usfirst.frc2811.AerialAssist.commands.templifter;
 public class Lifter2 extends PIDSubsystem {
     SpeedController DriveMotor1 = RobotMap.lifterSpeedController;
     AnalogChannel pot = RobotMap.lifterPotentiometer;
-        private static final double MaximumValue = 80.0;
+        double MaximumValue = RobotMap.MaximumArmAngle;
         private static final double MinimumValue = 0;
     public Lifter2() {
         //super("PIDSubsystem1", 0.004, 0.0, 0.0); a little slow
