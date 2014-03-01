@@ -9,6 +9,8 @@
 // it from being updated in the future.
 package org.usfirst.frc2811.AerialAssist.subsystems;
 import edu.wpi.first.wpilibj.AnalogChannel;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -22,6 +24,8 @@ public class Lifter2 extends PIDSubsystem {
     AnalogChannel pot = RobotMap.lifterPotentiometer;
         double MaximumValue = RobotMap.MaximumArmAngle;
         private static final double MinimumValue = 0;
+        
+        
     public Lifter2() {
         //super("PIDSubsystem1", 0.004, 0.0, 0.0); a little slow
         //super("PIDSubsystem1", 0.006, 0.000, 0.0); weak
@@ -39,11 +43,9 @@ public class Lifter2 extends PIDSubsystem {
         //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//great, +i
         //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//Perfect w/o ball
         //super("PIDSubsystem1", 0.025, 0.00008, 0.008);// overshoots 60
-        super("PIDSubsystem1", 0.025, 0.00008, 0.006);
-        setAbsoluteTolerance(1);
-        getPIDController().setContinuous(true);
-        getPIDController().enable();
-        getPIDController().setSetpoint(returnPIDInput());
+        //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
+        super("PIDSubsystem1",0.025, 0.00008, 0.006);//current good
+
  /* 
            _                           _
          /   \                       /   \

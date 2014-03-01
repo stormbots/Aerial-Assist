@@ -15,6 +15,7 @@ package org.usfirst.frc2811.AerialAssist;
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -49,7 +50,10 @@ public class Robot extends IterativeRobot {
     public static DriverStationLCD lcd;
     private Command Compress;
     
-    
+    Preferences PIDs;//Tuning stuff. Don't touch.
+        static double P;
+        static double I;
+        static double D;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -114,11 +118,20 @@ public class Robot extends IterativeRobot {
     /**
      * This function called periodically during test mode
      */
+    public void testInit(){
+       PIDs.getDouble("P", lifter2.getPIDController().getP());
+       PIDs.getDouble("I", lifter2.getPIDController().getI());
+       PIDs.getDouble("D", lifter2.getPIDController().getD());
+    }
+    
     public void testPeriodic() {
         LiveWindow.run();
         updateLCD();
         DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle" + Robot.lifter2.getPosition() + " ");
         Robot.lifter2.setInputRange(0,90);
+        PIDs.putDouble("P", lifter2.getPIDController().getP());
+        PIDs.putDouble("I", lifter2.getPIDController().getI());
+        PIDs.putDouble("D", lifter2.getPIDController().getD());
     }
     private void updateLCD(){
            //DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
