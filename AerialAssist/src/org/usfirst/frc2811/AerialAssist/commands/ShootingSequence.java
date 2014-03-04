@@ -27,11 +27,9 @@ public class ShootingSequence extends CommandGroup {
         //RobotMap.openClaw.start(); //Causes Robots don't quit
         //this.addSequential(new JoystickDisable());        
         this.addSequential(new RollOff());
-        this.addSequential(new OpenClaw());
         this.addSequential(new Wait(.5));
         this.addSequential(new Arming());
         this.addSequential(new Wait(.5));
-        this.addSequential(new CloseClaw());
         //this.addSequential(new JoystickEnable());
         this.addSequential(new SetToZero());
         
