@@ -32,7 +32,7 @@ import org.usfirst.frc2811.AerialAssist.subsystems.*;
  * directory.
  */
 public class Robot extends IterativeRobot {
-        public static DriverStationLCD dsText;
+    public static DriverStationLCD dsText;
 
     Command autonomousCommand;
     
@@ -103,9 +103,20 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during operator control
      */
+    
+    //Distance is in -Anglemanager.getRange();
+    //Angle is in -lifter2.getpidcontroller().get____()
+    
     public void teleopPeriodic() {
+        //double distance=java.lang.Math.floor(AngleManager.getRange()+0.5);
+        double distance=Math.floor( oi.);
         Scheduler.getInstance().run();
-        updateLCD();
+           //DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
+           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle    = " + "lol");
+           DriverStationLCD.getInstance().println(Line.kUser1, 11, "Distance = " );
+           DriverStationLCD.getInstance().println(Line.kUser1, 21, "Ready    = " + OI.autoAimEnable);
+           
+           lcd.updateLCD();
 
            
            //System.out.print("\t");
