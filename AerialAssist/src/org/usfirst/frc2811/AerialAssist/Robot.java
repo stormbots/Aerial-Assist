@@ -119,16 +119,17 @@ public class Robot extends IterativeRobot {
     public void testInit(){
         Preferences PIDs  = Preferences.getInstance();//Tuning stuff. Don't touch. inits values
             
-        //This is reading a value, and using the current hardcoded values as defaults, writing it to Val in flash
-        PIDs.putDouble("PVal", lifter2.getPIDController().getP());
-        PIDs.putDouble("IVal", lifter2.getPIDController().getI());
-        PIDs.putDouble("DVal", lifter2.getPIDController().getD());
+        //This is reading a value, and using the current hardcoded values as defaults
+        PIDs.getDouble("PVal", lifter2.getPIDController().getP());
+        PIDs.getDouble("IVal", lifter2.getPIDController().getI());
+        PIDs.getDouble("DVal", lifter2.getPIDController().getD());
             System.out.println("init P: " + lifter2.getPIDController().getP());
+            
         //display on dashboard
         SmartDashboard.putNumber("PVal", lifter2.getPIDController().getP());
         SmartDashboard.putNumber("IVal", lifter2.getPIDController().getI());
         SmartDashboard.putNumber("DVal", lifter2.getPIDController().getD());
-            System.out.print("testinit");
+            //System.out.print("testinit");
     }
     
     public void testPeriodic() {
@@ -140,7 +141,7 @@ public class Robot extends IterativeRobot {
         double D = SmartDashboard.getNumber("DVal", lifter2.getPIDController().getD());
             System.out.println("Read P: " + P);
         //sets cRio values
-        lifter2.getPIDController().setPID(P, I, D);
+        lifter2.getPIDController().setPID(P, I, D);//FIXME: u mad bro? problem? *trollface*
         
         //sets prefs from current pid
         PIDs.putDouble("PVal", lifter2.getPIDController().getP());
