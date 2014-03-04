@@ -118,26 +118,42 @@ public class Robot extends IterativeRobot {
      */
     public void testInit(){
         Preferences PIDs  = Preferences.getInstance();//Tuning stuff. Don't touch. inits values
-            double PVal;
-            double IVal;
-            double DVal;
-        
-        //This is reading a value, and using the current hardcoded values as defaults
+            
+        //This is reading a value, and using the current hardcoded values as defaults, writing it to Val in flash
         PIDs.putDouble("PVal", lifter2.getPIDController().getP());
         PIDs.putDouble("IVal", lifter2.getPIDController().getI());
-        PIDs.putDouble("DVal", lifter2.getPIDController().getD()); 
-        System.out.print("testinit");
+        PIDs.putDouble("DVal", lifter2.getPIDController().getD());
+            System.out.println("init P: " + lifter2.getPIDController().getP());
+        //display on dashboard
+        SmartDashboard.putNumber("PVal", lifter2.getPIDController().getP());
+        SmartDashboard.putNumber("IVal", lifter2.getPIDController().getI());
+        SmartDashboard.putNumber("DVal", lifter2.getPIDController().getD());
+            System.out.print("testinit");
     }
     
     public void testPeriodic() {
         //Set up PID tuning 
         Preferences PIDs  = Preferences.getInstance();
-        //Read values from CRio flash memory
-        double P = SmartDashboard.getNumber("PVal");
-        double I = SmartDashboard.getNumber("IVal");
-        double D = SmartDashboard.getNumber("DVal");
-        //Write values to the PID controller
+        //Read values from dash
+        double P = SmartDashboard.getNumber("PVal", lifter2.getPIDController().getP());
+        double I = SmartDashboard.getNumber("IVal", lifter2.getPIDController().getI());
+        double D = SmartDashboard.getNumber("DVal", lifter2.getPIDController().getD());
+            System.out.println("Read P: " + P);
+        //sets cRio values
         lifter2.getPIDController().setPID(P, I, D);
+        
+        //sets prefs from current pid
+        PIDs.putDouble("PVal", lifter2.getPIDController().getP());
+        PIDs.putDouble("IVal", lifter2.getPIDController().getI());
+        PIDs.putDouble("DVal", lifter2.getPIDController().getD());
+            System.out.println("From Controller P: " + lifter2.getPIDController().getP());
+        //updates dashboard
+        SmartDashboard.putNumber("PVal", lifter2.getPIDController().getP());
+        SmartDashboard.putNumber("IVal", lifter2.getPIDController().getI());
+        SmartDashboard.putNumber("DVal", lifter2.getPIDController().getD());
+            System.out.println("Writes to dash P: " + lifter2.getPIDController().getP());
+        
+        
         
         //Update the DriverStation window
         LiveWindow.run();

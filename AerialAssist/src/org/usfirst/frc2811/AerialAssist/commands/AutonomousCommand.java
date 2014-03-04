@@ -14,6 +14,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousCommand extends CommandGroup {
     
     public AutonomousCommand() {
-        this.addSequential(DriveUntil(7.0));
+        this.addSequential(new DriveUntil(7.0));
     }
 }

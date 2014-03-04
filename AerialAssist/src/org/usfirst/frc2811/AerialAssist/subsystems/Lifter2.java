@@ -44,7 +44,7 @@ public class Lifter2 extends PIDSubsystem {
         //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//Perfect w/o ball
         //super("PIDSubsystem1", 0.025, 0.00008, 0.008);// overshoots 60
         //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
-        super("PIDSubsystem1",0.025, 0.00008, 0.006);//current good
+        super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
 
  /* 
            _                           _
