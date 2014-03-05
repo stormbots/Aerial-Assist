@@ -18,6 +18,8 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class Arming extends Command {
     
     DigitalInput inPosition = RobotMap.inPosition;
+    boolean oldVal;
+    
     public Arming() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -26,7 +28,7 @@ public class Arming extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+        oldVal = inPosition.get();
                 
     }
 
@@ -40,7 +42,7 @@ public class Arming extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (!inPosition.get()==true);
+        return (inPosition.get()==!oldVal);
     }
 
     // Called once after isFinished returns true

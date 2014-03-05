@@ -28,11 +28,11 @@ public class Rollers extends Subsystem {
     }
     
     public void Spit(){
-        speedController6.set(.25);
+        speedController6.set(-.25);
     }
     
     public void Suck(){
-        speedController6.set(-.25);
+        speedController6.set(.25);
     }
     
     public void Off(){
