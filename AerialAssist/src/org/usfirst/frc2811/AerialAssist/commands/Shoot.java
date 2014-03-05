@@ -15,38 +15,40 @@ import org.usfirst.frc2811.AerialAssist.Robot;
  * @author austin
  */
 public class Shoot extends Command {
-        DigitalInput inPosition = RobotMap.inPosition;
-        boolean prevsensor = true;
     
+        DigitalInput inPosition = RobotMap.inPosition;
     public Shoot() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
         //requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        
+                
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        prevsensor = inPosition.get();
-                
+        
+        Robot.shooter.set(150);
+        System.out.println(!inPosition.get());
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (prevsensor == true && inPosition.get() == false);
-        //TODO Add switch compatability
-        
+        return (!inPosition.get()==false);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        // Stop motors
-        //RobotMap.firingSpeedController7.set(0);
-    }
+        Robot.shooter.set(0);
+        
+}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
+      
     }
 }

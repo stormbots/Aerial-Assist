@@ -68,7 +68,7 @@ public class Robot extends IterativeRobot {
         joystickcontrol = new JoystickControl();
         shooter = new Shooter();
         oi = new OI();
-        autonomousCommand = new AutonomousCommand();
+       
         lcd = DriverStationLCD.getInstance();
         Compress = new Compress();
         Compress.start();
@@ -80,11 +80,13 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
+        System.out.println("autonomous init");
+        autonomousCommand = new AutonomousCommand(); 
         // schedule the autonomous command (example)
         //TODO Get autonomous mode up and running
         //Can we make this a commandgroup? 
-        System.out.println("autonomous init");
-        if (autonomousCommand != null) autonomousCommand.start();
+        
+       System.out.println("autonomous exit");
     }
 
     /**
