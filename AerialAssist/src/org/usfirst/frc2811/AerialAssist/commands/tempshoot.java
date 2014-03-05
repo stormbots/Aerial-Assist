@@ -26,17 +26,17 @@ public class tempshoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.shooter.set(150.0);
+    //    Robot.shooter.set(150.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.oi.shoot.get();
+       return !Robot.oi.shoot.get();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.shooter.set(0.0);
+    //    Robot.shooter.set(0.0);
     }
 
     // Called when another command which requires one or more of the same

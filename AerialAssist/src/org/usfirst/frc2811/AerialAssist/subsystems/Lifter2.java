@@ -82,7 +82,7 @@ public class Lifter2 extends PIDSubsystem {
         } else {
         getPIDController().setSetpoint(getPIDController().getSetpoint()+input);
         }
-        //System.out.println(getPIDController().getSetpoint()+" "+returnPIDInput()+" "+DriveMotor1.get()+" "+pot.getAverageVoltage());
+        System.out.println(getPIDController().getSetpoint()+" "+returnPIDInput()+" "+DriveMotor1.get()+" "+pot.getAverageVoltage());
         //DriveMotor1.set(input);
     }
     public void set(double input){
