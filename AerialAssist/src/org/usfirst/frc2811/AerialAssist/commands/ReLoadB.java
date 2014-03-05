@@ -22,6 +22,8 @@ public class ReLoadB extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+      System.out.println("Suck Ball Start");
+
         if (OI.stickEngaged) {
         Robot.lifter2.set(15);
         }

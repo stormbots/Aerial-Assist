@@ -28,7 +28,7 @@ public class AutoAim extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("AutoAim");
+        System.out.println("AutoAim Start");
         OI.stickEngaged=false;
 
     }
@@ -55,7 +55,7 @@ public class AutoAim extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        System.out.println("Aimed");
+        System.out.println("Auto Aim Finished");
         RobotMap.shootPrint="Aimed";
         OI.stickEngaged=true;
    }

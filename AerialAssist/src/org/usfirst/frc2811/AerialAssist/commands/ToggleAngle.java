@@ -21,6 +21,8 @@ public class ToggleAngle extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+                System.out.println("SetAngle Start");
+
        curPos = Robot.lifter2.getPosition();
         
     }
@@ -28,7 +30,7 @@ public class ToggleAngle extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         //System.out.println(curPos);
-        System.out.println("WTF Toggle Angle " + curPos);
+       System.out.println("WTF Toggle Angle " + curPos);
         if(curPos>30){
             Robot.lifter2.set(0);
         }
@@ -39,6 +41,8 @@ public class ToggleAngle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+                System.out.println("Toggle Angle Finished");
+
         return true;
     }
 
