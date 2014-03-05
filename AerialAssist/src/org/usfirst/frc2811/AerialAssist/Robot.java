@@ -15,6 +15,7 @@ package org.usfirst.frc2811.AerialAssist;
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -50,7 +51,8 @@ public class Robot extends IterativeRobot {
     public static JoystickControl joystickcontrol;
     public static DriverStationLCD lcd;
     private Command Compress;
-    
+    private Preferences PIDs;
+    private PIDController lifter2PID;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -70,7 +72,11 @@ public class Robot extends IterativeRobot {
         lcd = DriverStationLCD.getInstance();
         Compress = new Compress();
         Compress.start();
- 
+        lifter2PID = lifter2.getPIDController();
+        PIDs = Preferences.getInstance();
+            SmartDashboard.putNumber("PVal", PIDs.getDouble("PVal", lifter2.getPIDController().getP()));
+            SmartDashboard.putNumber("IVal", PIDs.getDouble("IVal", lifter2.getPIDController().getI()));
+            SmartDashboard.putNumber("DVal", PIDs.getDouble("DVal", lifter2.getPIDController().getD()));
     }
 
     public void autonomousInit() {
@@ -118,52 +124,46 @@ public class Robot extends IterativeRobot {
      * This function called periodically during test mode
      */
     public void testInit(){
-        Preferences PIDs  = Preferences.getInstance();//Tuning stuff. Don't touch. inits values
-            
-        //This is reading a value, and using the current hardcoded values as defaults
-        PIDs.getDouble("PVal", lifter2.getPIDController().getP());
-        PIDs.getDouble("IVal", lifter2.getPIDController().getI());
-        PIDs.getDouble("DVal", lifter2.getPIDController().getD());
-            System.out.println("init P: " + lifter2.getPIDController().getP());
-            
-        //display on dashboard
-        SmartDashboard.putNumber("PVal", lifter2.getPIDController().getP());
-        SmartDashboard.putNumber("IVal", lifter2.getPIDController().getI());
-        SmartDashboard.putNumber("DVal", lifter2.getPIDController().getD());
+        //lifter2PID
+        System.out.println("TEST MODE ACTIVE");
+            //This is reading a value, and using the current hardcoded values as defaults
+            //display on dashboard
             //System.out.print("testinit");
+            //*/
     }
     
     public void testPeriodic() {
+        
         //Set up PID tuning 
-        Preferences PIDs  = Preferences.getInstance();
+        
         //Read values from dash
-        double P = SmartDashboard.getNumber("PVal", lifter2.getPIDController().getP());
-        double I = SmartDashboard.getNumber("IVal", lifter2.getPIDController().getI());
-        double D = SmartDashboard.getNumber("DVal", lifter2.getPIDController().getD());
-            System.out.println("Read P: " + P);
+        double P = SmartDashboard.getNumber("PVal",  lifter2PID.getP());
+        double I = SmartDashboard.getNumber("IVal",  lifter2PID.getI());
+        double D = SmartDashboard.getNumber("DVal",  lifter2PID.getD());
         //sets cRio values
-        lifter2.getPIDController().setPID(P, I, D);//FIXME: u mad bro? problem? *trollface*
+        lifter2PID.setPID(P, I, D);//FIXME: u mad bro? problem? *trollface*
+            System.out.println("Read P: " + lifter2PID.getP());
         
         //sets prefs from current pid
-        PIDs.putDouble("PVal", lifter2.getPIDController().getP());
-        PIDs.putDouble("IVal", lifter2.getPIDController().getI());
-        PIDs.putDouble("DVal", lifter2.getPIDController().getD());
-            System.out.println("From Controller P: " + lifter2.getPIDController().getP());
+        PIDs.putDouble("PVal", P);
+        PIDs.putDouble("IVal", I);
+        PIDs.putDouble("DVal", D);
+            //System.out.println("From Controller P: " +  lifter2PID.getP());
         //updates dashboard
-        SmartDashboard.putNumber("PVal", lifter2.getPIDController().getP());
-        SmartDashboard.putNumber("IVal", lifter2.getPIDController().getI());
-        SmartDashboard.putNumber("DVal", lifter2.getPIDController().getD());
-            System.out.println("Writes to dash P: " + lifter2.getPIDController().getP());
+        //SmartDashboard.putNumber("PVal", lifter2PID.getP());
+        //SmartDashboard.putNumber("IVal", lifter2PID.getI());
+        //SmartDashboard.putNumber("DVal", lifter2PID.getD());
+            //System.out.println("Writes to dash P: " + lifter2PID.getP());
         
         
         
         //Update the DriverStation window
         LiveWindow.run();
-        updateLCD();
-        DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle" + Robot.lifter2.getPosition() + " ");
-        Robot.lifter2.setInputRange(0,90);
+       // updateLCD();
+       // DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle" + Robot.lifter2.getPosition() + " ");
+       // Robot.lifter2.setInputRange(0,90);
 
-        
+        //*/
     }
     private void updateLCD(){
            //DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
