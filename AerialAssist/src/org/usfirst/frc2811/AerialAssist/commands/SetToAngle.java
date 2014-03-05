@@ -17,27 +17,14 @@ public class SetToAngle extends Command {
     double inputangle;
     
     public SetToAngle(double input) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-       // requires(Robot.shooter);
-=======
         requires(Robot.shooter);
->>>>>>> more requires
         inputangle=input;
         //requires(Robot.lifter2);
     }
     public SetToAngle() {//Set a default way to call it without angles
         inputangle=0;
-        requires(Robot.lifter2);
-=======
         requires(Robot.shooter);
-        inputangle=input;
         requires(Robot.lifter2);
-    }
-    public SetToAngle() {//Set a default way to call it without angles
-        inputangle=0;
-        
->>>>>>> master
     }
 
     // Called just before this Command runs the first time
