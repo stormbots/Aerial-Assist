@@ -17,7 +17,7 @@ public class tempshoot extends Command {
     
     public tempshoot() {
         // Use requires() here to declare subsystem dependencies
-        //requires(Robot.shooter);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time

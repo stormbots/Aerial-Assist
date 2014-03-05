@@ -17,7 +17,7 @@ public class SetToAngle extends Command {
     double inputangle;
     
     public SetToAngle(double input) {
-       // //requires(Robot.shooter);
+        requires(Robot.shooter);
         inputangle=input;
         requires(Robot.lifter2);
     }
