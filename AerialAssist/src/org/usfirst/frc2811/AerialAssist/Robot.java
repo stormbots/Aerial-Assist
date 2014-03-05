@@ -117,6 +117,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         updateLCD();
+        System.out.println(Robot.lifter2.getPIDController().getSetpoint() + "?");
            //System.out.print("\t");
            //System.out.println(RobotMap.rangeFinder9.getAverageValue());
  
