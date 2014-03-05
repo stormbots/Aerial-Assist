@@ -21,10 +21,14 @@ public class ReLoadA extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 <<<<<<< HEAD
+<<<<<<< HEAD
       //  requires(Robot.shooter);
 =======
         requires(Robot.shooter);
 >>>>>>> more requires
+=======
+        requires(Robot.shooter);
+>>>>>>> master
       
     }
 
