@@ -18,21 +18,19 @@ public class DriveUntil extends Command {
             
     public DriveUntil(double distance) {
         driveDistance = distance;
+        requires(Robot.chassis);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
            }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+        Robot.chassis.manualControl(.75, .75);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.chassisSpeedController1.set(.75);
-        RobotMap.chassisSpeedController2.set(.75);
-        RobotMap.chassisSpeedController3.set(.75);
-        RobotMap.chassisSpeedController4.set(.75);
+        System.out.println("autonomous driving");
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -47,11 +45,7 @@ public class DriveUntil extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        RobotMap.chassisSpeedController1.set(0);
-        RobotMap.chassisSpeedController2.set(0);
-        RobotMap.chassisSpeedController3.set(0);
-        RobotMap.chassisSpeedController4.set(0);
-
+        Robot.chassis.manualControl(0, 0);
     }
 
     // Called when another command which requires one or more of the same

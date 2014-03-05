@@ -77,6 +77,7 @@ public class Robot extends IterativeRobot {
         // schedule the autonomous command (example)
         //TODO Get autonomous mode up and running
         //Can we make this a commandgroup? 
+        System.out.println("autonomous init");
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
