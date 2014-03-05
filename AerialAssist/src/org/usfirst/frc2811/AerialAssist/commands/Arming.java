@@ -7,6 +7,7 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 
@@ -40,7 +41,7 @@ public class Arming extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (!inPosition.get()==true);
+        return (inPosition.get()==OI.shooterarmed);
     }
 
     // Called once after isFinished returns true
