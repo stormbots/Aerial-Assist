@@ -13,14 +13,12 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 /** 
  * Handles pulling back the primary firing mechanism and checking 
  * sensors to determine completion
- * @author austin
+ * @author Austin
  */
 public class Shoot extends Command {
     
         DigitalInput inPosition = RobotMap.inPosition;
     public Shoot() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(Robot.shooter);  //FIXME Is shooter required breaking things?
     }
 
@@ -34,13 +32,13 @@ public class Shoot extends Command {
     protected void execute() {
         
         Robot.shooter.set(150);
-        System.out.println(!inPosition.get());
+        System.out.println(inPosition.get());
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (inPosition.get()==!OI.shooterarmed);
+        return (inPosition.get()==!OI.shooterArmed);
     }
 
     // Called once after isFinished returns true

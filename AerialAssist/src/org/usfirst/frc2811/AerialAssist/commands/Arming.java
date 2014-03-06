@@ -13,13 +13,12 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 
 /**
- *
+ * Handles arming of the shooter
  * @author 128925
  */
 public class Arming extends Command {
     
     DigitalInput inPosition = RobotMap.inPosition;
-    boolean oldVal;
     
     public Arming() {
         // Use requires() here to declare subsystem dependencies
@@ -29,21 +28,20 @@ public class Arming extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        oldVal = inPosition.get();
-                
+                       
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         
         Robot.shooter.set(150);
-        System.out.println(!inPosition.get());
+        System.out.println(inPosition.get());
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (inPosition.get()==OI.shooterarmed);
+        return (inPosition.get()==OI.shooterArmed);
     }
 
     // Called once after isFinished returns true

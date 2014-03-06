@@ -29,7 +29,7 @@ public class templifter extends Command {
     protected void execute() {
         if (OI.stickEngaged){
             //  System.out.println("templifter executed");
-        Robot.lifter2.setIncramental(OI.joystick1.getRawAxis(5)*-1);
+        Robot.lifter2.setIncramental(OI.joystick1.getRawAxis(6)*-1);
         }
     }
 

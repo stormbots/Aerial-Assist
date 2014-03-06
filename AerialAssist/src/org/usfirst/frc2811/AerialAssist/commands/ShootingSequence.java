@@ -15,7 +15,6 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  */
 public class ShootingSequence extends CommandGroup {
     //open claw
-    //auto aim
     //disable joystick
     //fire
     //enable joystick
@@ -28,10 +27,11 @@ public class ShootingSequence extends CommandGroup {
         //this.addSequential(new JoystickDisable());        
         this.addSequential(new RollOff());
         this.addSequential(new Wait(.5));
-        this.addSequential(new Arming());
+        this.addSequential(new Shoot());
         this.addSequential(new Wait(.5));
         //this.addSequential(new JoystickEnable());
-        this.addSequential(new SetToZero());
+        this.addSequential(new ReArmGroup());
+        this.addSequential(new Wait(2));
         
         
     }
