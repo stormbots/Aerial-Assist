@@ -17,7 +17,7 @@ public class tempshoot extends Command {
     
     public tempshoot() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.shooter);
+      //  requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
@@ -31,7 +31,7 @@ public class tempshoot extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       return !Robot.oi.shoot.get();
+       return true; //!Robot.oi.shoot.get();
     }
 
     // Called once after isFinished returns true

@@ -20,7 +20,7 @@ public class ReLoadA extends Command {
     public ReLoadA() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.shooter);       //FIXME Is shooter required breaking things? 
+//        requires(Robot.shooter);       //TODO confirm working without requires shooter
     }
 
     // Called just before this Command runs the first time

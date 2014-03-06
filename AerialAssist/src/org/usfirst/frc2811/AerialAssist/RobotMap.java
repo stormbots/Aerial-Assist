@@ -77,7 +77,6 @@ public class RobotMap {
     
 
     public static void init() {
-        //FIXME Ensure compressor on new bot works properly without being declared
         //Compressor1 = new Compressor(1, 1, 1, 1);
 	
         /*

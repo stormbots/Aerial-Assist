@@ -17,13 +17,12 @@ public class SetToAngle extends Command {
     double inputangle;
     
     public SetToAngle(double input) {
-        requires(Robot.shooter);        //FIXME Is shooter required breaking things?
+        //requires(Robot.lifter2);        //TODO determine if not requiring shooter is breaking
         inputangle=input;
         //requires(Robot.lifter2);
     }
     public SetToAngle() {//Set a default way to call it without angles
         inputangle=0;
-        requires(Robot.shooter); //FIXME Is shooter required breaking things?
         requires(Robot.lifter2); //FIXME Is lifter required breaking things?
     }
 
