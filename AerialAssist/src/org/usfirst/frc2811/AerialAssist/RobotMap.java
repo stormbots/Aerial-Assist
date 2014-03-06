@@ -77,7 +77,7 @@ public class RobotMap {
     
 
     public static void init() {
-        //FIXME we need to enable this for the bot
+        //FIXME Ensure compressor on new bot works properly without being declared
         //Compressor1 = new Compressor(1, 1, 1, 1);
 	
         /*
@@ -89,7 +89,7 @@ public class RobotMap {
         chassisSpeedController4 = new Jaguar(1, 4);
         chassisRobotDrive41 = new RobotDrive(chassisSpeedController1, chassisSpeedController2,
         chassisSpeedController3, chassisSpeedController4);
-        chassisRobotDrive41.setSafetyEnabled(true); //FIXME: We need to test with safety enabled and proper values
+        chassisRobotDrive41.setSafetyEnabled(true);
         chassisRobotDrive41.setExpiration(0.1);
         chassisRobotDrive41.setSensitivity(0.5);
         chassisRobotDrive41.setMaxOutput(1.0);

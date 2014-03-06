@@ -17,14 +17,14 @@ public class SetToAngle extends Command {
     double inputangle;
     
     public SetToAngle(double input) {
-        requires(Robot.shooter);
+        requires(Robot.shooter);        //FIXME Is shooter required breaking things?
         inputangle=input;
         //requires(Robot.lifter2);
     }
     public SetToAngle() {//Set a default way to call it without angles
         inputangle=0;
-        requires(Robot.shooter);
-        requires(Robot.lifter2);
+        requires(Robot.shooter); //FIXME Is shooter required breaking things?
+        requires(Robot.lifter2); //FIXME Is lifter required breaking things?
     }
 
     // Called just before this Command runs the first time
@@ -33,9 +33,7 @@ public class SetToAngle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       Robot.lifter2.set(inputangle);
-        //FIXME Set motors to 60
-        
+       Robot.lifter2.set(inputangle);        
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -15,7 +15,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 public class ArmDown extends Command {
     
     public ArmDown() {
-        requires(Robot.lifter2);
+        requires(Robot.lifter2); //FIXME Is lifter required breaking things?
     }
 
     // Called just before this Command runs the first time
@@ -25,13 +25,13 @@ public class ArmDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //FIXME use the Robot.lifter2.set() method. Up is positive angle, down is negative angle
+        //use the Robot.lifter2.set() method. Up is positive angle, down is negative angle
         Robot.lifter2.setIncramental(-3.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false; //FIMXE Check return value for ArmDown function when we call it from a button
+        return false; //TODO (maybe) Check return value for ArmDown function when we call it from a button
     }
 
     // Called once after isFinished returns true

@@ -73,7 +73,7 @@ public class OI {
         shift.whenPressed(new ShiftGear());
         //b3.whileHeld(null ); 
         //b4.whileHeld(null);
-        shoot.whileHeld(new Arming());
+        shoot.whileHeld(new Arming());  //FIXME Make fire button a command group that runs shoot, then re-arm-group
         shoot.whenReleased(new ReArmGroup());
         //autoAim.whileHeld(new AutoAim());
         spitBall.whenPressed(new UnLoad());

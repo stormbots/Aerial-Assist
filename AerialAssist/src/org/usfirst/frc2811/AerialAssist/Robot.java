@@ -82,9 +82,6 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         System.out.println("autonomous init");
         autonomousCommand = new AutonomousCommand(); 
-        // schedule the autonomous command (example)
-        //TODO Get autonomous mode up and running
-        //Can we make this a commandgroup? 
         
        System.out.println("autonomous exit");
     }
@@ -95,12 +92,6 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         updateLCD();
         Scheduler.getInstance().run();
-        //RobotMap.ShootingSequence.start();//.start();
-        //Timer.delay(1);
-        //TODO Make forward go forward and shoot in autonomous, but only when robot is safe and testable
-        //RobotMap.chassisSpeedController1.set(50);
-
-        //Timer.delay(3);
     }
 
     public void teleopInit() {
@@ -133,6 +124,8 @@ public class Robot extends IterativeRobot {
             //display on dashboard
             //System.out.print("testinit");
             //*/
+        
+        //FIXME Set maximum arm angle using RobotMap.MaximumArmAngle=90;
     }
     
     public void testPeriodic() {
@@ -144,7 +137,7 @@ public class Robot extends IterativeRobot {
         double I = SmartDashboard.getNumber("IVal",  lifter2PID.getI());
         double D = SmartDashboard.getNumber("DVal",  lifter2PID.getD());
         //sets cRio values
-        lifter2PID.setPID(P, I, D);//FIXME: u mad bro? problem? *trollface*
+        lifter2PID.setPID(P, I, D);//FIXME: ensure PID changes in test work correctly //u mad bro? problem? *trollface*
             System.out.println("Read P: " + lifter2PID.getP());
         
         //sets prefs from current pid
@@ -169,6 +162,8 @@ public class Robot extends IterativeRobot {
         //*/
     }
     private void updateLCD(){
+            //TODO Make this do proper things and give drive team instant data
+            
             //DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
             DriverStationLCD.getInstance().println(Line.kUser1, 1, "Actual Angle" + Robot.lifter2.getPosition());
             DriverStationLCD.getInstance().println(Line.kUser2, 1, "Auto Aim = " + OI.autoAimEnable + " ");
