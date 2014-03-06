@@ -22,6 +22,7 @@ public class AutoAim extends Command {
 
     public AutoAim() {
         // Use requires() here to declare subsystem dependencies
+        requires(Robot.lifter2);
         internal = 8;//TODO Figure out if we need timeout on our AutoAim
 
     }

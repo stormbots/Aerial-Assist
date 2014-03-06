@@ -22,7 +22,7 @@ public class AngleManager extends Subsystem {
     public static AnalogChannel rangeFinderRight = RobotMap.rangeFinderRight;
     double rangeLeft;
     double rangeRight ;
-    double trueRange ;
+    double trueRange = RobotMap.trueRange;
     double distance ;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

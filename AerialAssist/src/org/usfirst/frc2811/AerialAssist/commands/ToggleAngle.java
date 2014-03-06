@@ -17,6 +17,7 @@ public class ToggleAngle extends Command {
     public ToggleAngle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(Robot.lifter2);
     }
 
     // Called just before this Command runs the first time

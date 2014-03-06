@@ -23,7 +23,7 @@ public class SetToAngle extends Command {
     }
     public SetToAngle() {//Set a default way to call it without angles
         inputangle=0;
-        requires(Robot.lifter2);
+        //requires(Robot.lifter2);
     }
 
     // Called just before this Command runs the first time

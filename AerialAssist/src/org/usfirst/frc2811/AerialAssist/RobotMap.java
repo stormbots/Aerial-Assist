@@ -14,6 +14,7 @@ package org.usfirst.frc2811.AerialAssist;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc2811.AerialAssist.subsystems.AngleManager;
 //This import is being bothersome, fixed by forcing Encoder.PIDSourceParameter instead of PIDSourceparameter
 //import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
 
@@ -76,8 +77,8 @@ public class RobotMap {
     public static int rollerState;
     public static String shootPrint = "N/A";
     public static CommandGroup shootingSequence;
-    
-    
+    public static Boolean ready;
+    public static AngleManager angle;
 
     public static void init() {
         //FIXME we need to enable this for the bot
@@ -137,6 +138,10 @@ public class RobotMap {
         inPosition = new DigitalInput(1,10);
         compin = new DigitalInput(1,14);
         compout = new Relay(7);
+        
+        angle = new AngleManager();
+        
+        
         
     }
 }

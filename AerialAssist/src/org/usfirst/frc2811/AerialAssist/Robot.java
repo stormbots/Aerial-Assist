@@ -52,6 +52,7 @@ public class Robot extends IterativeRobot {
     public static ShootingSequence shootseq;
     
     
+    
 
     /**
      * This function is run when the robot is first started up and should be
@@ -72,6 +73,7 @@ public class Robot extends IterativeRobot {
         Compress = new Compress();
         Compress.start();
         shootseq = new ShootingSequence();
+      
     }
 
     public void autonomousInit() {
@@ -132,13 +134,30 @@ public class Robot extends IterativeRobot {
     }
     private void updateLCD(){
            //DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
-           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Auto Aim = " + OI.autoAimEnable + " ");
-           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Controls Enabled= " + OI.stickEngaged + " ");
-           DriverStationLCD.getInstance().println(Line.kUser4, 1, "Shooting State: " + RobotMap.shootPrint);
-           DriverStationLCD.getInstance().println(Line.kUser5, 1, "Target Angle: " + Robot.lifter2.getSetpoint());
-           DriverStationLCD.getInstance().println(Line.kUser6, 1, "Armed State: " + !RobotMap.inPosition.get() + " ");
-           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Actual Angle" + Robot.lifter2.getPosition());
+           //DriverStationLCD.getInstance().println(Line.kUser2, 1, "Auto Aim = " + OI.autoAimEnable + " ");
+           //DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range: " + RobotMap.trueRange + " ");
+           //DriverStationLCD.getInstance().println(Line.kUser4, 1, "Shooting State: " + RobotMap.shootPrint);
+           //DriverStationLCD.getInstance().println(Line.kUser5, 1, "Target Angle: " + Robot.lifter2.getSetpoint());
+           DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle = " + Robot.lifter2.getPosition());
+           DriverStationLCD.getInstance().println(Line.kUser2, 1, "Range = " + RobotMap.trueRange);
+           DriverStationLCD.getInstance().println(Line.kUser3, 1, "Not Range = " + RobotMap.distance);
+           DriverStationLCD.getInstance().println(Line.kUser4, 1, "Reload State = " + RobotMap.reloadedState);
+           DriverStationLCD.getInstance().println(Line.kUser5, 1, "Auto Aim = " + OI.autoAimEnable);
+           if (Robot.lifter2.getPosition() > -100){
+               if(RobotMap.trueRange > 3 && RobotMap.trueRange < 8){
+                   //if (RobotMap.reloadedState == true){
+                       DriverStationLCD.getInstance().println(Line.kUser6, 1, "Ready!");
+                   //}
+                   }else{
+                   DriverStationLCD.getInstance().println(Line.kUser6, 1, "Not Ready...");
+               }
+                   }
            
-           lcd.updateLCD();
-    }
-} 
+               
+           
+           DriverStationLCD.getInstance().updateLCD();
+           
+    
+
+}
+}
