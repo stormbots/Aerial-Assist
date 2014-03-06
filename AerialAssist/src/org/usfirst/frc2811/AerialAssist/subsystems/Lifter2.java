@@ -47,7 +47,7 @@ public class Lifter2 extends PIDSubsystem {
         
         
         super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
-        setAbsoluteTolerance(1);
+        setAbsoluteTolerance(2);
         getPIDController().setContinuous(true);
         getPIDController().enable();
         getPIDController().setSetpoint(returnPIDInput());
@@ -77,7 +77,7 @@ public class Lifter2 extends PIDSubsystem {
     }
     
     public void setIncramental(double input){
-        System.out.println("setIncramental was called in Lifter2, value "+input);
+        //System.out.println("setIncramental was called in Lifter2, value "+input);
         // getPIDController().setSetpoint((Robot.oi.joystick1.getRawAxis(3)*-1+1)*40);
         //getPIDController().setSetpoint(getPIDController()+input);
 	if (getPIDController().getSetpoint()+input>MaximumValue) {
@@ -88,11 +88,11 @@ public class Lifter2 extends PIDSubsystem {
         } else {
         getPIDController().setSetpoint(getPIDController().getSetpoint()+input);
         }
-        System.out.println(getPIDController().getSetpoint()+" "+returnPIDInput()+" "+DriveMotor1.get()+" "+pot.getAverageVoltage());
+       // System.out.println(getPIDController().getSetpoint()+" "+returnPIDInput()+" "+DriveMotor1.get()+" "+pot.getAverageVoltage());
         //DriveMotor1.set(input);
     }
     public void set(double input){
-        System.out.println("set was called in Lifter2, value "+input);
+        //System.out.println("set was called in Lifter2, value "+input);
        // getPIDController().setSetpoint((Robot.oi.joystick1.getRawAxis(3)*-1+1)*40);
         //getPIDController().setSetpoint(getPIDController()+input);
 	if (getPIDController().getSetpoint()+input>MaximumValue) {

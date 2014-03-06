@@ -17,26 +17,33 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class Shooter extends PIDSubsystem {
 
     SpeedController DriveMotor1 = RobotMap.firingSpeedController;
-    Encoder input = RobotMap.somesuchi6;
-    Encoder output = RobotMap.somesuchi5;
+    Encoder input = RobotMap.somesuchi5;
+    Encoder outputf = RobotMap.somesuchi6;
     private double newrate;
     // Initialize your subsystem here
     public Shooter() {
-        super("shooter", 0.002, 0.0000, 0);
-        getPIDController().enable();
-        getPIDController().setAbsoluteTolerance(1);
+        //super("shooter", 0.002, 0.000001, 0);
+        super("shooter", 0.01, 0.00000001, 0);
+        super.enable();
+        super.setAbsoluteTolerance(1);
     }
     
     public void initDefaultCommand() {
     }
     
     protected double returnPIDInput() {
-        return output.getRate()+newrate;
+        return outputf.getRate()+newrate;
     }
     
     protected void usePIDOutput(double output) {
-        DriveMotor1.set(returnPIDInput()<0?output:output);
+        //DriveMotor1.set(returnPIDInput()<0?output:output);
+        DriveMotor1.pidWrite(output);
         getPIDController().setSetpoint(input.getRate());
+        System.out.println("shooter motor speed: "+output);
+        System.out.println("input: "+input.getRate());
+        System.out.println("outputf: "+outputf.getRate());
+        //System.out.println("returnPIDInput: "+returnPIDInput());
+        //System.out.println("setpoint: "+super.getSetpoint());
     }
     public void set(double rate) {
         newrate = -rate;
