@@ -13,7 +13,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 
 /**
  * This function sets the target angle, and then completes when the PID system
- * has reached it's target
+ * has reached its target
  * @author 2811
  */
 public class AutoAim extends Command {

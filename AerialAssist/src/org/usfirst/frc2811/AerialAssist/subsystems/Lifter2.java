@@ -125,7 +125,6 @@ public class Lifter2 extends PIDSubsystem {
             output2 = output;
         }
         output2 = Math.abs(output2)>0.5?output2/Math.abs(output2)*0.5:output;
-        //DriveMotor1.pidWrite() //FIXME Kelson, what is this? Drivemotor1.pidWrite();
         if(output2<0){ //reduce motor power when going down
             output2 = output2/2;
         }
