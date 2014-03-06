@@ -48,7 +48,7 @@ public class AngleManager extends Subsystem {
         //Convert raw sensor reading into feet
         distance = Robot.map.Map(trueRange,RobotMap.rangeShort,RobotMap.rangeLong,5,10);
         
-        //TODO Write the sensorvalues back to RobotMap so we can show them on the Driver Staion for testing
+
         RobotMap.distance = distance;
         return distance;
     }

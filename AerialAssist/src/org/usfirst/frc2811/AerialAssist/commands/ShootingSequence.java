@@ -14,11 +14,9 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  * @author Austin
  */
 public class ShootingSequence extends CommandGroup {
-    //open claw
-    //disable joystick
+    //stop rollers
     //fire
-    //enable joystick
-    //rearm && close claw
+    //rearm
     public ShootingSequence() {
         
         System.out.println("ShootingSequence");

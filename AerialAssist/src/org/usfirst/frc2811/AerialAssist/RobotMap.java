@@ -95,14 +95,11 @@ public class RobotMap {
         chassisRobotDrive41.setMaxOutput(1.0);
         
         rollersSpeedController =  new Jaguar(1,7);
-	//LiveWindow.addSensor("Lifter", "Potentiometer 1", lifterPotentiometer);
-
+	
         lifterSpeedController = new Jaguar(1, 6);
-	//LiveWindow.addActuator("Rollers", "Speed Controller 6", (Talon) rollersSpeedController6);
-        
+	
         firingSpeedController = new Jaguar(1,5);
-       // LiveWindow.addActuator("Firing", "Speed Controller 7", (Talon) firingSpeedController7);
-
+        
         /*
         DECLARE ANALOG SENSORS (in order, please)
         */

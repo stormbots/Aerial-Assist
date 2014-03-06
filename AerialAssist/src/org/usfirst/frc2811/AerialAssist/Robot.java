@@ -97,7 +97,7 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
         if (autonomousCommand != null) autonomousCommand.cancel();
         Robot.lifter2.set(15);
-        
+        RobotMap.MaximumArmAngle=80;
        
         
     }
@@ -120,12 +120,7 @@ public class Robot extends IterativeRobot {
     public void testInit(){
         //lifter2PID
         System.out.println("TEST MODE ACTIVE");
-            //This is reading a value, and using the current hardcoded values as defaults
-            //display on dashboard
-            //System.out.print("testinit");
-            //*/
-        
-        //FIXME Set maximum arm angle using RobotMap.MaximumArmAngle=90;
+        RobotMap.MaximumArmAngle=90;
     }
     
     public void testPeriodic() {
@@ -156,21 +151,17 @@ public class Robot extends IterativeRobot {
         //Update the DriverStation window
         LiveWindow.run();
        // updateLCD();
-       // DriverStationLCD.getInstance().println(Line.kUser1, 1, "Angle" + Robot.lifter2.getPosition() + " ");
-       // Robot.lifter2.setInputRange(0,90);
-
-        //*/
-    }
+       }
     private void updateLCD(){
             //TODO Make this do proper things and give drive team instant data
             
-            //DriverStationLCD.getInstance().println(Line.kUser1, 1, "Range = " + RobotMap.distance + " ");
-            DriverStationLCD.getInstance().println(Line.kUser1, 1, "Actual Angle" + Robot.lifter2.getPosition());
-            DriverStationLCD.getInstance().println(Line.kUser2, 1, "Auto Aim = " + OI.autoAimEnable + " ");
+            DriverStationLCD.getInstance().println(Line.kUser1, 1, "Target Angle: " + Robot.lifter2.getSetpoint());
+            DriverStationLCD.getInstance().println(Line.kUser2, 1, "Actual Angle" + Robot.lifter2.getPosition());
             DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range: " + RobotMap.distance + " ");
-            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Shooting State: " + RobotMap.shootPrint);
-            DriverStationLCD.getInstance().println(Line.kUser5, 1, "Target Angle: " + Robot.lifter2.getSetpoint());
-            DriverStationLCD.getInstance().println(Line.kUser6, 1, "Armed State: " + !RobotMap.inPosition.get() + " ");
+            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Armed State: " + !RobotMap.inPosition.get() + " ");
+            DriverStationLCD.getInstance().println(Line.kUser5, 1, "Auto Aim: " + OI.autoAimEnable + " ");
+            DriverStationLCD.getInstance().println(Line.kUser6, 1, "Shooting State: " + RobotMap.shootPrint);
+            
            
            
             lcd.updateLCD();
