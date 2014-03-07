@@ -19,6 +19,6 @@ public class ReArmGroup extends CommandGroup {
         //this.addSequential(new Wait(2));
         this.addSequential(new Arming());
         System.out.println("armed setting to zero");
-        this.addSequential(new SetToZero());
+        //this.addSequential(new SetToZero());
     }
 }

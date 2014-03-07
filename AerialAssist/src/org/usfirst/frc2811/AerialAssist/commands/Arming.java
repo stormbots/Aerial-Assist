@@ -28,12 +28,15 @@ public class Arming extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-                       
+        if(Robot.lifter2.getPosition()>60||Robot.lifter2.getPosition()<15){
+            Robot.lifter2.set(0);    
+        }
+                     
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.lifter2.set(0.0);
+        
         Robot.shooter.set(150);
         System.out.println(inPosition.get());
         
@@ -46,7 +49,7 @@ public class Arming extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.shooter.set(0);
+        //Robot.shooter.set(0);
         
     }
 
