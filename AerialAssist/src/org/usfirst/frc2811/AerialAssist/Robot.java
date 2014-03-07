@@ -107,11 +107,11 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        angleManager.getRange(); //Automatically updates RobotMap.distance, which is read later.
         updateLCD();
         //System.out.println(RobotMap.lifterSpeedController.get() + "?");
            //System.out.print("\t");
            //System.out.println(RobotMap.rangeFinder9.getAverageValue());
- 
     }
 
     /**
@@ -159,11 +159,43 @@ public class Robot extends IterativeRobot {
             DriverStationLCD.getInstance().println(Line.kUser1, 1, "Target Angle: " + Robot.lifter2.getSetpoint());
             DriverStationLCD.getInstance().println(Line.kUser2, 1, "Actual Angle" + Robot.lifter2.getPosition());
             DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range: " + RobotMap.distance + " ");
-            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Armed State: " + !RobotMap.inPosition.get() + " ");
+            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Armed State: " + !RobotMap.inPosition.get() + " "); //FIXME This is a bad and inconsistent way of checkingthe state
             DriverStationLCD.getInstance().println(Line.kUser5, 1, "Auto Aim: " + OI.autoAimEnable + " ");
             DriverStationLCD.getInstance().println(Line.kUser6, 1, "Shooting State: " + RobotMap.shootPrint);
             
-           
+            //TODO Don't mind me, I'm just adding some code because I want faster debugging. -Dan
+            //*
+            //Clear the output buffer from above, so we don't have to delete anything. 
+            DriverStationLCD.getInstance().clear();
+            //Give us arm data
+            DriverStationLCD.getInstance().println(Line.kUser1, 1, "Target " + Robot.lifter2.getSetpoint());
+            DriverStationLCD.getInstance().println(Line.kUser1, 12, " Actual" + Robot.lifter2.getPosition());
+            
+            //Properly state whether the robot thinks it's armed
+            DriverStationLCD.getInstance().println(Line.kUser3, 1, "Armed State: " + (RobotMap.inPosition.get()==OI.shooterArmed)+ "    ");
+            //Display the input ticks and input tick information
+            DriverStationLCD.getInstance().println(Line.kUser4, 1, "InputTicks ");
+            DriverStationLCD.getInstance().println(Line.kUser4, 11, ""+RobotMap.somesuchi5.getRate()+"   " );
+            DriverStationLCD.getInstance().println(Line.kUser4, 16, ""+RobotMap.somesuchi5.get()+"" );
+            //Update the output tick information
+            DriverStationLCD.getInstance().println(Line.kUser5, 1, "OutputTicks ");
+            DriverStationLCD.getInstance().println(Line.kUser5, 11, ""+RobotMap.somesuchi6.getRate()+"   " );
+            DriverStationLCD.getInstance().println(Line.kUser5, 16, ""+RobotMap.somesuchi6.get()+" " );
+            //*/
+            
+            //Include a bunch of checks for if we should fire or not, and give a clear message if we should
+            //Note, angleManager.getRange() must be called in teleOp Periodic in order to update the RobotMap.Distance variable for this to work
+            //*
+            if(
+                RobotMap.distance<7 && RobotMap.distance >4 &&                          //Right distance from the wall
+                Robot.lifter2.getPosition() >50 && Robot.lifter2.getPosition() <70 &&   //Right angle
+                RobotMap.inPosition.get()==OI.shooterArmed                              //And, of course, we're reloaded
+                    ){
+                DriverStationLCD.getInstance().println(Line.kUser6,1,"=====FIRE NOW!======" ); //We're set, tell them to shoot
+            }else{
+                DriverStationLCD.getInstance().println(Line.kUser6,1,"        :(          " ); //Remove notice, replace with sad face
+            }
+            //*/
            
             lcd.updateLCD();
     }
