@@ -30,15 +30,16 @@ public class Shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
+        if (Robot.lifter2.getUnder30()) {
         Robot.shooter.set(150);
         System.out.println(inPosition.get());
+        }
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (inPosition.get()==!OI.shooterArmed);
+        return (inPosition.get()==!OI.shooterArmed || Robot.lifter2.getUnder30());
     }
 
     // Called once after isFinished returns true

@@ -23,7 +23,8 @@ public class Shooter extends PIDSubsystem {
     // Initialize your subsystem here
     public Shooter() {
         //super("shooter", 0.002, 0.000001, 0);
-        super("shooter", 0.002, 0.0000000, 0);
+        //super("shooter", 0.0002, 0.0000000, 0);
+        super("shooter", 0.002, 0.0000000, 0);	//FIXME Confirm this value, add I if needed.
         super.enable();
         super.setAbsoluteTolerance(1);
     }
@@ -32,26 +33,16 @@ public class Shooter extends PIDSubsystem {
     }
     
     protected double returnPIDInput() {
-        return outputf.getRate()+newrate;
+        return -outputf.getRate()-newrate;
     }
     
     protected void usePIDOutput(double output) {
-        //FIxME: Temporarily put hard cap on motor output
-        /*We should put a hard cap on the raw motor output here for debugging while we hunt down the current issue
-        The reason being, if our encoder is returning 4x as many ticks as the lst one, 
-        then our error term (and our resulting P) is 4 times as high, and the motor value
-        4 times as large. Capping the motor output directly will ensure that if the PID or sensor is at fault, 
-        the motor will never push so hard that it can break things.
-        Something like this should do.
-        if(output>.2 or output <0.2) {println ("OH NO WTF?");output=0.2}
-        */
-        
         //DriveMotor1.set(returnPIDInput()<0?output:output);
-        DriveMotor1.pidWrite(output);
+        DriveMotor1.pidWrite(-output);
         getPIDController().setSetpoint(input.getRate());
         System.out.println("shooter motor speed: "+Math.floor(output*20)/20);
-        System.out.println("input: "+input.get());
-        System.out.println("outputf: "+outputf.get());
+        System.out.println("input: "+input.getRate());
+        System.out.println("outputf: "+outputf.getRate());
         //System.out.println("returnPIDInput: "+returnPIDInput());
         //System.out.println("setpoint: "+super.getSetpoint());
     }

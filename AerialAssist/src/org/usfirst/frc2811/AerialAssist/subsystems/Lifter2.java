@@ -104,6 +104,9 @@ public class Lifter2 extends PIDSubsystem {
         getPIDController().setSetpoint(input);
         }
     }
+    public boolean getUnder30(){
+        return returnPIDInput()< 15; //iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    }
     
     protected double returnPIDInput() {
         //yay map value no complicated "magic number" crud

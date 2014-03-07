@@ -81,7 +81,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         System.out.println("autonomous init");
-        autonomousCommand = new AutonomousCommand(); 
+        autonomousCommand = new AutonomousCommand(true); 
         
        System.out.println("autonomous exit");
     }
@@ -96,7 +96,7 @@ public class Robot extends IterativeRobot {
 
     public void teleopInit() {
         if (autonomousCommand != null) autonomousCommand.cancel();
-        Robot.lifter2.set(15);
+        //Robot.lifter2.set(15);
         RobotMap.MaximumArmAngle=80;
        
         
@@ -126,6 +126,7 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         
         //Set up PID tuning 
+        Robot.lifter2.setIncramental(OI.joystick1.getRawAxis(6)*-1);
         
         //Read values from dash
         double P = SmartDashboard.getNumber("PVal",  lifter2PID.getP());
