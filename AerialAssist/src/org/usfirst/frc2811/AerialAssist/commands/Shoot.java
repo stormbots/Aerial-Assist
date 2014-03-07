@@ -46,7 +46,7 @@ public class Shoot extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.shooter.set(0);
+        //Robot.shooter.set(0);
         System.out.println("done shooting");
         
 }

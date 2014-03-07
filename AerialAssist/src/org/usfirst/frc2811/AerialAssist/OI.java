@@ -6,8 +6,6 @@ import edu.wpi.first.wpilibj.buttons.*;
 
 import org.usfirst.frc2811.AerialAssist.commands.AimToggle;
 import org.usfirst.frc2811.AerialAssist.commands.ClawToggle;
-import org.usfirst.frc2811.AerialAssist.commands.ReLoadA;
-import org.usfirst.frc2811.AerialAssist.commands.ReLoadB;
 import org.usfirst.frc2811.AerialAssist.commands.ReLoad;
 import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
