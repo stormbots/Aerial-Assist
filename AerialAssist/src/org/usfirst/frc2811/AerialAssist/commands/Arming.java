@@ -44,7 +44,8 @@ public class Arming extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (inPosition.get()==OI.shooterArmed);
+        //return (inPosition.get()==OI.shooterArmed);
+        return(inPosition.get());
     }
 
     // Called once after isFinished returns true

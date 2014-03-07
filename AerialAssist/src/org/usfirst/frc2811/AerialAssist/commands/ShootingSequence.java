@@ -19,7 +19,7 @@ public class ShootingSequence extends CommandGroup {
     //rearm
     public ShootingSequence() {
         
-        //System.out.println("ShootingSequence");
+        System.out.println("ShootingSequence begun");
         //RobotMap.shootPrint = "Shooting Sequence Started";
         //RobotMap.openClaw.start(); //Causes Robots don't quit
         //this.addSequential(new JoystickDisable());        
@@ -30,6 +30,6 @@ public class ShootingSequence extends CommandGroup {
         this.addSequential(new ReArmGroup());
         
         
-        
+        System.out.println("heyo shooting sequence over");
     }
 }

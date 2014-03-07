@@ -24,13 +24,12 @@ public class Shoot extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
-                
+        this.setTimeout(2.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (true){//!Robot.lifter2.getUnder30()) {
+        if (!Robot.lifter2.getUnder30()) {
         Robot.shooter.set(150);
         System.out.println("In position: "+inPosition.get());
         } else {
@@ -41,7 +40,7 @@ public class Shoot extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (inPosition.get()==!OI.shooterArmed);
+        return (Robot.lifter2.getUnder30() || this.isTimedOut()==true || !RobotMap.inPosition.get());
     }
 
     // Called once after isFinished returns true
