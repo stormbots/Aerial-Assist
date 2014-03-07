@@ -23,8 +23,8 @@ public class Shooter extends PIDSubsystem {
     // Initialize your subsystem here
     public Shooter() {
         //super("shooter", 0.002, 0.000001, 0);
-        //super("shooter", 0.0002, 0.0000000, 0);
-        super("shooter", 0.002, 0.0000000, 0);	//FIXME Confirm this value, add I if needed.
+        //super("shooter", 0.002, 0.0000000, 0);	
+        super("shooter", 0.0002, 0.0000000, 0);   //FIXME Confirm ShooterPID value, add I if needed.
         super.enable();
         super.setAbsoluteTolerance(1);
     }
