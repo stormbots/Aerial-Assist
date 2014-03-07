@@ -13,9 +13,9 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  *
  * @author Kelson
  */
-public class Reload extends Command {
+public class ReLoad extends Command {
     
-    public Reload() {
+    public ReLoad() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
