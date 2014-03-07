@@ -36,6 +36,16 @@ public class Shooter extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
+        //FIxME: Temporarily put hard cap on motor output
+        /*We should put a hard cap on the raw motor output here for debugging while we hunt down the current issue
+        The reason being, if our encoder is returning 4x as many ticks as the lst one, 
+        then our error term (and our resulting P) is 4 times as high, and the motor value
+        4 times as large. Capping the motor output directly will ensure that if the PID or sensor is at fault, 
+        the motor will never push so hard that it can break things.
+        Something like this should do.
+        if(output>.2 or output <0.2) {println ("OH NO WTF?");output=0.2}
+        */
+        
         //DriveMotor1.set(returnPIDInput()<0?output:output);
         DriveMotor1.pidWrite(output);
         getPIDController().setSetpoint(input.getRate());
