@@ -33,7 +33,7 @@ public class Arming extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
+        Robot.lifter2.set(0.0);
         Robot.shooter.set(150);
         System.out.println(inPosition.get());
         

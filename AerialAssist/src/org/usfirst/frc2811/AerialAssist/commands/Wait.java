@@ -22,6 +22,7 @@ public class Wait extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         this.setTimeout(internal);
+        System.out.println("started wiating for "+internal+" seconds");
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -35,6 +36,7 @@ public class Wait extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("stopped wiating for "+internal+" seconds");
     }
 
     // Called when another command which requires one or more of the same

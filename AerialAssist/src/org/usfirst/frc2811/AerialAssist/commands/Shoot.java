@@ -30,9 +30,12 @@ public class Shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
+        if (true){//!Robot.lifter2.getUnder30()) {
         Robot.shooter.set(150);
-        System.out.println(inPosition.get());
+        System.out.println("In position: "+inPosition.get());
+        } else {
+        System.out.println("under angle don't shoot!");
+        }
         
     }
 
@@ -44,6 +47,7 @@ public class Shoot extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.shooter.set(0);
+        System.out.println("done shooting");
         
 }
 

@@ -11,41 +11,40 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
- * @author Laurel Bingham
+ * @author Kelson
  */
-public class DriveUntil extends Command {
-    public static double driveDistance;
-            
-    public DriveUntil(double distance) {
-        driveDistance = distance;
-        requires(Robot.chassis);
+public class Reload extends Command {
+    
+    public Reload() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-           }
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("autonomous driving until");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.chassis.manualControl(.75, 0);
+        if(RobotMap.rollerState!=1){
+            RobotMap.rollerState = 1;
+            Robot.rollers.Suck();
+        }
+        else{
+            RobotMap.rollerState = 0;
+            Robot.rollers.Off();
+            
+        }
+            
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(Robot.angleManager.getRange()<=driveDistance){
-        return true;    
-        }
-        else{
-            return false;
-        }
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.chassis.manualControl(0, 0);
     }
 
     // Called when another command which requires one or more of the same

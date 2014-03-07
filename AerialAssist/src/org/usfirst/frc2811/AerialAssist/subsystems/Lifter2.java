@@ -104,11 +104,14 @@ public class Lifter2 extends PIDSubsystem {
         getPIDController().setSetpoint(input);
         }
     }
+    public boolean getUnder30(){
+        return returnPIDInput()< 15; //iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    }
     
     protected double returnPIDInput() {
         //yay map value no complicated "magic number" crud
      //return mapvalue(pot.getAverageVoltage(),1.9160954140000004, 1.3966558480000002,30,0); YES YES YES
-     return mapvalue(pot.getAverageVoltage(),2.7286840420000003, 1.4686573720000002,72,0);
+     return mapvalue(pot.getAverageVoltage(),1.607517454, 0.517208662,58,0);
     
     }
     
