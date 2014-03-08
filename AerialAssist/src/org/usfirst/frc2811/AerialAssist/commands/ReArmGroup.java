@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ReArmGroup extends CommandGroup {
     
     public ReArmGroup() {
+        System.out.println("Re arming group started");
         this.addSequential(new SetToAngle(15));
         System.out.println("set angle to fifteen");
         //this.addSequential(new Wait(2));

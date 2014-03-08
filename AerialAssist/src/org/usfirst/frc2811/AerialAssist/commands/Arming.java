@@ -38,20 +38,20 @@ public class Arming extends Command {
     protected void execute() {
         
         Robot.shooter.set(150);
-        System.out.println(inPosition.get());
+        System.out.println("In position is "+inPosition.get());
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         //return (inPosition.get()==OI.shooterArmed);
-        return(inPosition.get());
+        return(inPosition.get()==OI.shooterArmed);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        //Robot.shooter.set(0);
-        
+        Robot.shooter.set(0);
+        System.out.println("ARMING IS OVER");
     }
 
     // Called when another command which requires one or more of the same

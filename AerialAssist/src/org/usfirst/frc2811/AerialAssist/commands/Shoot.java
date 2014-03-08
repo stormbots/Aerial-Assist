@@ -40,14 +40,21 @@ public class Shoot extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Robot.lifter2.getUnder30() || this.isTimedOut()==true || !RobotMap.inPosition.get());
+        return (this.isTimedOut()==true );//|| RobotMap.inPosition.get()!=OI.shooterArmed);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        //Robot.shooter.set(0);
+        Robot.shooter.set(0);
         System.out.println("done shooting");
-        
+        if (this.isTimedOut()==true) {
+            System.out.println(
+                 "shot timed out");
+            
+        }
+        if (RobotMap.inPosition.get()!=OI.shooterArmed){
+            System.out.println("in position is different than shooter armed");
+        }
 }
 
     protected void interrupted() {

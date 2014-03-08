@@ -33,7 +33,7 @@ public class SetToAngle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-               
+               System.out.println("still waiting for lifter2 to make it on target");
     }
 
     // Make this return true when this Command no longer needs to run execute()
