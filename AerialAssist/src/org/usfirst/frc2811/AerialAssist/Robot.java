@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     
+        Command joystickthing;
 
     public static OI oi;
     public static final boolean autonomousEnabled = false;
@@ -63,13 +64,14 @@ public class Robot extends IterativeRobot {
 	RobotMap.init();
         rollers = new Rollers();
         chassis = new Chassis();
+        chassis.manualControl(0.0, 0.0);
         lifter2 = new Lifter2();
         angleManager = new AngleManager();
         map = new Map();
         joystickcontrol = new JoystickControl();
         shooter = new Shooter();
         oi = new OI();
-       
+       joystickthing = new DriveRobot();
         lcd = DriverStationLCD.getInstance();
         Compress = new Compress();
         Compress.start();
@@ -81,10 +83,11 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
+        OI.stickEngaged=false;
         System.out.println("autonomous init");
         autonomousCommand = new AutonomousCommand(true); 
-        
-       System.out.println("autonomous exit");
+        autonomousCommand.start();
+        if (joystickthing != null) joystickthing.cancel();
     }
 
     /**
@@ -93,14 +96,16 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         updateLCD();
         Scheduler.getInstance().run();
+        System.out.println("Autonomous scheduled to run");
     }
 
     public void teleopInit() {
+        OI.stickEngaged=true;
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        joystickthing.start();
         //Robot.lifter2.set(15);
         RobotMap.MaximumArmAngle=80;
-       
-        
     }
 
     /**

@@ -85,7 +85,7 @@ public class OI {
     }
 
     
-    public static boolean stickEngaged=true;
+    public static boolean stickEngaged=false;
     public static boolean armed=true;
     public static boolean shootMotors;
     public static boolean punchActive=false;

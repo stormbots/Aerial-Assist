@@ -41,6 +41,7 @@ public class DriveTimer extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.chassis.manualControl(0, 0);
+        System.out.println("TIMER OVER");
     }
 
     // Called when another command which requires one or more of the same

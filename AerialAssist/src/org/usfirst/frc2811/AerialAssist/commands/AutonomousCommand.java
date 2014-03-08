@@ -25,7 +25,7 @@ public class AutonomousCommand extends CommandGroup {
     public AutonomousCommand(boolean b) {
         System.out.println("Simple auto command started");
         //this.addSequential(new JoystickDisable());
-        //this.addSequential(new tempForward(.25));
+        this.addSequential(new DriveTimer(2));
         //this.addSequential(new JoystickEnable());
         //this.addSequential(new DriveTimer(2.0));
         //this.addSequential (new SetToAngle (60));
