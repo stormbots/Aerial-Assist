@@ -41,6 +41,7 @@ public class Robot extends IterativeRobot {
     
         Command joystickthing;
     Command liftercontrol;
+    Command arming;
     public static OI oi;
     public static final boolean autonomousEnabled = false;
     public static boolean currentlyAutonomous = false;
@@ -75,6 +76,7 @@ public class Robot extends IterativeRobot {
         lcd = DriverStationLCD.getInstance();
         lifter2PID = lifter2.getPIDController();
         liftercontrol = new templifter();
+        arming = new UnsafeArming();
         Compress = new Compress();
         Compress.start();
         PIDs = Preferences.getInstance();
@@ -122,6 +124,10 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         updateLCD();
         Robot.angleManager.getRange();
+        if(RobotMap.inPosition.get()==false){
+           arming.start();
+        }
+        System.out.println("Pot Val:" + RobotMap.lifterPotentiometer.getAverageVoltage());
         //System.out.println(RobotMap.lifterSpeedController.get() + "?");
            //System.out.print("\t");
            //System.out.println(RobotMap.rangeFinder9.getAverageValue());

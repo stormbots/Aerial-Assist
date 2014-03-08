@@ -73,6 +73,7 @@ public class RobotMap {
     public static int rollerState;
     public static String shootPrint = "N/A";
     public static double MaximumArmAngle = 65.0;
+    public static boolean Armed;
     
     
 

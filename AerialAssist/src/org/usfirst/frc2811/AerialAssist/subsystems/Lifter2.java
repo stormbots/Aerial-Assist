@@ -43,11 +43,11 @@ public class Lifter2 extends PIDSubsystem {
         //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//great, +i
         //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//Perfect w/o ball
         //super("PIDSubsystem1", 0.025, 0.00008, 0.008);// overshoots 60
-        //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
+        //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//old good
+        //super("PIDSubsystem1", 0.025, 0.0001, 0.006);//current good
+        super("PIDSubsystem1", 0.025, 0.00025, 0.006);
         
-        
-        super("PIDSubsystem1", 0.025, 0.0001, 0.006);//current good
-        setAbsoluteTolerance(4);
+        setAbsoluteTolerance(1);
         getPIDController().setContinuous(true);
         getPIDController().enable();
         getPIDController().setSetpoint(returnPIDInput());
@@ -114,7 +114,7 @@ public class Lifter2 extends PIDSubsystem {
     protected double returnPIDInput() {
         //yay map value no complicated "magic number" crud
      //return mapvalue(pot.getAverageVoltage(),1.9160954140000004, 1.3966558480000002,30,0);
-     return mapvalue(pot.getAverageVoltage(),1.376083984, 0.69721472,28,-2);
+     return mapvalue(pot.getAverageVoltage(),2.19895, .74399166,85,5);
     
     }
     
