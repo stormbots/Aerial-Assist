@@ -46,8 +46,8 @@ public class Lifter2 extends PIDSubsystem {
         //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
         
         
-        super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
-        setAbsoluteTolerance(2);
+        super("PIDSubsystem1", 0.025, 0.0001, 0.006);//current good
+        setAbsoluteTolerance(4);
         getPIDController().setContinuous(true);
         getPIDController().enable();
         getPIDController().setSetpoint(returnPIDInput());
