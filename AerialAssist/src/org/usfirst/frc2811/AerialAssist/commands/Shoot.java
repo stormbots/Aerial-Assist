@@ -24,7 +24,7 @@ public class Shoot extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        this.setTimeout(2.0);
+        this.setTimeout(1.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +40,7 @@ public class Shoot extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (this.isTimedOut()==true );//|| RobotMap.inPosition.get()!=OI.shooterArmed);
+        return (this.isTimedOut()==true  || RobotMap.inPosition.get()!=OI.shooterArmed);
     }
 
     // Called once after isFinished returns true
