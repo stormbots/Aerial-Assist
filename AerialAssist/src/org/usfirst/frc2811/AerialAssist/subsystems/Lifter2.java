@@ -134,11 +134,16 @@ public class Lifter2 extends PIDSubsystem {
         DriveMotor1.pidWrite(-output2);
         //DriveMotor2.pidWrite(output > 0?output/3.9:output/3);
     }
+    
     public double mapvalue(double input, double maximum, double minimum, double outputMax, double outputMin){
         double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;
         
         
+    }
+    public boolean getOnTarget(double tolerance){
+        
+        return Math.abs(returnPIDInput()-super.getSetpoint())<tolerance;
     }
     public boolean getOnTarget(){
         return getPIDController().onTarget();

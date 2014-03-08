@@ -7,40 +7,31 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
-import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
- * @author 128925
+ * @author StormBot
  */
-public class SetToAngle extends Command {
-    double inputangle;
-    
-    public SetToAngle(double input) {
-        //requires(Robot.lifter2);        //TODO determine if not requiring shooter is breaking
-        inputangle=input;
-        //requires(Robot.lifter2);
-    }
-    public SetToAngle() {//Set a default way to call it without angles
-        inputangle=0;
-        //requires(Robot.lifter2); //FIXME Is lifter required breaking things?
+public class SetTolerance extends Command {
+    public static double input;
+    public SetTolerance(double tolerance) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        input = tolerance;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.lifter2.set(inputangle);
-        this.setTimeout(2.0);
-        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-               System.out.println("still waiting for lifter2 to make it on target");
+        Robot.lifter2.setAbsoluteTolerance(input);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.lifter2.getOnTarget() ;
+        return true;
     }
 
     // Called once after isFinished returns true

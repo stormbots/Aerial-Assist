@@ -91,5 +91,7 @@ public class OI {
     public static boolean punchActive=false;
     public static boolean autoAimEnable=true;
     public static boolean shooterArmed = false; //switch value for a loaded state
+    
+    
 }
 

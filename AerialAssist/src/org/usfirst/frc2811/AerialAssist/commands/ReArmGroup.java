@@ -15,11 +15,13 @@ public class ReArmGroup extends CommandGroup {
     
     public ReArmGroup() {
         System.out.println("Re arming group started");
+        this.addSequential(new SetTolerance(10));
         this.addSequential(new SetToAngle(15));
         System.out.println("set angle to fifteen");
         //this.addSequential(new Wait(2));
         this.addSequential(new Arming());
         System.out.println("armed setting to zero");
+        this.addSequential(new SetTolerance(4));
         //this.addSequential(new SetToZero());
     }
 }
