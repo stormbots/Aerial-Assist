@@ -37,8 +37,12 @@ public class Shooter extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-        
-        DriveMotor1.set(returnPIDInput()<0?-output:-output);
+        //negative is up, positive is out)
+        if (newrate < 4){//TODO only for without rachet
+            DriveMotor1.set(-output);
+        } else {
+        DriveMotor1.set(returnPIDInput()<0?-output*0.7:-output*1.2);
+        }
        // DriveMotor1.pidWrite(-output);
         getPIDController().setSetpoint(input.getRate());
         System.out.println("shooter motor speed: "+Math.floor(output*20)/20);
