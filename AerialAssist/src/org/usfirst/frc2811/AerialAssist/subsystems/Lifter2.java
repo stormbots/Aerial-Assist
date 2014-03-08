@@ -73,7 +73,7 @@ public class Lifter2 extends PIDSubsystem {
     */  }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new templifter());
+       // setDefaultCommand(new templifter());
     }
     
     public void setIncramental(double input){
@@ -90,6 +90,9 @@ public class Lifter2 extends PIDSubsystem {
         }
        // System.out.println(getPIDController().getSetpoint()+" "+returnPIDInput()+" "+DriveMotor1.get()+" "+pot.getAverageVoltage());
         //DriveMotor1.set(input);
+    }
+    public void clearError(){
+        super.setSetpoint(returnPIDInput());
     }
     public void set(double input){
         //System.out.println("set was called in Lifter2, value "+input);

@@ -40,7 +40,7 @@ public class Robot extends IterativeRobot {
     Command autonomousCommand;
     
         Command joystickthing;
-
+    Command liftercontrol;
     public static OI oi;
     public static final boolean autonomousEnabled = false;
     public static boolean currentlyAutonomous = false;
@@ -73,21 +73,26 @@ public class Robot extends IterativeRobot {
         oi = new OI();
        joystickthing = new DriveRobot();
         lcd = DriverStationLCD.getInstance();
+        lifter2PID = lifter2.getPIDController();
+        liftercontrol = new templifter();
         Compress = new Compress();
         Compress.start();
-        lifter2PID = lifter2.getPIDController();
         PIDs = Preferences.getInstance();
             SmartDashboard.putNumber("PVal", PIDs.getDouble("PVal", lifter2.getPIDController().getP()));
             SmartDashboard.putNumber("IVal", PIDs.getDouble("IVal", lifter2.getPIDController().getI()));
             SmartDashboard.putNumber("DVal", PIDs.getDouble("DVal", lifter2.getPIDController().getD()));
+            RobotMap.MaximumArmAngle=65;
     }
 
     public void autonomousInit() {
         OI.stickEngaged=false;
+        lifter2.clearError();
         System.out.println("autonomous init");
         autonomousCommand = new AutonomousCommand(true); 
         autonomousCommand.start();
         if (joystickthing != null) joystickthing.cancel();
+        if (liftercontrol != null) liftercontrol.cancel();
+        RobotMap.MaximumArmAngle=65;
     }
 
     /**
@@ -97,15 +102,17 @@ public class Robot extends IterativeRobot {
         updateLCD();
         Scheduler.getInstance().run();
         System.out.println("Autonomous scheduled to run");
+        RobotMap.MaximumArmAngle=65;
     }
 
     public void teleopInit() {
+        lifter2.clearError();
         OI.stickEngaged=true;
         if (autonomousCommand != null) autonomousCommand.cancel();
-        
+        liftercontrol.start();
         joystickthing.start();
         //Robot.lifter2.set(15);
-        RobotMap.MaximumArmAngle=80;
+        RobotMap.MaximumArmAngle=65;
     }
 
     /**

@@ -24,6 +24,7 @@ public class Shooter extends PIDSubsystem {
     public Shooter() {
         //super("shooter", 0.002, 0.000001, 0);
         super("shooter", 0.002, 0.0, 0);
+        //used to work 0.002,0.0,0
         super.enable();
         super.setAbsoluteTolerance(2);
     }
@@ -36,10 +37,11 @@ public class Shooter extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-        //DriveMotor1.set(returnPIDInput()<0?output:output);
-        DriveMotor1.pidWrite(-output);
+        
+        DriveMotor1.set(returnPIDInput()<0?-output:-output);
+       // DriveMotor1.pidWrite(-output);
         getPIDController().setSetpoint(input.getRate());
-        //System.out.println("shooter motor speed: "+Math.floor(output*20)/20);
+        System.out.println("shooter motor speed: "+Math.floor(output*20)/20);
         //System.out.println("input: "+input.getRate());
         //System.out.println("outputf: "+outputf.getRate());
         //System.out.println("returnPIDInput: "+returnPIDInput());
