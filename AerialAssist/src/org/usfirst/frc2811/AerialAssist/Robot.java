@@ -41,7 +41,8 @@ public class Robot extends IterativeRobot {
     
 
     public static OI oi;
-    
+    public static final boolean autonomousEnabled = false;
+    public static boolean currentlyAutonomous = false;
     public static Rollers rollers;
     public static Shooter shooter;
     public static Chassis chassis;
@@ -108,6 +109,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         updateLCD();
+        Robot.angleManager.getRange();
         //System.out.println(RobotMap.lifterSpeedController.get() + "?");
            //System.out.print("\t");
            //System.out.println(RobotMap.rangeFinder9.getAverageValue());
