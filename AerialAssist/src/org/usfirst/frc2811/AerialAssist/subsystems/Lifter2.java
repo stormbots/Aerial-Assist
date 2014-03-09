@@ -9,13 +9,9 @@
 // it from being updated in the future.
 package org.usfirst.frc2811.AerialAssist.subsystems;
 import edu.wpi.first.wpilibj.AnalogChannel;
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
-import org.usfirst.frc2811.AerialAssist.commands.templifter;
 /**
  *
  */

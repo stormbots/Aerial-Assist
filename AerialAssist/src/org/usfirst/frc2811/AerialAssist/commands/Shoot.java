@@ -41,7 +41,7 @@ public class Shoot extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (this.isTimedOut()==true  || RobotMap.inPosition.get()!=OI.shooterArmed);
+        return (this.isTimedOut()==true || RobotMap.inPosition.get()!=OI.shooterArmed);
     }
 
     // Called once after isFinished returns true
