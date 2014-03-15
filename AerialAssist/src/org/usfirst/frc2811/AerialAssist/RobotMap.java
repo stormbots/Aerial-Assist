@@ -72,7 +72,9 @@ public class RobotMap {
     public static double rangeLong=242;//8=219 //6=128
     public static int rollerState;
     public static String shootPrint = "N/A";
-    public static double MaximumArmAngle = 65.0;
+    public static double MaximumArmAngle=80;
+    public static boolean Armed;
+    public static boolean shootState;
     
     
 

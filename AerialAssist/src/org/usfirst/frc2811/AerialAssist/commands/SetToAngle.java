@@ -28,6 +28,7 @@ public class SetToAngle extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("            Setting to angle");
         Robot.lifter2.set(inputangle);
         this.setTimeout(2.0);
         

@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.Preferences;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -41,6 +40,7 @@ public class Robot extends IterativeRobot {
     
         Command joystickthing;
     Command liftercontrol;
+    Command arming;
     public static OI oi;
     public static final boolean autonomousEnabled = false;
     public static boolean currentlyAutonomous = false;
@@ -75,13 +75,14 @@ public class Robot extends IterativeRobot {
         lcd = DriverStationLCD.getInstance();
         lifter2PID = lifter2.getPIDController();
         liftercontrol = new templifter();
+        arming = new UnsafeArming();
         Compress = new Compress();
         Compress.start();
         PIDs = Preferences.getInstance();
             SmartDashboard.putNumber("PVal", PIDs.getDouble("PVal", lifter2.getPIDController().getP()));
             SmartDashboard.putNumber("IVal", PIDs.getDouble("IVal", lifter2.getPIDController().getI()));
             SmartDashboard.putNumber("DVal", PIDs.getDouble("DVal", lifter2.getPIDController().getD()));
-            RobotMap.MaximumArmAngle=65;
+            RobotMap.MaximumArmAngle=80;
     }
 
     public void autonomousInit() {
@@ -92,7 +93,7 @@ public class Robot extends IterativeRobot {
         autonomousCommand.start();
         if (joystickthing != null) joystickthing.cancel();
         if (liftercontrol != null) liftercontrol.cancel();
-        RobotMap.MaximumArmAngle=65;
+        RobotMap.MaximumArmAngle=80;
     }
 
     /**
@@ -101,8 +102,8 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         updateLCD();
         Scheduler.getInstance().run();
-       // System.out.println("Autonomous scheduled to run");
-        RobotMap.MaximumArmAngle=65;
+        //System.out.println("Autonomous scheduled to run");
+        RobotMap.MaximumArmAngle=80;
     }
 
     public void teleopInit() {
@@ -112,7 +113,7 @@ public class Robot extends IterativeRobot {
         liftercontrol.start();
         joystickthing.start();
         //Robot.lifter2.set(15);
-        RobotMap.MaximumArmAngle=65;
+        RobotMap.MaximumArmAngle=80;
     }
 
     /**
@@ -122,6 +123,10 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         updateLCD();
         Robot.angleManager.getRange();
+        if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
+           arming.start();
+        }
+        //System.out.println("Pot Val:" + RobotMap.lifterPotentiometer.getAverageVoltage());
         //System.out.println(RobotMap.lifterSpeedController.get() + "?");
            //System.out.print("\t");
            //System.out.println(RobotMap.rangeFinder9.getAverageValue());
