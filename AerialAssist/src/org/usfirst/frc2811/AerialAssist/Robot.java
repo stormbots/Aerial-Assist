@@ -124,7 +124,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         updateLCD();
         Robot.angleManager.getRange();
-        if(RobotMap.inPosition.get()==false){
+        if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
            arming.start();
         }
         //System.out.println("Pot Val:" + RobotMap.lifterPotentiometer.getAverageVoltage());

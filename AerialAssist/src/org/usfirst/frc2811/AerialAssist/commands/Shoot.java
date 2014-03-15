@@ -25,6 +25,7 @@ public class Shoot extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        RobotMap.shootState=true;
         this.setTimeout(1.0);
     }
 
@@ -48,6 +49,7 @@ public class Shoot extends Command {
     protected void end() {
         Robot.shooter.set(0);
         RobotMap.Armed=false;
+        RobotMap.shootState=false;
         System.out.println("done shooting");
         if (this.isTimedOut()==true) {
             System.out.println(

@@ -74,6 +74,7 @@ public class RobotMap {
     public static String shootPrint = "N/A";
     public static double MaximumArmAngle=80;
     public static boolean Armed;
+    public static boolean shootState;
     
     
 
