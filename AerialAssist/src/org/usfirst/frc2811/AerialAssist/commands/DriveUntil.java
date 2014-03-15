@@ -31,14 +31,17 @@ public class DriveUntil extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         Robot.chassis.manualControl(.75, 0);
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         if(Robot.angleManager.getRange()<=driveDistance){
+             System.out.println("distance"+RobotMap.distance);
         return true;    
         }
         else{
+            System.out.println("distance"+RobotMap.distance);
             return false;
         }
     }

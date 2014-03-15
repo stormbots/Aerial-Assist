@@ -101,7 +101,7 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         updateLCD();
         Scheduler.getInstance().run();
-        System.out.println("Autonomous scheduled to run");
+       // System.out.println("Autonomous scheduled to run");
         RobotMap.MaximumArmAngle=65;
     }
 
@@ -154,15 +154,17 @@ public class Robot extends IterativeRobot {
         PIDs.putDouble("PVal", P);
         PIDs.putDouble("IVal", I);
         PIDs.putDouble("DVal", D);
+        
             //System.out.println("From Controller P: " +  lifter2PID.getP());
         //updates dashboard
         //SmartDashboard.putNumber("PVal", lifter2PID.getP());
         //SmartDashboard.putNumber("IVal", lifter2PID.getI());
         //SmartDashboard.putNumber("DVal", lifter2PID.getD());
             //System.out.println("Writes to dash P: " + lifter2PID.getP());
-        
-        
-        
+        DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range: " + Robot.angleManager.getRange() + " "); 
+        DriverStationLCD.getInstance().println(Line.kUser4, 1, "left: " + RobotMap.rangeFinderLeft.getAverageVoltage() + " ");
+        DriverStationLCD.getInstance().println(Line.kUser5, 1, "right: " + RobotMap.rangeFinderRight.getAverageVoltage() + " ");
+         lcd.updateLCD();
         //Update the DriverStation window
         LiveWindow.run();
        // updateLCD();
