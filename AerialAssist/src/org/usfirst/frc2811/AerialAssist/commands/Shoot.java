@@ -5,6 +5,7 @@
  */
 package org.usfirst.frc2811.AerialAssist.commands;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Timer;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.OI;
@@ -45,7 +46,9 @@ public class Shoot extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        Timer.delay(0.25);
         Robot.shooter.set(0);
+        RobotMap.Armed=false;
         System.out.println("done shooting");
         if (this.isTimedOut()==true) {
             System.out.println(

@@ -45,7 +45,8 @@ public class Shooter extends PIDSubsystem {
         }
        // DriveMotor1.pidWrite(-output);
         getPIDController().setSetpoint(input.getRate());
-        System.out.println("shooter absolutely value "+DriveMotor1.get());
+//THIS  //System.out.println("shooter absolutely value "+DriveMotor1.get());
+
         //System.out.println("shooter motor speed: "+Math.floor(output*20)/20);
         //System.out.println("input: "+input.getRate());
         //System.out.println("outputf: "+outputf.getRate());
