@@ -18,31 +18,35 @@ import org.usfirst.frc2811.AerialAssist.Robot;
  */
 public class Shoot extends Command {
     
-        DigitalInput inPosition = RobotMap.inPosition;
+    public static double timeRunning;
+    public static double timeStarted;
+    DigitalInput inPosition = RobotMap.inPosition;
     public Shoot() {
         requires(Robot.shooter);  //FIXME Is shooter required breaking things?
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        timeStarted = timeSinceInitialized();
         RobotMap.shootState=true;
         this.setTimeout(1.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        timeRunning = timeSinceInitialized();
         if (!Robot.lifter2.getUnder30()) {
         Robot.shooter.set(190);
         System.out.println("In position: "+inPosition.get());
         } else {
         System.out.println("under angle don't shoot!");
-        }
+    }
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (this.isTimedOut()==true  && RobotMap.inPosition.get()!=OI.shooterArmed);
+        return (timeRunning>timeStarted+1  && RobotMap.inPosition.get()!=OI.shooterArmed);
     }
 
     // Called once after isFinished returns true
