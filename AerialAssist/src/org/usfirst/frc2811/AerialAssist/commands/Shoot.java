@@ -29,7 +29,7 @@ public class Shoot extends Command {
     protected void initialize() {
         timeStarted = timeSinceInitialized();
         RobotMap.shootState=true;
-        this.setTimeout(1.0);
+        this.setTimeout(2.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
