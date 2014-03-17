@@ -10,7 +10,7 @@ public class AutonomousCommand extends CommandGroup {
         
     public AutonomousCommand() {
         System.out.println("Auto command started");
-        //this.addSequential(new SetToZero());
+        this.addSequential(new SetToZero());
         
         this.addSequential(new DriveUntil(7.0));
         this.addSequential (new SetToAngle (70));
@@ -20,19 +20,5 @@ public class AutonomousCommand extends CommandGroup {
         this.addSequential(new Arming());
         this.addSequential(new SetToZero());
         
-    }
-
-    public AutonomousCommand(boolean b) {
-        System.out.println("Simple auto command started");
-        
-        this.addParallel(new DriveTimer(2.0));
-        this.addSequential (new SetToAngle (70));
-        this.addSequential(new Wait(2.0));
-        this.addSequential(new Shoot());
-        this.addSequential(new SetToAngle(15));
-        this.addSequential(new Wait(2.0));
-        this.addSequential(new Arming());
-        this.addSequential(new Wait(2.0));
-        this.addSequential(new SetToZero());
     }
 }

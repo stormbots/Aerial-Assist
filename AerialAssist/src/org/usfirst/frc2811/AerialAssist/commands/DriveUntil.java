@@ -25,12 +25,12 @@ public class DriveUntil extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("autonomous driving until");
+        Robot.chassis.manualControl(.75, .75);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.chassis.manualControl(.75, 0);
+        System.out.println("autonomous driving");
     }
 
     // Make this return true when this Command no longer needs to run execute()
