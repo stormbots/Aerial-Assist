@@ -46,7 +46,8 @@ public class AngleManager extends Subsystem {
             trueRange=rangeRight;
         }
         //Convert raw sensor reading into feet
-        distance = Robot.map.Map(trueRange,RobotMap.rangeShort,RobotMap.rangeLong,5,10);
+        //distance = Robot.map.Map(trueRange,RobotMap.rangeShort,RobotMap.rangeLong,5,10);
+        distance = Robot.map.Map(trueRange,.333,1.134,3,10);
         
 
         RobotMap.distance = distance;

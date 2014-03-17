@@ -16,7 +16,7 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class UnLoad extends Command {
     
     public UnLoad() {
-        requires(Robot.rollers);
+        //requires(Robot.rollers);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -27,8 +27,8 @@ public class UnLoad extends Command {
 
     protected void execute() {
         
-        if(RobotMap.rollerState==0){
-            RobotMap.rollerState=1;
+        if(RobotMap.rollerState!=-1){
+            RobotMap.rollerState=-1;
             Robot.rollers.Spit();
         }
         else{

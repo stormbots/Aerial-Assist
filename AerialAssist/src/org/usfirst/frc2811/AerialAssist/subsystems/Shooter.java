@@ -23,25 +23,35 @@ public class Shooter extends PIDSubsystem {
     // Initialize your subsystem here
     public Shooter() {
         //super("shooter", 0.002, 0.000001, 0);
-        super("shooter", 0.002, 0.0000000, 0);
+        super("shooter", 0.002, 0.0, 0);
+        //used to work 0.002,0.0,0
         super.enable();
-        super.setAbsoluteTolerance(1);
+        super.setAbsoluteTolerance(2);
     }
     
     public void initDefaultCommand() {
     }
     
     protected double returnPIDInput() {
-        return outputf.getRate()+newrate;
+        return -newrate;//-outputf.getRate()-newrate;
     }
     
     protected void usePIDOutput(double output) {
-        //DriveMotor1.set(returnPIDInput()<0?output:output);
-        DriveMotor1.pidWrite(output);
-        getPIDController().setSetpoint(input.getRate());
-        System.out.println("shooter motor speed: "+Math.floor(output*20)/20);
-        System.out.println("input: "+input.get());
-        System.out.println("outputf: "+outputf.get());
+
+        //negative is up, positive is out)
+        if (newrate < 4){//TODO only for without rachet
+            DriveMotor1.set(-output);
+        } else {
+        DriveMotor1.set(returnPIDInput()<0?-output*0.7:-output*1.2);
+        }
+
+       DriveMotor1.set(returnPIDInput()<0?-output:-output);
+       // DriveMotor1.pidWrite(-output);
+       getPIDController().setSetpoint(input.getRate());
+       //THIS     //   System.out.println("shooter absolutely value "+DriveMotor1.get());
+       //System.out.println("shooter motor speed: "+Math.floor(output*20)/20);
+        //System.out.println("input: "+input.getRate());
+        //System.out.println("outputf: "+outputf.getRate());
         //System.out.println("returnPIDInput: "+returnPIDInput());
         //System.out.println("setpoint: "+super.getSetpoint());
     }

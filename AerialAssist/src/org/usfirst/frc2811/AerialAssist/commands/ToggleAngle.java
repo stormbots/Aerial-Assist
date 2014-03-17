@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -31,11 +31,11 @@ public class ToggleAngle extends Command {
     protected void execute() {
         //System.out.println(curPos);
        System.out.println("WTF Toggle Angle " + curPos);
-        if(curPos>30){
+        if(curPos>22.5){
             Robot.lifter2.set(0);
         }
         else{
-            Robot.lifter2.set(60);
+            Robot.lifter2.set(55);
         }
     }
 

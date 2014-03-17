@@ -28,26 +28,31 @@ public class Arming extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-                       
+        if(Robot.lifter2.getPosition()>60||Robot.lifter2.getPosition()<15){
+            Robot.lifter2.set(0);    
+        }
+                     
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         
-        Robot.shooter.set(150);
-        System.out.println(inPosition.get());
+        Robot.shooter.set(190);
+        System.out.println("In position is "+inPosition.get());
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (inPosition.get()==OI.shooterArmed);
+        //return (inPosition.get()==OI.shooterArmed);
+        return(inPosition.get()==OI.shooterArmed);
     }
 
     // Called once after isFinished returns true
     protected void end() {
         Robot.shooter.set(0);
         
+        System.out.println("ARMING IS OVER");
     }
 
     // Called when another command which requires one or more of the same

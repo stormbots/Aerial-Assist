@@ -7,48 +7,35 @@ package org.usfirst.frc2811.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.Robot;
-import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 /**
  *
- * @author Laurel Bingham
+ * @author StormBot
  */
-public class DriveUntil extends Command {
-    public static double driveDistance;
-            
-    public DriveUntil(double distance) {
-        driveDistance = distance;
-        requires(Robot.chassis);
+public class SetTolerance extends Command {
+    public static double input;
+    public SetTolerance(double tolerance) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-           }
+        input = tolerance;
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("autonomous driving until");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.chassis.manualControl(.75, 0);
-        
+        Robot.lifter2.setAbsoluteTolerance(input);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(Robot.angleManager.getRange()<=driveDistance){
-             System.out.println("distance"+RobotMap.distance);
-        return true;    
-        }
-        else{
-            System.out.println("distance"+RobotMap.distance);
-            return false;
-        }
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.chassis.manualControl(0, 0);
     }
 
     // Called when another command which requires one or more of the same

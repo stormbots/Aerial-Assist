@@ -5,50 +5,44 @@
  */
 package org.usfirst.frc2811.AerialAssist.commands;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
 
+
 /**
  *
- * @author Laurel Bingham
+ * @author StormBot
  */
-public class DriveUntil extends Command {
-    public static double driveDistance;
-            
-    public DriveUntil(double distance) {
-        driveDistance = distance;
-        requires(Robot.chassis);
+public class UnsafeArming extends Command {
+    DigitalInput inPosition = RobotMap.inPosition;
+    public UnsafeArming() {
+    
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-           }
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("autonomous driving until");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.chassis.manualControl(.75, 0);
-        
+        Robot.shooter.set(190);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(Robot.angleManager.getRange()<=driveDistance){
-             System.out.println("distance"+RobotMap.distance);
-        return true;    
-        }
-        else{
-            System.out.println("distance"+RobotMap.distance);
-            return false;
-        }
+        return(inPosition.get()==OI.shooterArmed);
+        
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.chassis.manualControl(0, 0);
+        Robot.shooter.set(0);
+        System.out.println("ARMING IS OVER");
     }
 
     // Called when another command which requires one or more of the same

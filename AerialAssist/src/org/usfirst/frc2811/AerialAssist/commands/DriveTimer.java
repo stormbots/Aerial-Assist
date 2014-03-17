@@ -13,42 +13,35 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
  *
  * @author Laurel Bingham
  */
-public class DriveUntil extends Command {
+public class DriveTimer extends Command {
     public static double driveDistance;
             
-    public DriveUntil(double distance) {
-        driveDistance = distance;
+    public DriveTimer(double time) {
+        driveDistance = time;
         requires(Robot.chassis);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
            }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("autonomous driving until");
+        this.setTimeout(driveDistance);
+        System.out.println("autonomous driving timer");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.chassis.manualControl(.75, 0);
-        
+        Robot.chassis.manualControl(-.6, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(Robot.angleManager.getRange()<=driveDistance){
-             System.out.println("distance"+RobotMap.distance);
-        return true;    
-        }
-        else{
-            System.out.println("distance"+RobotMap.distance);
-            return false;
-        }
+        
+        return this.isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
         Robot.chassis.manualControl(0, 0);
+        System.out.println("TIMER OVER");
     }
 
     // Called when another command which requires one or more of the same

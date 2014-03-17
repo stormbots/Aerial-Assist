@@ -9,13 +9,9 @@
 // it from being updated in the future.
 package org.usfirst.frc2811.AerialAssist.subsystems;
 import edu.wpi.first.wpilibj.AnalogChannel;
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc2811.AerialAssist.RobotMap;
-import org.usfirst.frc2811.AerialAssist.commands.templifter;
 /**
  *
  */
@@ -43,11 +39,11 @@ public class Lifter2 extends PIDSubsystem {
         //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//great, +i
         //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//Perfect w/o ball
         //super("PIDSubsystem1", 0.025, 0.00008, 0.008);// overshoots 60
-        //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
+        //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//old good
+        //super("PIDSubsystem1", 0.025, 0.0001, 0.006);//current good
+        super("PIDSubsystem1", 0.025, 0.00025, 0.006);
         
-        
-        super("PIDSubsystem1", 0.025, 0.00008, 0.006);//current good
-        setAbsoluteTolerance(2);
+        setAbsoluteTolerance(1);
         getPIDController().setContinuous(true);
         getPIDController().enable();
         getPIDController().setSetpoint(returnPIDInput());
@@ -73,7 +69,7 @@ public class Lifter2 extends PIDSubsystem {
     */  }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new templifter());
+       // setDefaultCommand(new templifter());
     }
     
     public void setIncramental(double input){
@@ -91,6 +87,9 @@ public class Lifter2 extends PIDSubsystem {
        // System.out.println(getPIDController().getSetpoint()+" "+returnPIDInput()+" "+DriveMotor1.get()+" "+pot.getAverageVoltage());
         //DriveMotor1.set(input);
     }
+    public void clearError(){
+        super.setSetpoint(returnPIDInput());
+    }
     public void set(double input){
         //System.out.println("set was called in Lifter2, value "+input);
        // getPIDController().setSetpoint((Robot.oi.joystick1.getRawAxis(3)*-1+1)*40);
@@ -104,11 +103,14 @@ public class Lifter2 extends PIDSubsystem {
         getPIDController().setSetpoint(input);
         }
     }
+    public boolean getUnder30(){
+        return returnPIDInput()< 15; //iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    }
     
     protected double returnPIDInput() {
         //yay map value no complicated "magic number" crud
-     //return mapvalue(pot.getAverageVoltage(),1.9160954140000004, 1.3966558480000002,30,0); YES YES YES
-     return mapvalue(pot.getAverageVoltage(),2.7286840420000003, 1.4686573720000002,72,0);
+     //return mapvalue(pot.getAverageVoltage(),1.9160954140000004, 1.3966558480000002,30,0);
+     return mapvalue(pot.getAverageVoltage(),2.19895, .74399166,85,5);
     
     }
     
@@ -131,11 +133,16 @@ public class Lifter2 extends PIDSubsystem {
         DriveMotor1.pidWrite(-output2);
         //DriveMotor2.pidWrite(output > 0?output/3.9:output/3);
     }
+    
     public double mapvalue(double input, double maximum, double minimum, double outputMax, double outputMin){
         double output = (input/(maximum-minimum)-minimum/(maximum-minimum))*(outputMax-outputMin)+outputMin;
         return output;
         
         
+    }
+    public boolean getOnTarget(double tolerance){
+        
+        return Math.abs(returnPIDInput()-super.getSetpoint())<tolerance;
     }
     public boolean getOnTarget(){
         return getPIDController().onTarget();

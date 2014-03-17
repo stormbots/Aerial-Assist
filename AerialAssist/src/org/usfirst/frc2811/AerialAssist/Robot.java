@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.Preferences;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -39,9 +38,12 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     
-
+        Command joystickthing;
+    Command liftercontrol;
+    Command arming;
     public static OI oi;
-    
+    public static final boolean autonomousEnabled = false;
+    public static boolean currentlyAutonomous = false;
     public static Rollers rollers;
     public static Shooter shooter;
     public static Chassis chassis;
@@ -62,28 +64,36 @@ public class Robot extends IterativeRobot {
 	RobotMap.init();
         rollers = new Rollers();
         chassis = new Chassis();
+        chassis.manualControl(0.0, 0.0);
         lifter2 = new Lifter2();
         angleManager = new AngleManager();
         map = new Map();
         joystickcontrol = new JoystickControl();
         shooter = new Shooter();
         oi = new OI();
-       
+       joystickthing = new DriveRobot();
         lcd = DriverStationLCD.getInstance();
+        lifter2PID = lifter2.getPIDController();
+        liftercontrol = new templifter();
+        arming = new UnsafeArming();
         Compress = new Compress();
         Compress.start();
-        lifter2PID = lifter2.getPIDController();
         PIDs = Preferences.getInstance();
             SmartDashboard.putNumber("PVal", PIDs.getDouble("PVal", lifter2.getPIDController().getP()));
             SmartDashboard.putNumber("IVal", PIDs.getDouble("IVal", lifter2.getPIDController().getI()));
             SmartDashboard.putNumber("DVal", PIDs.getDouble("DVal", lifter2.getPIDController().getD()));
+            RobotMap.MaximumArmAngle=80;
     }
 
     public void autonomousInit() {
+        OI.stickEngaged=false;
+        lifter2.clearError();
         System.out.println("autonomous init");
-        autonomousCommand = new AutonomousCommand(); 
-        
-       System.out.println("autonomous exit");
+        autonomousCommand = new AutonomousCommand(true); 
+        autonomousCommand.start();
+        if (joystickthing != null) joystickthing.cancel();
+        if (liftercontrol != null) liftercontrol.cancel();
+        RobotMap.MaximumArmAngle=80;
     }
 
     /**
@@ -92,14 +102,18 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         updateLCD();
         Scheduler.getInstance().run();
+        //System.out.println("Autonomous scheduled to run");
+        RobotMap.MaximumArmAngle=80;
     }
 
     public void teleopInit() {
+        lifter2.clearError();
+        OI.stickEngaged=true;
         if (autonomousCommand != null) autonomousCommand.cancel();
-        Robot.lifter2.set(15);
+        liftercontrol.start();
+        joystickthing.start();
+        //Robot.lifter2.set(15);
         RobotMap.MaximumArmAngle=80;
-       
-        
     }
 
     /**
@@ -108,6 +122,11 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         updateLCD();
+        Robot.angleManager.getRange();
+        if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
+           arming.start();
+        }
+        //System.out.println("Pot Val:" + RobotMap.lifterPotentiometer.getAverageVoltage());
         //System.out.println(RobotMap.lifterSpeedController.get() + "?");
            //System.out.print("\t");
            //System.out.println(RobotMap.rangeFinder9.getAverageValue());
@@ -126,6 +145,7 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         
         //Set up PID tuning 
+        Robot.lifter2.setIncramental(OI.joystick1.getRawAxis(6)*-1);
         
         //Read values from dash
         double P = SmartDashboard.getNumber("PVal",  lifter2PID.getP());
@@ -139,15 +159,17 @@ public class Robot extends IterativeRobot {
         PIDs.putDouble("PVal", P);
         PIDs.putDouble("IVal", I);
         PIDs.putDouble("DVal", D);
+        
             //System.out.println("From Controller P: " +  lifter2PID.getP());
         //updates dashboard
         //SmartDashboard.putNumber("PVal", lifter2PID.getP());
         //SmartDashboard.putNumber("IVal", lifter2PID.getI());
         //SmartDashboard.putNumber("DVal", lifter2PID.getD());
             //System.out.println("Writes to dash P: " + lifter2PID.getP());
-        
-        
-        
+        DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range: " + Robot.angleManager.getRange() + " "); 
+        DriverStationLCD.getInstance().println(Line.kUser4, 1, "left: " + RobotMap.rangeFinderLeft.getAverageVoltage() + " ");
+        DriverStationLCD.getInstance().println(Line.kUser5, 1, "right: " + RobotMap.rangeFinderRight.getAverageVoltage() + " ");
+         lcd.updateLCD();
         //Update the DriverStation window
         LiveWindow.run();
        // updateLCD();
@@ -158,7 +180,7 @@ public class Robot extends IterativeRobot {
             DriverStationLCD.getInstance().println(Line.kUser1, 1, "Target Angle: " + Robot.lifter2.getSetpoint());
             DriverStationLCD.getInstance().println(Line.kUser2, 1, "Actual Angle" + Robot.lifter2.getPosition());
             DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range: " + RobotMap.distance + " ");
-            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Armed State: " + !RobotMap.inPosition.get() + " ");
+            DriverStationLCD.getInstance().println(Line.kUser4, 1, "Armed State: " + (OI.shooterArmed==RobotMap.inPosition.get()) + " ");
             DriverStationLCD.getInstance().println(Line.kUser5, 1, "Auto Aim: " + OI.autoAimEnable + " ");
             DriverStationLCD.getInstance().println(Line.kUser6, 1, "Shooting State: " + RobotMap.shootPrint);
             

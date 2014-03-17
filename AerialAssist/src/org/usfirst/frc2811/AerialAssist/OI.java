@@ -6,8 +6,7 @@ import edu.wpi.first.wpilibj.buttons.*;
 
 import org.usfirst.frc2811.AerialAssist.commands.AimToggle;
 import org.usfirst.frc2811.AerialAssist.commands.ClawToggle;
-import org.usfirst.frc2811.AerialAssist.commands.ReLoadA;
-import org.usfirst.frc2811.AerialAssist.commands.ReLoadB;
+import org.usfirst.frc2811.AerialAssist.commands.ReLoad;
 import org.usfirst.frc2811.AerialAssist.commands.ShiftGear;
 import org.usfirst.frc2811.AerialAssist.commands.ShootingSequence;
 import org.usfirst.frc2811.AerialAssist.commands.ToggleAngle;
@@ -73,8 +72,9 @@ public class OI {
         shoot.whenPressed(new ShootingSequence());
         //autoAim.whileHeld(new AutoAim());
         spitBall.whenPressed(new UnLoad());
-        suckBall.whenPressed(new ReLoadA());
-        suckBall.whenReleased(new ReLoadB());
+        suckBall.whenPressed(new ReLoad());
+        //suckBall.whenPressed(new ReLoadA());
+        //suckBall.whenReleased(new ReLoadB());
         //b9.whenReleased(null);
         manual.whenReleased(new AimToggle());
         angleSet.whenPressed(new ToggleAngle());
@@ -85,11 +85,13 @@ public class OI {
     }
 
     
-    public static boolean stickEngaged=true;
+    public static boolean stickEngaged=false;
     public static boolean armed=true;
     public static boolean shootMotors;
     public static boolean punchActive=false;
     public static boolean autoAimEnable=true;
     public static boolean shooterArmed = false; //switch value for a loaded state
+    
+    
 }
 
