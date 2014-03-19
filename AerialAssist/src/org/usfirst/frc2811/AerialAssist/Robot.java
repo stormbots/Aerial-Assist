@@ -87,6 +87,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         OI.stickEngaged=false;
+        lifter2.enable();
         lifter2.clearError();
         System.out.println("autonomous init");
         autonomousCommand = new AutonomousCommand(true); 
@@ -107,6 +108,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
+        lifter2.enable();
         lifter2.clearError();
         OI.stickEngaged=true;
         if (autonomousCommand != null) autonomousCommand.cancel();
@@ -174,6 +176,13 @@ public class Robot extends IterativeRobot {
         LiveWindow.run();
        // updateLCD();
        }
+    
+    public void disabledInit(){
+        System.out.println("DISABLED!");
+        lifter2.clearError();
+        lifter2.disable();
+    }
+    
     private void updateLCD(){
             //TODO Make this do proper things and give drive team instant data
             
