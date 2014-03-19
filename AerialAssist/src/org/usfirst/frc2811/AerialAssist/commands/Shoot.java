@@ -22,7 +22,7 @@ public class Shoot extends Command {
     public static double timeStarted;
     DigitalInput inPosition = RobotMap.inPosition;
     public Shoot() {
-        requires(Robot.shooter);  //FIXME Is shooter required breaking things?
+        //requires(Robot.shooter);  //FIXME Is shooter required breaking things?
     }
 
     // Called just before this Command runs the first time

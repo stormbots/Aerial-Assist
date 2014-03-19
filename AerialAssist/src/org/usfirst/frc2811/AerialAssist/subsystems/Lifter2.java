@@ -42,7 +42,9 @@ public class Lifter2 extends PIDSubsystem {
         //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//old good
         //super("PIDSubsystem1", 0.025, 0.0001, 0.006);//good
         //super("PIDSubsystem1", 0.025, 0.00025, 0.006);//competition
-        super("PIDSubsystem1", 0.025, 0.0003, 0.006);
+        super("PIDSubsystem1", 0.025, 0.0003, 0.006); //start of tuning 9:52
+        //super("PIDSubsystem1", 0.029, 0.0005, 0.006); //way overshoots
+        //super("PIDSubsystem1", 0.025, 0.0005, 0.006); //way overshoots
         
         setAbsoluteTolerance(1);
         getPIDController().setContinuous(true);

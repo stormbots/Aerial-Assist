@@ -35,7 +35,7 @@ public class ToggleAngle extends Command {
             Robot.lifter2.set(0);
         }
         else{
-            Robot.lifter2.set(55);
+            Robot.lifter2.set(65);
         }
     }
 

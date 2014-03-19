@@ -25,10 +25,11 @@ public class ShootingSequence extends CommandGroup {
         this.addSequential(new RollOff());
         this.addSequential(new Shoot());
         //this.addSequential(new JoystickEnable());
-        this.addSequential(new SetToAngle(15));
+        //this.addSequential(new SetToAngle(15));
         //this.addSequential(new Wait(2));
         this.addSequential(new SetTolerance(15));
-        this.addSequential(new Arming());
+        //this.addSequential(new Arming());
+        this.addSequential(new UnsafeArming());
         this.addSequential(new SetTolerance(1));
         //this.addSequential(new SetToZero());
         
