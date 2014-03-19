@@ -36,7 +36,7 @@ public class AngleManager extends Subsystem {
     public double getRange(){
         //Read the two rangefinder sensors
         rangeLeft = rangeFinderLeft.getAverageVoltage();
-        rangeRight = rangeFinderRight.getAverageVoltage();
+        rangeRight = 0;//rangeFinderRight.getAverageVoltage();
 
         //finds larger value, sets trueRange to it.    
         if(rangeLeft>rangeRight){
