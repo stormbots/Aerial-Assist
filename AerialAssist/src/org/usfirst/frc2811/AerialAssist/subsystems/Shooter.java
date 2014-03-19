@@ -42,7 +42,7 @@ public class Shooter extends PIDSubsystem {
         if (newrate < 4){//TODO only for without rachet
             DriveMotor1.set(-output);
         } else {
-        DriveMotor1.set(output<0?-output*0.7:-output*0.1);
+        DriveMotor1.set(returnPIDInput()<0?-output*0.7:-output*1.2);
         }
 
        DriveMotor1.set(returnPIDInput()<0?-output:-output);

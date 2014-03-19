@@ -19,6 +19,8 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class Arming extends Command {
     
     DigitalInput inPosition = RobotMap.inPosition;
+    public static double timeStarted;
+    
     
     public Arming() {
         // Use requires() here to declare subsystem dependencies
@@ -31,7 +33,7 @@ public class Arming extends Command {
         if(Robot.lifter2.getPosition()>60||Robot.lifter2.getPosition()<15){
             Robot.lifter2.set(0);    
         }
-                     
+        timeStarted = timeSinceInitialized();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -45,7 +47,7 @@ public class Arming extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         //return (inPosition.get()==OI.shooterArmed);
-        return(inPosition.get()==OI.shooterArmed);
+        return(inPosition.get()==OI.shooterArmed || timeSinceInitialized()>timeStarted+5);
     }
 
     // Called once after isFinished returns true
