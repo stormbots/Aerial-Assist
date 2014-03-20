@@ -35,7 +35,7 @@ public class Shoot extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         timeRunning = timeSinceInitialized();
-        if (!Robot.lifter2.getUnder30()) {
+        if (!Robot.lifter2.getunder15()) {
         Robot.shooter.set(190);
         System.out.println("In position: "+inPosition.get());
         } else {

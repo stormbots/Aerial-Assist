@@ -106,8 +106,8 @@ public class Lifter2 extends PIDSubsystem {
         getPIDController().setSetpoint(input);
         }
     }
-    public boolean getUnder30(){
-        return returnPIDInput()< 15; //iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    public boolean getunder15(){
+        return returnPIDInput()< 15;
     }
     
     protected double returnPIDInput() {
@@ -123,14 +123,18 @@ public class Lifter2 extends PIDSubsystem {
         //simple and inneficient below
         double output2 = 0.0;
         if (returnPIDInput() >= MaximumValue) {
-            output2 = output>0?0:output;
+            //output2 = output>0?0:output;
+            clearError();
+            set(MaximumValue);
         } else if (returnPIDInput() < MinimumValue) {
-            output2 = output<0?0:output;
+            //output2 = output<0?0:output;
+            clearError();
+            set(MinimumValue);
         } else {
             output2 = output;
         }
         output2 = Math.abs(output2)>0.5?output2/Math.abs(output2)*0.5:output;
-        if(output2<0){ //reduce motor power when going down
+        if(output2<0 && getPosition()>55){ //reduce motor power when going down
             output2 = output2/2;
         }
         DriveMotor1.pidWrite(-output2);

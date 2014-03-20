@@ -128,6 +128,9 @@ public class Robot extends IterativeRobot {
         if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
            arming.start();
         }
+        if(lifter2.getPosition()>RobotMap.MaximumArmAngle){
+            lifter2.set(RobotMap.MaximumArmAngle);
+        }
         //System.out.println("Pot Val:" + RobotMap.lifterPotentiometer.getAverageVoltage());
         //System.out.println(RobotMap.lifterSpeedController.get() + "?");
            //System.out.print("\t");

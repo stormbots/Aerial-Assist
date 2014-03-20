@@ -25,7 +25,7 @@ public class Arming extends Command {
     public Arming() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-//        requires(Robot.shooter);  //TODO confirm shooter not required breaking things?
+        requires(Robot.shooter);  //TODO confirm shooter not required breaking things?
     }
 
     // Called just before this Command runs the first time
