@@ -25,7 +25,7 @@ public class ReLoadB extends Command {
       System.out.println("Suck Ball Start");
 
         if (OI.stickEngaged) {
-        Robot.lifter2.set(15);
+        Robot.lifter2.set(15,this.getClass());
         }
         
     }

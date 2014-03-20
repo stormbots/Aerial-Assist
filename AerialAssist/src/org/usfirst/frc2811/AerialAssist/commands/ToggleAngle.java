@@ -33,10 +33,10 @@ public class ToggleAngle extends Command {
         //System.out.println(curPos);
        System.out.println("WTF Toggle Angle " + curPos);
         if(curPos>angle/2){
-            Robot.lifter2.set(0);
+            Robot.lifter2.set(0,this.getClass());
         }
         else{
-            Robot.lifter2.set(angle);
+            Robot.lifter2.set(angle,this.getClass());
         }
     }
 

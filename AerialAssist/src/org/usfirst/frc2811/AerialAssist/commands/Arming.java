@@ -31,7 +31,7 @@ public class Arming extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         if(Robot.lifter2.getPosition()>60||Robot.lifter2.getPosition()<15){
-            Robot.lifter2.set(0);    
+            Robot.lifter2.set(0,this.getClass());    
         }
         timeStarted = timeSinceInitialized();
     }

@@ -93,10 +93,11 @@ public class Lifter2 extends PIDSubsystem {
     public void clearError(){
         super.setSetpoint(returnPIDInput());
     }
-    public void set(double input){
+    public void set(double input, Class calledby){
         //System.out.println("set was called in Lifter2, value "+input);
        // getPIDController().setSetpoint((Robot.oi.joystick1.getRawAxis(3)*-1+1)*40);
         //getPIDController().setSetpoint(getPIDController()+input);
+        System.out.println("set to "+ input+ "by "+calledby.getName());
 	if (getPIDController().getSetpoint()+input>MaximumValue) {
             getPIDController().setSetpoint(MaximumValue);
         }else 
@@ -134,10 +135,10 @@ public class Lifter2 extends PIDSubsystem {
         }
         
         if(getSetpoint()>RobotMap.MaximumArmAngle /*&& getPosition()>RobotMap.MaximumArmAngle*/){
-            set(RobotMap.MaximumArmAngle);
+            set(RobotMap.MaximumArmAngle,super.getClass());
         }
         if(getSetpoint()<RobotMap.MinimumArmAngle /*&& getPosition()<RobotMap.MinimumArmAngle*/){
-            set(RobotMap.MinimumArmAngle);
+            set(RobotMap.MinimumArmAngle,super.getClass());
         }
         output2 = output;
         //*/
