@@ -19,7 +19,7 @@ public class Lifter2 extends PIDSubsystem {
     SpeedController DriveMotor1 = RobotMap.lifterSpeedController;
     AnalogChannel pot = RobotMap.lifterPotentiometer;
         double MaximumValue = RobotMap.MaximumArmAngle;
-        private static final double MinimumValue = 0;
+        double MinimumValue = RobotMap.MinimumArmAngle;
         
         
     public Lifter2() {
@@ -83,7 +83,7 @@ public class Lifter2 extends PIDSubsystem {
             getPIDController().setSetpoint(MaximumValue);
         }else 
 	if (getPIDController().getSetpoint()+input<MinimumValue) {
-            getPIDController().setSetpoint(MinimumValue);
+            getPIDController().setSetpoint(0);
         } else {
         getPIDController().setSetpoint(getPIDController().getSetpoint()+input);
         }
@@ -120,19 +120,27 @@ public class Lifter2 extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         //fancy sinusoidal monstrosity below
         //DriveMotor1.pidWrite(output > 0 ? -output*cosmap(returnPIDInput()>45?(returnPIDInput()-45)/45:0,0.2,0.4):-output*sinmap(returnPIDInput()/90,0.25,0.1));
-        //simple and inneficient below
-        double output2 = 0.0;
-        if (returnPIDInput() >= MaximumValue) {
-            //output2 = output>0?0:output;
-            clearError();
-            set(MaximumValue);
-        } else if (returnPIDInput() < MinimumValue) {
-            //output2 = output<0?0:output;
-            clearError();
-            set(MinimumValue);
+        //simple and inefficient below
+        double output2 = output;
+        
+        if (returnPIDInput() >= MaximumValue && output>0) {
+            output2 = 0;
+            //clearError();
+        } else if (returnPIDInput() < MinimumValue && output<0) {
+            output2 = 0;
+            //clearError();
         } else {
             output2 = output;
         }
+        
+        if(getSetpoint()>RobotMap.MaximumArmAngle /*&& getPosition()>RobotMap.MaximumArmAngle*/){
+            set(RobotMap.MaximumArmAngle);
+        }
+        if(getSetpoint()<RobotMap.MinimumArmAngle /*&& getPosition()<RobotMap.MinimumArmAngle*/){
+            set(RobotMap.MinimumArmAngle);
+        }
+        output2 = output;
+        //*/
         output2 = Math.abs(output2)>0.5?output2/Math.abs(output2)*0.5:output;
         if(output2<0 && getPosition()>55){ //reduce motor power when going down
             output2 = output2/2;
