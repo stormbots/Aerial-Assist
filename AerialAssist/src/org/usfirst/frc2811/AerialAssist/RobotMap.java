@@ -128,7 +128,6 @@ public class RobotMap {
         somesuchi5 = new Encoder(1, 1, 1, 2, false);//, EncodingType.k4X);
         somesuchi5.start();
         somesuchi6 = new Encoder(1, 9, 1, 8, false);//, EncodingType.k4X);
-        //TODO remember the good way is (8,9)
         somesuchi6.start();
         inPosition = new DigitalInput(1,10);
         compin = new DigitalInput(1,14);
