@@ -143,7 +143,7 @@ public class Lifter2 extends PIDSubsystem {
         output2 = output;
         //*/
         output2 = Math.abs(output2)>0.5?output2/Math.abs(output2)*0.5:output;
-        if(output2<0 && getPosition()>55){ //reduce motor power when going down
+        if(output2<0 && getPosition()<65){ //reduce motor power when going down
             output2 = output2/2;
         }
         DriveMotor1.pidWrite(-output2);
