@@ -83,7 +83,7 @@ public class Lifter2 extends PIDSubsystem {
             getPIDController().setSetpoint(MaximumValue);
         }else 
 	if (getPIDController().getSetpoint()+input<MinimumValue) {
-            getPIDController().setSetpoint(0);
+            getPIDController().setSetpoint(MinimumValue);
         } else {
         getPIDController().setSetpoint(getPIDController().getSetpoint()+input);
         }

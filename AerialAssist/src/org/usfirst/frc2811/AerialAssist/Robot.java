@@ -82,7 +82,7 @@ public class Robot extends IterativeRobot {
             SmartDashboard.putNumber("PVal", PIDs.getDouble("PVal", lifter2.getPIDController().getP()));
             SmartDashboard.putNumber("IVal", PIDs.getDouble("IVal", lifter2.getPIDController().getI()));
             SmartDashboard.putNumber("DVal", PIDs.getDouble("DVal", lifter2.getPIDController().getD()));
-            RobotMap.MaximumArmAngle=80;
+            //RobotMap.MaximumArmAngle;
     }
 
     public void autonomousInit() {
@@ -94,7 +94,7 @@ public class Robot extends IterativeRobot {
         autonomousCommand.start();
         if (joystickthing != null) joystickthing.cancel();
         if (liftercontrol != null) liftercontrol.cancel();
-        RobotMap.MaximumArmAngle=80;
+        //RobotMap.MaximumArmAngle=80;
     }
 
     /**
@@ -104,7 +104,7 @@ public class Robot extends IterativeRobot {
         updateLCD();
         Scheduler.getInstance().run();
         //System.out.println("Autonomous scheduled to run");
-        RobotMap.MaximumArmAngle=80;
+        //RobotMap.MaximumArmAngle=80;
     }
 
     public void teleopInit() {
@@ -115,7 +115,7 @@ public class Robot extends IterativeRobot {
         liftercontrol.start();
         joystickthing.start();
         //Robot.lifter2.set(15);
-        RobotMap.MaximumArmAngle=80;
+        //RobotMap.MaximumArmAngle=80;
     }
 
     /**
