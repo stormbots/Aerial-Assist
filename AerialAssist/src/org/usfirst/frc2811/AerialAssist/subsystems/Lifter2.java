@@ -98,10 +98,10 @@ public class Lifter2 extends PIDSubsystem {
        // getPIDController().setSetpoint((Robot.oi.joystick1.getRawAxis(3)*-1+1)*40);
         //getPIDController().setSetpoint(getPIDController()+input);
         System.out.println("set to "+ input+ "by "+calledby.getName());
-	if (getPIDController().getSetpoint()+input>MaximumValue) {
+	if (input>MaximumValue) {
             getPIDController().setSetpoint(MaximumValue);
         }else 
-	if (getPIDController().getSetpoint()+input<MinimumValue) {
+	if (input<MinimumValue) {
             getPIDController().setSetpoint(MinimumValue);
         } else {
         getPIDController().setSetpoint(input);
