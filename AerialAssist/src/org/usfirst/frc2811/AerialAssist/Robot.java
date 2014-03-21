@@ -95,7 +95,7 @@ public class Robot extends IterativeRobot {
         autonomousCommand.start();
         if (joystickthing != null) joystickthing.cancel();
         if (liftercontrol != null) liftercontrol.cancel();
-        RobotMap.MaximumArmAngle=80;
+        //RobotMap.MaximumArmAngle=80;
     }
 
     /**
