@@ -75,7 +75,7 @@ public class RobotMap {
     public static double MaximumArmAngle=85;
     public static double MinimumArmAngle=0;
     public static boolean Armed;
-    public static boolean shootState;
+    public static boolean shootState=false;
     
     
 
