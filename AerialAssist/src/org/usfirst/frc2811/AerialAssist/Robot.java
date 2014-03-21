@@ -104,6 +104,9 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         updateLCD();
         Scheduler.getInstance().run();
+        /*if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
+           arming.start();
+        }*/
         //System.out.println("Autonomous scheduled to run");
         //RobotMap.MaximumArmAngle=80;
     }
