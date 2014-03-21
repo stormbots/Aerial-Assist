@@ -86,7 +86,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-        RobotMap.MaximumArmAngle=90;
+        RobotMap.MaximumArmAngle=95;
         OI.stickEngaged=false;
         lifter2.enable();
         lifter2.clearError();
@@ -95,7 +95,7 @@ public class Robot extends IterativeRobot {
         autonomousCommand.start();
         if (joystickthing != null) joystickthing.cancel();
         if (liftercontrol != null) liftercontrol.cancel();
-        //RobotMap.MaximumArmAngle=80;
+        RobotMap.MaximumArmAngle=85;
     }
 
     /**
