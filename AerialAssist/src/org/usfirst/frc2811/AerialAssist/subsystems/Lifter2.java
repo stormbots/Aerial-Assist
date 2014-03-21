@@ -135,9 +135,12 @@ public class Lifter2 extends PIDSubsystem {
         }
         
         if(getSetpoint()>RobotMap.MaximumArmAngle /*&& getPosition()>RobotMap.MaximumArmAngle*/){
-            set(RobotMap.MaximumArmAngle,super.getClass());
+            System.out.println("Lifter2: Angle high, setting to "+ RobotMap.MaximumArmAngle);
+            //set(RobotMap.MaximumArmAngle,super.getClass());
         }
         if(getSetpoint()<RobotMap.MinimumArmAngle /*&& getPosition()<RobotMap.MinimumArmAngle*/){
+            
+            System.out.println("Toggle: Angle Low, setting to "+RobotMap.MinimumArmAngle);
             set(RobotMap.MinimumArmAngle,super.getClass());
         }
         output2 = output;

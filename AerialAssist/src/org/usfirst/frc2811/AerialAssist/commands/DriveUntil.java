@@ -30,7 +30,7 @@ public class DriveUntil extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.chassis.manualControl(.75, 0);
+        Robot.chassis.manualControl(-.6, 0);
         
     }
 
