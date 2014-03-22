@@ -8,50 +8,41 @@ package org.usfirst.frc2811.AerialAssist.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2811.AerialAssist.OI;
 import org.usfirst.frc2811.AerialAssist.Robot;
-import org.usfirst.frc2811.AerialAssist.RobotMap;
 
 
 /**
- * Responsible for picking balls up from the field 
- * @author 2811
+ *
+ * @author StormBot
  */
-public class ReLoadA extends Command {
+public class DriveStop extends Command {
     
-    public ReLoadA() {
+    public DriveStop() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-//        requires(Robot.shooter);
+        requires(Robot.chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        System.out.println("suck started");
-        
-      }  
-        
+            
+    }
+
+    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (OI.stickEngaged) {
-        RobotMap.rollerState=-1;//State value, not motor
-        Robot.rollers.Suck();
-        }
-        System.out.println("execute suck");
+        Robot.chassis.manualControl(0, 0);
     }
 
+    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        
-         System.out.println("isFinished suck");
-        return true;
-       
+        return OI.stickEngaged;
     }
 
+    // Called once after isFinished returns true
     protected void end() {
-        System.out.println("end of suck");
-        
     }
 
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
     protected void interrupted() {
     }
-        
-    }
-
-  
+}

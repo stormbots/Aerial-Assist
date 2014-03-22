@@ -72,9 +72,10 @@ public class RobotMap {
     public static double rangeLong=242;//8=219 //6=128
     public static int rollerState;
     public static String shootPrint = "N/A";
-    public static double MaximumArmAngle=80;
+    public static double MaximumArmAngle=85;
+    public static double MinimumArmAngle=0;
     public static boolean Armed;
-    public static boolean shootState;
+    public static boolean shootState=false;
     
     
 
@@ -128,7 +129,6 @@ public class RobotMap {
         somesuchi5 = new Encoder(1, 1, 1, 2, false);//, EncodingType.k4X);
         somesuchi5.start();
         somesuchi6 = new Encoder(1, 9, 1, 8, false);//, EncodingType.k4X);
-        //TODO remember the good way is (8,9)
         somesuchi6.start();
         inPosition = new DigitalInput(1,10);
         compin = new DigitalInput(1,14);

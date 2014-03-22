@@ -26,7 +26,7 @@ public class SetToZero extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.lifter2.set(0);
+        Robot.lifter2.set(0,this.getClass());
     }
 
     // Make this return true when this Command no longer needs to run execute()

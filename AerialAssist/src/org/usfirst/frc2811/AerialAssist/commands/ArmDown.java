@@ -15,7 +15,7 @@ import org.usfirst.frc2811.AerialAssist.Robot;
 public class ArmDown extends Command {
     
     public ArmDown() {
-        requires(Robot.lifter2); //FIXME Is lifter required breaking things?
+        requires(Robot.lifter2);
     }
 
     // Called just before this Command runs the first time
