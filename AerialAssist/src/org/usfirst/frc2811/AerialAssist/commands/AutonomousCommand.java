@@ -11,21 +11,24 @@ import org.usfirst.frc2811.AerialAssist.RobotMap;
 public class AutonomousCommand extends CommandGroup {
         
     public AutonomousCommand() {
+        
+        //Fancy autonomous with rangefinding
         System.out.println("Auto command started");
         System.out.println("distance "+RobotMap.distance);
-        //this.addSequential(new SetToZero());
-        
-//        this.addSequential(new DriveUntil(7.0));
-//        this.addSequential (new SetToAngle (70));
-//        this.addSequential(new Shoot());
-//        this.addSequential(new SetToAngle(15));
-//        
-//        this.addSequential(new Arming());
-//        this.addSequential(new SetToZero());
-        
+        this.addSequential(new ReLoad());
+        this.addSequential(new Wait(.25),.25);
+        this.addSequential(new SetToAngle(62.5));
+        this.addSequential(new DriveTimer(3.2));
+        this.addSequential(new DriveUntil(9),2);
+        this.addParallel(new DriveStop());
+        this.addSequential(new Wait(.5),.5);
+        this.addSequential(new ShootingSequence());
+        this.addSequential(new SetToZero());
+        this.addSequential(new UnsafeArming());
     }
 
     public AutonomousCommand(boolean b) {
+        //Autonomous without a rangefinder.
         //System.out.println("Simple auto command started");
         //this.addSequential(new JoystickDisable());
         this.addSequential(new ReLoad());
