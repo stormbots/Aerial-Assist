@@ -34,8 +34,8 @@ public class AutonomousCommand extends CommandGroup {
         this.addSequential(new RollOff());
         this.addSequential(new ReLoad());
         this.addSequential(new Wait(.25),.25);
-        this.addSequential(new SetToAngle(62.5));
-        this.addSequential(new DriveTimer(3.8));
+        this.addSequential(new SetToAngle(65));
+        this.addSequential(new DriveTimer(3.5));
         //this.addSequential(new DriveTimer(3));
         ///* Uncomment this comment to disable additional autonomous
         //this.addSequential(new SetToAngle(RobotMap.MaximumArmAngle));
