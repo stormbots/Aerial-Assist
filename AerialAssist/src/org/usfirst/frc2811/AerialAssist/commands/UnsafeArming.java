@@ -42,7 +42,7 @@ public class UnsafeArming extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.shooter.set(0);
-        System.out.println("ARMING IS OVER");
+        //System.out.println("ARMING IS OVER");
     }
 
     // Called when another command which requires one or more of the same
