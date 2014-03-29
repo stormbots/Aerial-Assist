@@ -36,7 +36,7 @@ public class AngleManager extends Subsystem {
     public double getRange(){
         //Read the two rangefinder sensors
         rangeLeft = rangeFinderLeft.getAverageVoltage();
-        rangeRight = rangeFinderRight.getAverageVoltage();
+        rangeRight = 0;//rangeFinderRight.getAverageVoltage();
 
         //finds larger value, sets trueRange to it.    
         if(rangeLeft>rangeRight){
@@ -49,7 +49,7 @@ public class AngleManager extends Subsystem {
         //distance = Robot.map.Map(trueRange,RobotMap.rangeShort,RobotMap.rangeLong,5,10);
         distance = Robot.map.Map(trueRange,.333,1.134,3,10);
         
-
+        distance = (distance*.7)+(trueRange*.3);
         RobotMap.distance = distance;
         return distance;
     }

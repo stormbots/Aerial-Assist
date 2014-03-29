@@ -82,18 +82,20 @@ public class Robot extends IterativeRobot {
             SmartDashboard.putNumber("PVal", PIDs.getDouble("PVal", lifter2.getPIDController().getP()));
             SmartDashboard.putNumber("IVal", PIDs.getDouble("IVal", lifter2.getPIDController().getI()));
             SmartDashboard.putNumber("DVal", PIDs.getDouble("DVal", lifter2.getPIDController().getD()));
-            RobotMap.MaximumArmAngle=80;
+            //RobotMap.MaximumArmAngle;
     }
 
     public void autonomousInit() {
+        RobotMap.MaximumArmAngle=95;
         OI.stickEngaged=false;
+        lifter2.enable();
         lifter2.clearError();
         System.out.println("autonomous init");
         autonomousCommand = new AutonomousCommand(true); 
         autonomousCommand.start();
         if (joystickthing != null) joystickthing.cancel();
         if (liftercontrol != null) liftercontrol.cancel();
-        RobotMap.MaximumArmAngle=80;
+        RobotMap.MaximumArmAngle=85;
     }
 
     /**
@@ -102,18 +104,22 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         updateLCD();
         Scheduler.getInstance().run();
+        /*if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
+           arming.start();
+        }*/
         //System.out.println("Autonomous scheduled to run");
-        RobotMap.MaximumArmAngle=80;
+        //RobotMap.MaximumArmAngle=80;
     }
 
     public void teleopInit() {
+        lifter2.enable();
         lifter2.clearError();
         OI.stickEngaged=true;
         if (autonomousCommand != null) autonomousCommand.cancel();
         liftercontrol.start();
         joystickthing.start();
         //Robot.lifter2.set(15);
-        RobotMap.MaximumArmAngle=80;
+        //RobotMap.MaximumArmAngle=80;
     }
 
     /**
@@ -126,6 +132,7 @@ public class Robot extends IterativeRobot {
         if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
            arming.start();
         }
+        
         //System.out.println("Pot Val:" + RobotMap.lifterPotentiometer.getAverageVoltage());
         //System.out.println(RobotMap.lifterSpeedController.get() + "?");
            //System.out.print("\t");
@@ -174,6 +181,13 @@ public class Robot extends IterativeRobot {
         LiveWindow.run();
        // updateLCD();
        }
+    
+    public void disabledInit(){
+        System.out.println("DISABLED!");
+        lifter2.clearError();
+        lifter2.disable();
+    }
+    
     private void updateLCD(){
             //TODO Make this do proper things and give drive team instant data
             

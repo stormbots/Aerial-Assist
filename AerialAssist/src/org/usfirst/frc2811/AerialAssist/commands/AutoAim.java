@@ -38,7 +38,7 @@ public class AutoAim extends Command {
         if(OI.autoAimEnable==true){         
         //RobotMap.aimedState=true;
         angle = Robot.angleManager.calculate();
-        Robot.lifter2.set(angle);
+        Robot.lifter2.set(angle,this.getClass());
         }
     }    
     // Make this return true when this Command no longer needs to run execute()

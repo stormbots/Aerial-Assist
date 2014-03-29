@@ -19,7 +19,7 @@ public class Lifter2 extends PIDSubsystem {
     SpeedController DriveMotor1 = RobotMap.lifterSpeedController;
     AnalogChannel pot = RobotMap.lifterPotentiometer;
         double MaximumValue = RobotMap.MaximumArmAngle;
-        private static final double MinimumValue = 0;
+        double MinimumValue = RobotMap.MinimumArmAngle;
         
         
     public Lifter2() {
@@ -40,8 +40,11 @@ public class Lifter2 extends PIDSubsystem {
         //super("PIDSubsystem1", 0.025, 0.000075, 0.008);//Perfect w/o ball
         //super("PIDSubsystem1", 0.025, 0.00008, 0.008);// overshoots 60
         //super("PIDSubsystem1", 0.025, 0.00008, 0.006);//old good
-        //super("PIDSubsystem1", 0.025, 0.0001, 0.006);//current good
-        super("PIDSubsystem1", 0.025, 0.00025, 0.006);
+        //super("PIDSubsystem1", 0.025, 0.0001, 0.006);//good
+        //super("PIDSubsystem1", 0.025, 0.00025, 0.006);//competition
+        super("PIDSubsystem1", 0.025, 0.0003, 0.006); //start of tuning 9:52
+        //super("PIDSubsystem1", 0.029, 0.0005, 0.006); //way overshoots
+        //super("PIDSubsystem1", 0.025, 0.0005, 0.006); //way overshoots
         
         setAbsoluteTolerance(1);
         getPIDController().setContinuous(true);
@@ -90,21 +93,22 @@ public class Lifter2 extends PIDSubsystem {
     public void clearError(){
         super.setSetpoint(returnPIDInput());
     }
-    public void set(double input){
+    public void set(double input, Class calledby){
         //System.out.println("set was called in Lifter2, value "+input);
        // getPIDController().setSetpoint((Robot.oi.joystick1.getRawAxis(3)*-1+1)*40);
         //getPIDController().setSetpoint(getPIDController()+input);
-	if (getPIDController().getSetpoint()+input>MaximumValue) {
+        System.out.println("set to "+ input+ "by "+calledby.getName());
+	if (input>MaximumValue) {
             getPIDController().setSetpoint(MaximumValue);
         }else 
-	if (getPIDController().getSetpoint()+input<MinimumValue) {
+	if (input<MinimumValue) {
             getPIDController().setSetpoint(MinimumValue);
         } else {
         getPIDController().setSetpoint(input);
         }
     }
-    public boolean getUnder30(){
-        return returnPIDInput()< 15; //iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    public boolean getunder15(){
+        return returnPIDInput()< 15;
     }
     
     protected double returnPIDInput() {
@@ -117,17 +121,32 @@ public class Lifter2 extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         //fancy sinusoidal monstrosity below
         //DriveMotor1.pidWrite(output > 0 ? -output*cosmap(returnPIDInput()>45?(returnPIDInput()-45)/45:0,0.2,0.4):-output*sinmap(returnPIDInput()/90,0.25,0.1));
-        //simple and inneficient below
-        double output2 = 0.0;
-        if (returnPIDInput() >= MaximumValue) {
-            output2 = output>0?0:output;
-        } else if (returnPIDInput() < MinimumValue) {
-            output2 = output<0?0:output;
+        //simple and inefficient below
+        double output2 = output;
+        
+        if (returnPIDInput() >= MaximumValue && output>0) {
+            output2 = 0;
+            //clearError();
+        } else if (returnPIDInput() < MinimumValue && output<0) {
+            output2 = 0;
+            //clearError();
         } else {
             output2 = output;
         }
+        
+        if(getSetpoint()>RobotMap.MaximumArmAngle /*&& getPosition()>RobotMap.MaximumArmAngle*/){
+            System.out.println("Lifter2: Angle high, setting to "+ RobotMap.MaximumArmAngle);
+            //set(RobotMap.MaximumArmAngle,super.getClass());
+        }
+        if(getSetpoint()<RobotMap.MinimumArmAngle /*&& getPosition()<RobotMap.MinimumArmAngle*/){
+            
+            System.out.println("Toggle: Angle Low, setting to "+RobotMap.MinimumArmAngle);
+            set(RobotMap.MinimumArmAngle,super.getClass());
+        }
+        output2 = output;
+        //*/
         output2 = Math.abs(output2)>0.5?output2/Math.abs(output2)*0.5:output;
-        if(output2<0){ //reduce motor power when going down
+        if(output2<0 && getPosition()<65){ //reduce motor power when going down
             output2 = output2/2;
         }
         DriveMotor1.pidWrite(-output2);

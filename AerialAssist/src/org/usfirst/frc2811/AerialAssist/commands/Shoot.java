@@ -22,7 +22,7 @@ public class Shoot extends Command {
     public static double timeStarted;
     DigitalInput inPosition = RobotMap.inPosition;
     public Shoot() {
-        requires(Robot.shooter);  //FIXME Is shooter required breaking things?
+        //requires(Robot.shooter);  //FIXME Is shooter required breaking things?
     }
 
     // Called just before this Command runs the first time
@@ -35,7 +35,7 @@ public class Shoot extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         timeRunning = timeSinceInitialized();
-        if (!Robot.lifter2.getUnder30()) {
+        if (!Robot.lifter2.getunder15()) {
         Robot.shooter.set(190);
         System.out.println("In position: "+inPosition.get());
         } else {
@@ -46,7 +46,7 @@ public class Shoot extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (timeRunning>timeStarted+1  && RobotMap.inPosition.get()!=OI.shooterArmed);
+        return (timeRunning>timeStarted+5  || RobotMap.inPosition.get()!=OI.shooterArmed);
     }
 
     // Called once after isFinished returns true
