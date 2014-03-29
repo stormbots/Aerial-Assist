@@ -47,14 +47,15 @@ public class Chassis extends Subsystem {
             b = b*(OI.FORE_BACK_DIRECTION? -1 : 1);
             
             //Bias the motors in case of bad gearboxes
-            double bias = OI.motorBiasValue;
-            a=a+a*bias;
-            b=b+b*bias;
-            if(a>1){
-                b=b+(a-1);
-            }else if(b > 1){
-                a=a+(b-1);
+            double bias = OI.motorBiasValue;            
+            if(bias>0){ //slow left motor
+            a=a-(a*bias);
             }
+            else if (bias <0){//slow right motor
+            b=b-(Math.abs(bias)*b);
+            }
+        
+        
             //end bias
             
             
