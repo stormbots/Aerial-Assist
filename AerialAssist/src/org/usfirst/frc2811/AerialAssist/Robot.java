@@ -91,7 +91,7 @@ public class Robot extends IterativeRobot {
         lifter2.enable();
         lifter2.clearError();
         System.out.println("autonomous init");
-        autonomousCommand = new AutonomousCommand(0); 
+        autonomousCommand = new AutonomousCommand(1); 
         autonomousCommand.start();
         if (joystickthing != null) joystickthing.cancel();
         if (liftercontrol != null) liftercontrol.cancel();
@@ -195,7 +195,7 @@ public class Robot extends IterativeRobot {
             DriverStationLCD.getInstance().println(Line.kUser2, 1, "Actual Angle" + Robot.lifter2.getPosition());
             DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range: " + RobotMap.distance + " ");
             DriverStationLCD.getInstance().println(Line.kUser4, 1, "Armed State: " + (OI.shooterArmed==RobotMap.inPosition.get()) + " ");
-            DriverStationLCD.getInstance().println(Line.kUser5, 1, "Auto Aim: " + OI.autoAimEnable + " ");
+            DriverStationLCD.getInstance().println(Line.kUser5, 1, "Roller State: " + RobotMap.rollerState + " ");
             DriverStationLCD.getInstance().println(Line.kUser6, 1, "Shooting State: " + RobotMap.shootPrint);
             
            
