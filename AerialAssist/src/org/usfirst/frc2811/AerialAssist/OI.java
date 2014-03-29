@@ -92,6 +92,7 @@ public class OI {
     public static boolean autoAimEnable=true;
     public static boolean shooterArmed = false; //switch value for a loaded state
     
-    
+    //Increase this value to make motor veer left
+    public static double motorBiasValue=0.0;  
 }
 

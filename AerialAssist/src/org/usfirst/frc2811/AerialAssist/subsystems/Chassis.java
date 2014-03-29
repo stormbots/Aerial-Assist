@@ -45,6 +45,19 @@ public class Chassis extends Subsystem {
             a = a*(OI.LEFT_RIGHT_DIRECTION? -1 : 1);
             double b = stick.getRawAxis(OI.FORE_BACK_STICK);
             b = b*(OI.FORE_BACK_DIRECTION? -1 : 1);
+            
+            //Bias the motors in case of bad gearboxes
+            double bias = OI.motorBiasValue;
+            a=a+a*bias;
+            b=b+b*bias;
+            if(a>1){
+                b=b+(a-1);
+            }else if(b > 1){
+                a=a+(b-1);
+            }
+            //end bias
+            
+            
             manualControl(deadZone(a),deadZone(b));
       //  } else {
       //      manualControl(0.0,0.0);
