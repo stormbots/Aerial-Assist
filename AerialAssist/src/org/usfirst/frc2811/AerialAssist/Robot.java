@@ -91,7 +91,7 @@ public class Robot extends IterativeRobot {
         lifter2.enable();
         lifter2.clearError();
         System.out.println("autonomous init");
-        autonomousCommand = new AutonomousCommand(true); 
+        autonomousCommand = new AutonomousCommand(0); 
         autonomousCommand.start();
         if (joystickthing != null) joystickthing.cancel();
         if (liftercontrol != null) liftercontrol.cancel();
@@ -104,9 +104,9 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         updateLCD();
         Scheduler.getInstance().run();
-        /*if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
+        if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
            arming.start();
-        }*/
+        }
         //System.out.println("Autonomous scheduled to run");
         //RobotMap.MaximumArmAngle=80;
     }
