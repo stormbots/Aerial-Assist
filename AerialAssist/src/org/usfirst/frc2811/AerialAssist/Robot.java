@@ -87,6 +87,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         RobotMap.MaximumArmAngle=95;
+        RobotMap.rollerState=0;
         OI.stickEngaged=false;
         lifter2.enable();
         lifter2.clearError();

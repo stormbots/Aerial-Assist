@@ -39,15 +39,18 @@ public class AutonomousCommand extends CommandGroup {
             //Single ball with range finder
             System.out.println("Auto command started");
             System.out.println("distance "+RobotMap.distance);
+           
+            this.addSequential(new SetTolerance(5));
             this.addSequential(new ReLoad());
             this.addSequential(new Wait(.25),.25);
             this.addSequential(new SetToAngle(45));
-            this.addSequential(new DriveTimer(2));
-            this.addSequential(new DriveUntil(6.5),.4);
+            this.addSequential(new DriveTimer(2.5));
+            this.addSequential(new DriveUntil(6.5),.7);
             this.addParallel(new DriveStop());
-            this.addSequential(new Wait(.5),.5);
+            this.addSequential(new Wait(.25),.25);
             this.addSequential(new SetTolerance(5));
             this.addSequential(new SetToAngle(60));
+            this.addSequential(new Wait(.25),.25);
             this.addSequential(new ShootingSequence());
             this.addSequential(new SetTolerance(2));
             this.addSequential(new SetToZero());
