@@ -20,7 +20,7 @@ public class Lifter2 extends PIDSubsystem {
     AnalogChannel pot = RobotMap.lifterPotentiometer;
         double MaximumValue = RobotMap.MaximumArmAngle;
         double MinimumValue = RobotMap.MinimumArmAngle;
-        
+        double inTolerance = 0.0;
         
     public Lifter2() {
         //super("PIDSubsystem1", 0.004, 0.0, 0.0); a little slow
@@ -114,8 +114,15 @@ public class Lifter2 extends PIDSubsystem {
     protected double returnPIDInput() {
         //yay map value no complicated "magic number" crud
      //return mapvalue(pot.getAverageVoltage(),1.9160954140000004, 1.3966558480000002,30,0);
-     return mapvalue(pot.getAverageVoltage(),2.19895, .74399166,85,5);
+     return mapvalue(pot.getAverageVoltage(),2.13209998, 3.62356,80,1);
     
+    }
+    public void setTolerance(double input){
+        this.setAbsoluteTolerance(input);
+        inTolerance = input;
+    }
+    public double getTolerance(){
+        return this.inTolerance;
     }
     
     protected void usePIDOutput(double output) {

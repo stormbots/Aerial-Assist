@@ -26,7 +26,8 @@ public class SetTolerance extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.lifter2.setAbsoluteTolerance(input);
+        Robot.lifter2.setTolerance(input);
+        System.out.println("Set tolerance to "+input);
     }
 
     // Make this return true when this Command no longer needs to run execute()

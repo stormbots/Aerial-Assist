@@ -127,9 +127,11 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+        getWatchdog().setEnabled(false);
         Scheduler.getInstance().run();
         updateLCD();
         Robot.angleManager.getRange();
+        //System.out.println(RobotMap.lifterPotentiometer.getAverageVoltage());
         if(RobotMap.inPosition.get()==false && RobotMap.shootState==false){
            arming.start();
         }
@@ -197,7 +199,7 @@ public class Robot extends IterativeRobot {
             DriverStationLCD.getInstance().println(Line.kUser3, 1, "Range: " + RobotMap.distance + " ");
             DriverStationLCD.getInstance().println(Line.kUser4, 1, "Armed State: " + (OI.shooterArmed==RobotMap.inPosition.get()) + " ");
             DriverStationLCD.getInstance().println(Line.kUser5, 1, "Roller State: " + RobotMap.rollerState + " ");
-            DriverStationLCD.getInstance().println(Line.kUser6, 1, "Shooting State: " + RobotMap.shootPrint);
+            DriverStationLCD.getInstance().println(Line.kUser6, 1, "Pot Value: " + RobotMap.lifterPotentiometer.getAverageVoltage());
             
            
            

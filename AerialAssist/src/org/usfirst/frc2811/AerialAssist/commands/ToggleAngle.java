@@ -29,7 +29,7 @@ public class ToggleAngle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       double angle = 65;
+       double angle = 58;//this is the angle
        double tolerance = 5;
        //System.out.println(curPos);
        System.out.println("WTF Toggle Angle " + curPos);
